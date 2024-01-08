@@ -1,9 +1,9 @@
 <template>
-    <nav class="bg-[#0096D1] px-6">
+    <nav class="bg-[#0096D1] px-6 shadow">
         <div class="flex justify-between">
             <ul class="flex items-center justify-end gap-5 font-sans">
                 <li class="mr-auto">
-                    <router-link :to="{ name: 'home' }" class="pb-5">
+                    <router-link :to="{ name: 'dashboard' }" class="pb-5">
                         <div class="bg-[url(../assets/img/logo_kulakoding.png)] w-16 h-16 bg-center bg-contain bg-no-repeat">
                         </div>
                     </router-link>

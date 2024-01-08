@@ -1,12 +1,11 @@
 <template>
   <div class="h-screen">
-    <Navbar></Navbar>
-    <div class=" bg-red-300">
-      <p class="text-center">bang bang tut...</p>
-    </div>
+    <Navbar />
+    <Hero />
   </div>
 </template>
 
 <script setup>
   import Navbar from "../components/Navbar.vue"
+  import Hero from "../components/Hero.vue"
 </script>
