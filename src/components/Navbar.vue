@@ -1,54 +1,53 @@
 <template>
-    <nav class="bg-[#0096D1] px-6 shadow" :class="{ 'dark-mode': darkMode }">
+    <nav class="bg-[#0096D1] px-6 shadow" :class="{ 'dark-navbar': darkMode }">
         <div class="flex items-center justify-between">
-            <div class="flex items-center gap-5 font-sans">
-                <router-link :to="{ name: 'dashboard' }" class="pb-5">
+            <div class="flex items-center font-sans">
+                <router-link :to="{ name: 'dashboard' }" class="p-2">
                     <div
                         class="bg-[url(../assets/img/logo_kulakoding.png)] w-14 h-14 bg-center bg-contain bg-no-repeat">
                     </div>
                 </router-link>
-                <ul class="flex items-center mb-4 font-sans lg:ml-auto">
+                <ul class="flex items-center font-sans lg:ml-auto">
                     <li>
-                        <router-link :to="{ name: 'about' }" class="text-xl ml-2 font-semibold hover:underline">About
+                        <router-link :to="{ name: 'index' }" class="text-xl ml-2 font-bold hover:underline">About
                             us</router-link>
                     </li>
                 </ul>
             </div>
-            <ul class="flex items-center gap-5 font-sans mt-4 lg:mt-0">
+            <ul class="flex items-center gap-5 font-sans lg:mt-0">
                 <li>
-                    <router-link :to="{ name: 'about' }">
-                        <div class="bg-white p-3 hover:bg-slate-100 mb-3 rounded-full shadow">
-                            <logoProfil />
+                    <router-link :to="{ name: 'index' }">
+                        <div class="bg-white p-0.5 hover:bg-slate-100 rounded-full shadow">
+                            <img src="../assets/img/Profile.png" alt="profile" class="rounded-full w-10 items-center justify-center">
                         </div>
                     </router-link>
                 </li>
-                <!-- <li>
-                    <div class="bg-white p-3 hover:bg-slate-100 rounded-full shadow" @click="toggleDarkMode">
-                        {{ darkMode ? 'Light Mode' : 'Dark Mode' }}
-                    </div>
-                </li> -->
+                <li>
+                    <!-- Toggle untuk dark mode -->
+                    <button @click="toggleDarkMode" class="text-white">
+                        <i v-if="darkMode" class="bi bi-moon"></i>
+                        <i v-else class="bi bi-sun"></i>
+                    </button>
+                </li>
             </ul>
         </div>
     </nav>
 </template>
 
 <style scoped>
-    .dark-mode {
-        background-color: #333;
-        /* warna latar belakang mode gelap */
-        color: #fff;
-        /* warna teks mode gelap */
+    .dark-navbar {
+        background-color: #C1C1C1;
+        color: white;
     }
 </style>
 
 <script setup>
-    import { ref } from "vue";
+    import { ref, computed } from "vue";
     import logoProfil from "../components/icons/Profil.vue";
+    import { useAppStore } from '../services/store.js';
 
-    const darkMode = ref(false);
+const appStore = useAppStore();
 
-    const toggleDarkMode = () => {
-        darkMode.value = !darkMode.value;
-        // Add logic to toggle dark mode styles or classes
-    };
+const darkMode = computed(() => appStore.darkMode);
+const toggleDarkMode = () => appStore.toggleDarkMode();
 </script>
