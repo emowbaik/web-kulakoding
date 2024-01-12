@@ -9,8 +9,7 @@
                 </router-link>
                 <ul class="flex items-center font-sans lg:ml-auto">
                     <li>
-                        <!-- <router-link :to="{ name: 'index' }" class="text-xl ml-2 font-bold hover:underline">About
-                            us</router-link> -->
+                        <router-link :to="{ name: 'dashboard' }" class="text-xl ml-2 font-bold hover:underline">Kula Koding</router-link>
                     </li>
                 </ul>
             </div>

@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
-const Login = () => import('');
-const Register = () => import('');
-const ResetPassword = () => import('');
+// const Login = () => import('');
+// const Register = () => import('');
+// const ResetPassword = () => import('');
 const Dashboard = () => import('@/views/Dashboard/Dashboard.vue');
 const Profile = () => import('@/views/Dashboard/Profile.vue');
 // const Detail = () => import('@/views/Dashboard/Detail.vue');

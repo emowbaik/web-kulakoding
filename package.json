@@ -10,8 +10,10 @@
     "test:unit": "vitest"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.1.1",
     "@vue/server-renderer": "^3.4.7",
     "@vueuse/core": "^10.7.1",
+    "flowbite": "^2.2.1",
     "vue": "^3.4.7",
     "vue-router": "^4.2.5"
   },
