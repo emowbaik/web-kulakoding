@@ -18,7 +18,7 @@
                     <li aria-current="page">
                         <div class="flex items-center">
                             <ChevronRightIcon class="text-gray-700 dark:text-gray-400 w-[18px]"/>
-                            <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">Profile</span>
+                            <span class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">user</span>
                         </div>
                     </li>
                 </ol>
@@ -40,7 +40,7 @@
                         </div>
                         <input type="text" id="input-group-1"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="reset email">
+                            placeholder="Reset email">
                     </span>
                     <div class="border border-gray-300 dark:border-gray-600 rounded-md p-2">
                         <PencilSquareIcon class="w-5" />
@@ -53,7 +53,7 @@
                         </div>
                         <input type="password" id="input-group-1"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="reset password">
+                            placeholder="Reset password">
                     </span>
                     <div class="border border-gray-300 dark:border-gray-600 rounded-md p-2">
                         <PencilSquareIcon class="w-5" />

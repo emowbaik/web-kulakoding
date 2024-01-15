@@ -3,7 +3,9 @@ import { createRouter, createWebHistory } from "vue-router";
 // const Register = () => import('');
 // const ResetPassword = () => import('');
 const Dashboard = () => import('@/views/Dashboard/Dashboard.vue');
-const Profile = () => import('@/views/Dashboard/Profile.vue');
+const Detail = () => import('@/views/Dashboard/Detail.vue');
+const Profile = () => import('@/views/Akun/Profile.vue');
+const Upload = () => import('@/views/Akun/Upload.vue');
 // const Detail = () => import('@/views/Dashboard/Detail.vue');
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -75,6 +77,11 @@ const router = createRouter({
       path: "/user",
       name: "user",
       component: Profile,
+    },
+    {
+      path: "/detail",
+      name: "detail",
+      component: Detail,
     },
   ],
 });
