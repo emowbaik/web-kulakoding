@@ -83,6 +83,11 @@ const router = createRouter({
       name: "detail",
       component: Detail,
     },
+    {
+      path: "/upload",
+      name: "upload",
+      component: Upload,
+    },
   ],
 });
 

@@ -59,21 +59,22 @@
                         <PencilSquareIcon class="w-5" />
                     </div>
                 </div>
-                <div class="flex justify-between gap-2 my-3">
-                    <button
-                        class="flex p-2 items-center font-semibold rounded-md border border-gray-300 bg-transparent dark:border-gray-600 hover:bg-slate-200 shadow">
+                <div class="flex gap-2">
+                    <router-link
+                        :to="{ name:'upload' }"
+                        class="flex items-center font-semibold rounded-md border border-gray-300 bg-transparent dark:border-gray-600 hover:bg-slate-200 shadow p-2">
                         <DocumentPlusIcon class="w-5" />
                         Upload Project
-                    </button>
+                    </router-link>
                     <button
-                        class="flex p-2 items-center font-semibold rounded-md border border-gray-300 bg-transparent dark:border-gray-600 hover:bg-slate-200 shadow">
+                        class="flex items-center font-semibold rounded-md border border-gray-300 bg-transparent dark:border-gray-600 hover:bg-slate-200 shadow p-2">
                         <ArrowLeftStartOnRectangleIcon class="w-5" />
                         Log Out
                     </button>
                 </div>
             </div>
         </div>
-        <img src="@/assets/img/wave-profile.png" alt="Penyekat" class="w-full relative -mt-40 z-20" />
+        <img src="@/assets/img/wave-profile.png" alt="Penyekat" class="w-full relative -mt-40 -z-10" />
     </div>
 </template>
 

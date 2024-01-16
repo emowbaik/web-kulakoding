@@ -1,5 +1,5 @@
 <template>
-    <div class="h-full overflow-hidden">
+    <div class="w-full h-full overflow-hidden">
         <Navbar />
         <div class="flex justify-between p-2">
             <router-link :to="{ name:'dashboard' }" class="flex items-center gap-1 font-semibold">
@@ -19,7 +19,7 @@
                         <div class="flex items-center">
                             <ChevronRightIcon class="text-gray-700 dark:text-gray-400 w-[18px]" />
                             <span
-                                class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">detail-project</span>
+                                class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400">detail</span>
                         </div>
                     </li>
                 </ol>
@@ -62,7 +62,7 @@
     </div>
 </template>
 <script setup>
-    import { ref } from 'vue'
+    import { ref, onMounted } from 'vue'
     import {
         EnvelopeIcon,
         LockClosedIcon,
@@ -75,10 +75,10 @@
     } from '@heroicons/vue/24/solid'
     import Navbar from '@/components/Navbar.vue'
     import Footer from '@/components/Footer.vue'
-
+    
     const showAbout = ref(true);
     const showTools = ref(false);
-
+    
     const toggleContent = (content) => {
         if (content === 'about') {
             showAbout.value = true;
@@ -88,10 +88,19 @@
             showTools.value = true;
         }
     };
-
+    
     const Tools = [
         { id: 1, name: 'VS CODE', image: '../../../src/assets/img/vscode.png' },
         { id: 2, name: 'FIGMA', image: '../../../src/assets/img/figma.png' },
         { id: 3, name: 'LAPTOP', image: '../../../src/assets/img/laptop.jpg' },
-    ]
-</script>
+    ];
+    
+    onMounted(() => {
+        scrollToTop();
+    });
+    
+    function scrollToTop() {
+        window.scrollTo(0, 0);
+    }
+    </script>
+    
