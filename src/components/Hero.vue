@@ -15,7 +15,7 @@
       </div>
     </div>
     <img src="@/assets/img/work-2.png" alt="bg_hero"
-      class="w-full lg:w-[50%] lg:h-[50%] -mt-20 lg:mt-2 mx-auto bg-center bg-cover bg-no-repeat" />
+      class="w-[80%] lg:w-[50%] lg:h-[100%] -mt-20 lg:mt-2 bg-center bg-cover bg-no-repeat" />
   </div>
 </template>
 <script setup>
