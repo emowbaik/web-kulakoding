@@ -1,5 +1,5 @@
 <template>
-    <nav id="navbar" class="bg-[#0096D1] px-6 shadow dark:bg-[#C1C1C1] dark:text-slate-900">
+    <nav id="navbar" class="bg-[#0096D1] px-6 shadow dark:bg-[#C1C1C1] text-white dark:text-slate-900">
         <div class="flex items-center justify-between">
             <div class="flex items-center font-sans">
                 <router-link :to="{ name: 'dashboard' }" class="p-2">
@@ -9,7 +9,7 @@
                 </router-link>
                 <ul class="flex items-center font-sans lg:ml-auto">
                     <li>
-                        <router-link :to="{ name: 'about' }" class="text-xl ml-2 font-bold hover:underline">About Us</router-link>
+                        <router-link :to="{ name: 'about' }" class="text-xl  ml-2 font-bold hover:underline">About Us</router-link>
                     </li>
                 </ul>
             </div>

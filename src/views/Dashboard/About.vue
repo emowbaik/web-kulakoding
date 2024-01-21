@@ -3,7 +3,7 @@
         <Navbar class="hidden lg:block" />
         <NavSidebar class="lg:hidden" />
         <div class="flex justify-between p-2">
-            <router-link :to="{ name:'dashboard' }" class="flex items-center gap-1 font-semibold">
+            <router-link :to="{ name: 'dashboard' }" class="flex items-center gap-1 font-semibold">
                 <ArrowLeftIcon class="w-5" />
                 Back
             </router-link>
@@ -27,55 +27,77 @@
         </div>
         <div class="flex flex-col">
             <h2 class="text-center font-bold text-3xl my-5">About Us</h2>
-            <div class="flex flex-col items-center lg:flex-row lg:justify-between lg:mr-10 lg:-my-5">
-                <div class="flex lg:mx-10 items-center mx-auto">
-                    <div
-                    v-if="isDark == true"
-                        class="bg-[url(@/assets/img/bg-hero-dark.png)] w-full h-[480px] lg:w-full -mt-20 lg:mt-2 bg-center bg-cover bg-no-repeat z-0">
-                        <div class="flex flex-col text-center m-8">
-                            <h2 class="text-lg mb-2 font-bold lg:text-2xl text-black dark:text-white z-10">Our Purpose</h2>
-                            <p class="text-lg font-semibold lg:text-base text-black dark:text-white z-10">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt esse consequatur quisquam
-                                est porro enim nostrum nulla, laudantium pariatur officia excepturi repellendus nemo
-                                minus ipsam iure? Soluta, vero inventore. Cum facilis vitae blanditiis harum architecto
-                                alias delectus voluptatum ratione nihil itaque molestias velit rem laboriosam odio
-                                corporis esse sint dicta deserunt modi tempora, corrupti consequuntur. Animi repellat
-                                iusto laudantium cum magni? Alias vero quas ratione odit officiis cupiditate omnis atque
-                                eum quos! Soluta qui, distinctio illo nobis, voluptate nemo ratione laborum voluptatem
-                                veritatis dolores voluptates autem, tempora perferendis incidunt doloremque
-                                necessitatibus odio eius deleniti tempore asperiores. Explicabo officia quis iure non a
-                                alias aliquam dolor odit optio recusandae hic itaque libero soluta sequi esse similique
-                                cupiditate error possimus deserunt id ipsam corporis, aut ullam. Doloremque, repellendus
-                                doloribus quasi explicabo rerum sit sed quibusdam cum cupiditate laudantium repudiandae,
-                                veritatis, officia animi ad aut veniam. Aut amet suscipit unde animi porro cum!
-                            </p>
+            <div class="flex flex-col items-center lg:flex-row lg:justify-between lg:-my-5">
+                <div class="flex lg:m-10 items-center mx-auto">
+                    <div v-if="isDark == true"
+                        class="rounded-lg bg-no-repeat lg:m-0 m-5 bg-right-top bg-[#FFBC43] bg-opacity-25 bg-[url(@/assets/img/aset-hero1-dark.png)]">
+                        <div class="bg-no-repeat bg-center lg:bg-cover bg-[url(@/assets/img/aset-hero2-dark.png)]">
+                            <div class="bg-no-repeat bg-left-bottom bg-[url(@/assets/img/aset-hero3-dark.png)]">
+                                <div class="relative w-[100%] lg:w-[748px] min-h-[400px] overflow-hidden">
+                                    <h2 class="text-center mt-5 font-bold text-2xl text-black dark:text-white">Our
+                                        Purpose</h2>
+                                    <p class="text-lg m-5 text-center font-bold lg:text-2xl text-black dark:text-white">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quas
+                                        reprehenderit sit dolorem maiores. Quasi enim dolore, aliquid at error numquam
+                                        ut ipsum, ratione fugiat atque hic nihil exercitationem eaque mollitia esse
+                                        velit itaque quibusdam provident eligendi maxime dolor. Provident aliquam itaque
+                                        exercitationem alias architecto illum vitae, ipsum corporis laborum odit ratione
+                                        quos? Obcaecati nostrum odit voluptatem illo perferendis esse dolores totam
+                                        voluptate, maiores quod soluta sed magni dolore odio unde repudiandae quae,
+                                        recusandae nemo corrupti. Explicabo libero nemo quas neque repellendus sunt
+                                        voluptatum, deleniti earum! Ad ut fugit libero repellendus provident doloribus
+                                        tenetur voluptatum recusandae soluta architecto ratione numquam dolorum, eveniet
+                                        eum minus? Distinctio adipisci explicabo eligendi quidem! Dolores culpa,
+                                        praesentium ab placeat consequatur error iste facere quas, libero quisquam
+                                        deserunt! Suscipit laboriosam non perspiciatis fuga explicabo illum saepe
+                                        voluptates. Illum, quod. Aliquid quo ex, quisquam necessitatibus vitae pariatur
+                                        tenetur soluta modi sapiente fugit mollitia eligendi blanditiis officia unde
+                                        consequuntur. Vitae rem consequuntur magnam modi rerum error accusantium
+                                        possimus dolorum eos adipisci sequi necessitatibus minus unde dolores, animi
+                                        similique quod eligendi quis magni porro facere. Soluta nostrum reiciendis
+                                        itaque hic saepe ipsa nam, quod ullam laboriosam quae impedit nulla magnam
+                                        corporis laborum ratione neque illo illum adipisci. Debitis, ducimus!
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div
-                    v-else
-                        class="bg-[url(@/assets/img/bg-hero.png)] w-full h-[480px] lg:w-full -mt-20 lg:mt-2 bg-center bg-cover bg-no-repeat z-0">
-                        <div class="flex flex-col text-center m-8">
-                            <h2 class="text-lg mb-2 font-bold lg:text-2xl text-black z-10">Our Purpose</h2>
-                            <p class="text-lg font-semibold lg:text-base text-black z-10">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt esse consequatur quisquam
-                                est porro enim nostrum nulla, laudantium pariatur officia excepturi repellendus nemo
-                                minus ipsam iure? Soluta, vero inventore. Cum facilis vitae blanditiis harum architecto
-                                alias delectus voluptatum ratione nihil itaque molestias velit rem laboriosam odio
-                                corporis esse sint dicta deserunt modi tempora, corrupti consequuntur. Animi repellat
-                                iusto laudantium cum magni? Alias vero quas ratione odit officiis cupiditate omnis atque
-                                eum quos! Soluta qui, distinctio illo nobis, voluptate nemo ratione laborum voluptatem
-                                veritatis dolores voluptates autem, tempora perferendis incidunt doloremque
-                                necessitatibus odio eius deleniti tempore asperiores. Explicabo officia quis iure non a
-                                alias aliquam dolor odit optio recusandae hic itaque libero soluta sequi esse similique
-                                cupiditate error possimus deserunt id ipsam corporis, aut ullam. Doloremque, repellendus
-                                doloribus quasi explicabo rerum sit sed quibusdam cum cupiditate laudantium repudiandae,
-                                veritatis, officia animi ad aut veniam. Aut amet suscipit unde animi porro cum!
-                            </p>
+                    <div v-else
+                        class="rounded-lg bg-no-repeat lg:m-0 m-5 bg-right-top bg-[#FFBC43] bg-opacity-25 bg-[url(@/assets/img/aset-hero1.png)]">
+                        <div class="bg-no-repeat bg-center lg:bg-cover bg-[url(@/assets/img/aset-hero3.png)]">
+                            <div class="bg-no-repeat bg-left-bottom bg-[url(@/assets/img/aset-hero2.png)]">
+                                <div class="relative w-[100%] lg:w-[748px] min-h-[400px] overflow-hidden">
+                                    <h2 class="text-center mt-5 font-bold text-2xl text-black dark:text-white">Our
+                                        Purpose</h2>
+                                    <p class="text-lg m-5 text-center font-bold lg:text-2xl text-black dark:text-white">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quas
+                                        reprehenderit sit dolorem maiores. Quasi enim dolore, aliquid at error numquam
+                                        ut ipsum, ratione fugiat atque hic nihil exercitationem eaque mollitia esse
+                                        velit itaque quibusdam provident eligendi maxime dolor. Provident aliquam itaque
+                                        exercitationem alias architecto illum vitae, ipsum corporis laborum odit ratione
+                                        quos? Obcaecati nostrum odit voluptatem illo perferendis esse dolores totam
+                                        voluptate, maiores quod soluta sed magni dolore odio unde repudiandae quae,
+                                        recusandae nemo corrupti. Explicabo libero nemo quas neque repellendus sunt
+                                        voluptatum, deleniti earum! Ad ut fugit libero repellendus provident doloribus
+                                        tenetur voluptatum recusandae soluta architecto ratione numquam dolorum, eveniet
+                                        eum minus? Distinctio adipisci explicabo eligendi quidem! Dolores culpa,
+                                        praesentium ab placeat consequatur error iste facere quas, libero quisquam
+                                        deserunt! Suscipit laboriosam non perspiciatis fuga explicabo illum saepe
+                                        voluptates. Illum, quod. Aliquid quo ex, quisquam necessitatibus vitae pariatur
+                                        tenetur soluta modi sapiente fugit mollitia eligendi blanditiis officia unde
+                                        consequuntur. Vitae rem consequuntur magnam modi rerum error accusantium
+                                        possimus dolorum eos adipisci sequi necessitatibus minus unde dolores, animi
+                                        similique quod eligendi quis magni porro facere. Soluta nostrum reiciendis
+                                        itaque hic saepe ipsa nam, quod ullam laboriosam quae impedit nulla magnam
+                                        corporis laborum ratione neque illo illum adipisci. Debitis, ducimus!
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <img src="@/assets/img/code-typing.png" alt="bg_hero"
-                    class="w-[70%] h-auto lg:w-[50%] lg:h-[50%] -mt-20 lg:mt-2 mx-auto bg-center bg-cover bg-no-repeat" />
+                    class="w-[80%] lg:w-[50%] lg:h-[100%] bg-center bg-cover bg-no-repeat" />
             </div>
         </div>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col w-screen h-screen overflow-hidden">
+    <div class="flex flex-col w-screen h-full lg:h-screen overflow-hidden">
         <Navbar class="hidden lg:block" />
         <NavSidebar class="lg:hidden" />
         <div class="flex justify-between p-2">

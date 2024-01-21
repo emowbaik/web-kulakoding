@@ -1,21 +1,33 @@
 <template>
-  <div class="flex flex-col items-center lg:flex-row lg:justify-between lg:mr-10 lg:-my-5">
-    <div class="flex lg:mx-10 items-center mx-auto">
+  <div class="flex flex-col items-center lg:flex-row lg:justify-between lg:-my-5">
+    <div class="flex lg:m-10 items-center mx-auto">
       <div v-if="isDark == true"
-        class="bg-[url(@/assets/img/bg-hero-dark.png)] w-full h-[485px] lg:w-full -mt-20 lg:mt-2 flex items-center bg-center bg-contain bg-no-repeat z-0">
-        <p class="text-lg mx-5 text-center font-bold lg:text-2xl text-black dark:text-white z-10">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, iste.
-        </p>
+        class="rounded-lg bg-no-repeat lg:m-0 m-5 bg-right-top bg-[#FFBC43] bg-opacity-25 bg-[url(@/assets/img/aset-hero1-dark.png)]">
+        <div class="bg-no-repeat bg-center bg-cover bg-[url(@/assets/img/aset-hero2-dark.png)]">
+          <div class="bg-no-repeat bg-left-bottom bg-[url(@/assets/img/aset-hero3-dark.png)]">
+            <div class="relative flex items-center w-[100%] lg:w-[748px] min-h-[400px] overflow-hidden">
+              <p class="text-lg m-5 text-center font-bold lg:text-2xl text-black dark:text-white">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, tenetur.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
       <div v-else
-        class="bg-[url(@/assets/img/bg-hero.png)] w-full h-[485px] lg:w-full -mt-20 lg:mt-2 flex items-center bg-center bg-contain bg-no-repeat z-0">
-        <p class="text-lg mx-5 text-center font-bold lg:text-2xl text-black z-10">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, iste.
-        </p>
+        class="rounded-lg bg-no-repeat lg:m-0 m-5 bg-right-top bg-[#FFBC43] bg-opacity-25 bg-[url(@/assets/img/aset-hero1.png)]">
+        <div class="bg-no-repeat bg-center bg-cover bg-[url(@/assets/img/aset-hero3.png)]">
+          <div class="bg-no-repeat bg-left-bottom bg-[url(@/assets/img/aset-hero2.png)]">
+            <div class="relative flex items-center w-[100%] lg:w-[748px] min-h-[400px] overflow-hidden">
+              <p class="text-lg m-5 text-center font-bold lg:text-2xl text-black dark:text-white">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, tenetur.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <img src="@/assets/img/work-2.png" alt="bg_hero"
-      class="w-[80%] lg:w-[50%] lg:h-[100%] -mt-20 lg:mt-2 bg-center bg-cover bg-no-repeat" />
+      class="w-[80%] lg:w-[50%] lg:h-[100%] bg-center bg-cover bg-no-repeat" />
   </div>
 </template>
 <script setup>
