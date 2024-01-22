@@ -9,31 +9,41 @@
             <h2 class="text-4xl text-center font-bold m-2">Our Team</h2>
             <div class="shadow rounded-xl grid lg:grid-cols-3 gap-4 bg-[#FFE4B0] dark:bg-[#277894]">
                 <div class="relative flex lg:hidden items-end justify-end m-2 z-0">
-                    <button class="bg-slate-100 dark:bg-slate-900 rounded-full shadow">
-                        <a href="#navbar">
+                    <a href="#navbar">
+                        <button class="bg-slate-100 dark:bg-slate-900 rounded-full shadow">
                             <ArrowUpIcon class="w-10" />
-                        </a>
-                    </button>
+                        </button>
+                    </a>
                 </div>
                 <!-- Contact Section -->
-                <div class="relative flex lg:flex-col gap-3 text-center ml-2 lg:ml-10 -mt-14 lg:mt-5 z-10">
+                <div class="relative flex lg:flex-col text-center ml-2 lg:ml-0 -mt-14 lg:mt-5 z-10">
                     <span class="flex flex-col gap-2">
                         <span class="hidden lg:block text-2xl text-black font-bold">Contact Us</span>
-                        <span class="flex items-center gap-1 lg:justify-center text-xl lg:text-2xl text-black font-bold">
-                            <PhoneIcon class="w-6" />08123456789
-                        </span>
-                        <span class="flex items-center gap-1 justify-center text-xl lg:text-2xl text-black font-bold">
-                            <EnvelopeIcon class="w-6" />kulakoding@gmail.com
+                        <span>
+                            <span
+                                class="flex items-center gap-1 lg:justify-center text-xl lg:text-2xl text-black font-bold">
+                                <PhoneIcon class="w-6" />08123456789
+                            </span>
+                            <span
+                                class="flex items-center gap-1 justify-center text-xl lg:text-2xl text-black font-bold">
+                                <EnvelopeIcon class="w-6" />kulakoding@gmail.com
+                            </span>
                         </span>
                     </span>
                 </div>
 
                 <!-- Visit Us Section -->
-                <div class="flex flex-col text-left lg:text-center lg:mt-5">
-                    <span class="hidden lg:block text-2xl text-black font-bold">Visit Us</span>
-                    <a href="https://maps.app.goo.gl/rKqVuTc3mHENQmiQA" target="_blank">
-                        <p class="flex items-center lg:items-start text-base text-black font-bold w-[300px]">
-                            <MapPinIcon class="w-24 lg:w-20 lg:mt-1" />Jl. Brig Jend. Hasan Basri
+                <div class="flex flex-col text-center lg:mt-4">
+                    <label for="visit"
+                        class="hidden lg:flex items-center text-center mx-auto text-2xl text-black font-bold">
+                        <MapPinIcon class="w-24 lg:w-7" />Visit
+                        Us
+                    </label>
+                    <a id="visit" href="https://maps.app.goo.gl/rKqVuTc3mHENQmiQA" target="_blank">
+                        <p
+                            class="flex items-start lg:items-center text-left lg:text-center text-lg text-black font-bold">
+                            <MapPinIcon class="w-24 lg:mt-0 mt-1 lg:w-7 lg:hidden" />
+                            Jl. Brig Jend. Hasan Basri
                             No.6, Sungai Miai, Kec. Banjarmasin Utara, Kota Banjarmasin,
                             Kalimantan Selatan.
                         </p>
@@ -41,24 +51,41 @@
                 </div>
 
                 <!-- Logo Section -->
-                <div class="flex flex-col text-center m-5">
-                    <div class="flex items-end justify-end z-10">
-                        <button class="hidden lg:block bg-slate-100 dark:bg-slate-900 rounded-full shadow">
-                            <a href="#navbar">
-                                <ArrowUpIcon class="w-10" />
-                            </a>
-                        </button>
+                <div class="flex m-3 justify-between">
+                    <div class="hidden gap-3 mr-2 lg:flex lg:flex-col dark:text-slate-900">
+                        <a href="https://github.com" target="_blank" class="flex gap-2 font-semibold"><i
+                                class="bi bi-github text-xl"></i>@KulaKoding</a>
+                        <a href="https://facebook.com" target="_blank" class="flex gap-2 font-semibold"><i
+                                class="bi bi-facebook text-xl"></i>@KulaKoding</a>
+                        <a href="https://instagram.com" target="_blank" class="flex gap-2 font-semibold"><i
+                                class="bi bi-instagram text-xl"></i>@Kula.Koding</a>
+                        <a href="https://twitter.com" target="_blank" class="flex gap-2 font-semibold"><i
+                                class="bi bi-twitter-x text-xl"></i>@Kula.Koding</a>
                     </div>
-                    <Maskot class="relative -mt-10 mb-5 hidden lg:block z-0"/>
+                    <div class="flex flex-col">
+                        <div class="flex items-end justify-end z-10">
+                            <button class="hidden lg:block bg-slate-100 dark:bg-slate-900 rounded-full shadow">
+                                <a href="#navbar">
+                                    <ArrowUpIcon class="w-10" />
+                                </a>
+                            </button>
+                        </div>
+                        <Maskot class="relative -mt-10 mb-5 hidden lg:block z-0" />
+                    </div>
                 </div>
             </div>
-            <div class="flex justify-between -mt-5 bg-[#0096D1] dark:bg-[#C1C1C1] text-slate-900 rounded-b-xl py-1">
+            <div
+                class="flex lg:justify-center justify-between -mt-5 bg-[#0096D1] dark:bg-[#C1C1C1] text-slate-900 rounded-b-xl py-1">
                 <p class="ml-2 font-bold">© Copy Right - KulaKoding</p>
-                <div class="flex gap-3 mr-2">
-                    <a href="https://github.com" target="_blank"><i class="bi bi-github text-xl"></i></a>
-                    <a href="https://facebook.com" target="_blank"><i class="bi bi-facebook text-xl"></i></a>
-                    <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram text-xl"></i></a>
-                    <a href="https://twitter.com" target="_blank"><i class="bi bi-twitter-x text-xl"></i></a>
+                <div class="flex gap-3 mr-2 lg:hidden">
+                    <a href="https://github.com" target="_blank" class="flex gap-2 font-semibold"><i
+                            class="bi bi-github text-xl"></i></a>
+                    <a href="https://facebook.com" target="_blank" class="flex gap-2 font-semibold"><i
+                            class="bi bi-facebook text-xl"></i></a>
+                    <a href="https://instagram.com" target="_blank" class="flex gap-2 font-semibold"><i
+                            class="bi bi-instagram text-xl"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="flex gap-2 font-semibold"><i
+                            class="bi bi-twitter-x text-xl"></i></a>
                 </div>
             </div>
         </div>
@@ -67,32 +94,35 @@
     <!-- footer end -->
 </template>
 <script setup>
-import { ref } from "vue";
-import {
-    ArrowUpIcon,
-    PhoneIcon,
-    EnvelopeIcon,
-    MapPinIcon
-} from "@heroicons/vue/24/solid";
-import { useDark, useToggle } from "@vueuse/core";
-import Maskot from '../components/Maskot.vue'
+    import { ref } from "vue";
+    import {
+        ArrowUpIcon,
+        PhoneIcon,
+        EnvelopeIcon,
+        MapIcon,
+        MapPinIcon,
+    } from "@heroicons/vue/24/solid";
+    import {
+    } from "@heroicons/vue/24/outline";
+    import { useDark, useToggle } from "@vueuse/core";
+    import Maskot from '../components/Maskot.vue'
 
-const isDark = useDark(false);
-const currentMaskot = ref("maskot1");
+    const isDark = useDark(false);
+    const currentMaskot = ref("maskot1");
 
-const changeMaskot = () => {
-    if (currentMaskot.value === "maskot1") {
-        currentMaskot.value = "maskot2";
-    } else if (currentMaskot.value === "maskot2") {
-        currentMaskot.value = "maskot3";
-    } else if (currentMaskot.value === "maskot3") {
-        currentMaskot.value = "maskot1";
-    }
-};
+    const changeMaskot = () => {
+        if (currentMaskot.value === "maskot1") {
+            currentMaskot.value = "maskot2";
+        } else if (currentMaskot.value === "maskot2") {
+            currentMaskot.value = "maskot3";
+        } else if (currentMaskot.value === "maskot3") {
+            currentMaskot.value = "maskot1";
+        }
+    };
 
-const maskot = [
-    { id: 1, gambar:"../../src/assets/img/maskot1.png" },
-    { id: 2, gambar:"../../src/assets/img/maskot2.png" },
-    { id: 3, gambar:"../../src/assets/img/maskot3.png" },
-];
+    const maskot = [
+        { id: 1, gambar: "../../src/assets/img/maskot1.png" },
+        { id: 2, gambar: "../../src/assets/img/maskot2.png" },
+        { id: 3, gambar: "../../src/assets/img/maskot3.png" },
+    ];
 </script>
