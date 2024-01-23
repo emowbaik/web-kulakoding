@@ -63,7 +63,7 @@
                                 class="bi bi-twitter-x text-xl"></i>@Kula.Koding</a>
                     </div>
                     <div class="flex flex-col">
-                        <div class="flex items-end justify-end z-10">
+                        <div class="flex items-end justify-end z-10 transition ease-in-out delay-10o0 hover:-translate-y-1 hover:scale-110 duration-300">
                             <button class="hidden lg:block bg-slate-100 dark:bg-slate-900 rounded-full shadow">
                                 <a href="#navbar">
                                     <ArrowUpIcon class="w-10" />
@@ -108,21 +108,4 @@
     import Maskot from '../components/Maskot.vue'
 
     const isDark = useDark(false);
-    const currentMaskot = ref("maskot1");
-
-    const changeMaskot = () => {
-        if (currentMaskot.value === "maskot1") {
-            currentMaskot.value = "maskot2";
-        } else if (currentMaskot.value === "maskot2") {
-            currentMaskot.value = "maskot3";
-        } else if (currentMaskot.value === "maskot3") {
-            currentMaskot.value = "maskot1";
-        }
-    };
-
-    const maskot = [
-        { id: 1, gambar: "../../src/assets/img/maskot1.png" },
-        { id: 2, gambar: "../../src/assets/img/maskot2.png" },
-        { id: 3, gambar: "../../src/assets/img/maskot3.png" },
-    ];
 </script>

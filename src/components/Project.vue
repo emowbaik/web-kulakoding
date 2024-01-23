@@ -5,7 +5,7 @@
                 Project
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-                <div v-for="project in projects" :key="project.id" class="mx-auto mb-5">
+                <div v-for="project in projects" :key="project.id" class="mx-auto mb-5 transition ease-in-out delay-10o0 hover:-translate-y-1 hover:scale-110 duration-300">
                     <router-link :to="{ name: 'detail' }">
                         <div class="bg-[#0096D1] rounded-md shadow">
                             <img :src="project.image" class="w-full h-48 lg:h-64 object-contain rounded-md"
