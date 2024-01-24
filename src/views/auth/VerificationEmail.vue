@@ -56,8 +56,6 @@
     import {
         EnvelopeIcon,
         ArrowLeftIcon,
-        LockClosedIcon,
-        UserIcon,
     } from "@heroicons/vue/24/solid";
 
     const showMaskot = ref(true);

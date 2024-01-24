@@ -48,12 +48,6 @@
                                     Confirm
                                 </button>
                             </span>
-                            <!-- <div class="flex justify-between text-sm mt-1">
-                                <div class="flex items-center me-4">
-                                    <p
-                                        class="ms-2 text-sm font-medium text-white dark:text-gray-300"><a class="text-yellow-400 font-semibold" href="../auth/Login.vue">Back</a></p>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -65,9 +59,7 @@
 <script setup>
     import { ref } from "vue";
     import {
-        EnvelopeIcon,
         LockClosedIcon,
-        UserIcon,
     } from "@heroicons/vue/24/solid";
 
     const showMaskot = ref(true);

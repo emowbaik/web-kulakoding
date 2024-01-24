@@ -90,21 +90,18 @@
             </div>
         </div>
     </footer>
-
     <!-- footer end -->
 </template>
 <script setup>
-    import { ref } from "vue";
     import {
         ArrowUpIcon,
         PhoneIcon,
         EnvelopeIcon,
-        MapIcon,
         MapPinIcon,
     } from "@heroicons/vue/24/solid";
     import {
     } from "@heroicons/vue/24/outline";
-    import { useDark, useToggle } from "@vueuse/core";
+    import { useDark } from "@vueuse/core";
     import Maskot from '../components/Maskot.vue'
 
     const isDark = useDark(false);

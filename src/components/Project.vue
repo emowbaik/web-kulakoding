@@ -31,8 +31,6 @@
 <script setup>
     import {
         ArrowDownIcon,
-        HomeIcon,
-        ChevronRightIcon,
     } from "@heroicons/vue/24/solid";
     const projects = [
         { id: 1, name: "lorem", image: "../../src/assets/img/work-2.png" },

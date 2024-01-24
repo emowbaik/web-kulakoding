@@ -43,15 +43,7 @@
   </div>
 </template>
 
-<style scoped>
-  .dark-mode {
-    background-color: #212538;
-    color: #fff;
-  }
-</style>
-
 <script setup>
-  import { ref } from 'vue';
   import Navbar from "@/components/Navbar.vue";
   import NavSidebar from "@/components/NavSidebar.vue";
   import Hero from "@/components/Hero.vue";
@@ -59,7 +51,7 @@
   import Member from "@/components/Member.vue";
   import Project from "@/components/Project.vue";
   import Footer from "@/components/Footer.vue";
-  import { useDark, useToggle } from "@vueuse/core";
+  import { useDark } from "@vueuse/core";
 
   const isDark = useDark(false);
   const daftar = [

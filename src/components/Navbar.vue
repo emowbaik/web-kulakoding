@@ -33,13 +33,6 @@
     </nav>
 </template>
 
-<style scoped>
-    .dark-navbar {
-        background-color: #C1C1C1;
-        color: white;
-    }
-</style>
-
 <script setup>
     import logoProfil from "@/components/icons/Profil.vue";
     import { useDark, useToggle } from "@vueuse/core";
