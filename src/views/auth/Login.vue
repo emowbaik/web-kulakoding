@@ -3,23 +3,21 @@
         <div class="flex flex-col w-screen h-full lg:h-screen overflow-hidden text-white">
             <div class="flex-grow">
                 <div class="flex justify-center items-center min-h-screen">
-                    <div class="border-l-2 border-b-2">
-                        <div
-                            class="bg-white rounded-l-md bg-[url(@/assets/Login/pita-kiri-atas.png)] bg-no-repeat w-[450px] h-[500px]">
-                            <div class="relative">
-                                <div v-if="showMaskot" class="maskot-container" @click="toggleMaskot">
-                                    <img src="../../assets/Login/profile-sekolah.png" alt="" class="p-5" />
-                                    <img src="../../assets/Login/Ilustrasi.png" alt="" class="p-5" />
-                                </div>
-                                <div v-show="!showMaskot">
-                                    <img src="../../assets/Login/profile-sekolah.png" alt="" class="p-5" />
-                                    <img src="../../assets/Login/Ilustrasi.png" alt="" class="p-5" />
-                                </div>
-                            </div>
+                    <div
+                        class="bg-white rounded-l-md bg-[url(@/assets/Login/pita-kiri-atas.png)] bg-no-repeat w-[450px] h-[500px]">
+                        <div class="relative">
+                            <a target="_blank" href="https://smkn2-bjm.sch.id/">
+                                <img src="../../assets/Login/profile-sekolah.png" alt="logo-sekolah" class="p-5" />
+                            </a>
+                            <img src="../../assets/Login/Ilustrasi.png" alt="Ilustrasi" class="p-5" />
                         </div>
                     </div>
+                    <div v-if="showMaskot" @click="toggleMaskot" class="maskot absolute z-0">
+                        <img src="../../assets/Login/maskot-login.png" alt="maskot" class="" />
+                        <img src="../../assets/Login/maskot-login.png" alt="maskot" v-show="!showMaskot" class="opacity-0" />
+                    </div>
                     <div
-                        class="flex flex-col justify-center items-center bg-[#22668D] rounded-r-md bg-[url(@/assets/Login/pita-kanan-bawah.png)] bg-right-bottom bg-no-repeat w-[450px] h-[500px]">
+                        class="relative flex flex-col justify-center items-center bg-[#22668D] rounded-r-md bg-[url(@/assets/Login/pita-kanan-bawah.png)] bg-right-bottom bg-no-repeat w-[450px] h-[500px] z-40">
                         <div class="m-5">
                             <h2 class="text-center font-bold text-2xl mb-2">Login</h2>
                             <span class="flex flex-col gap-3">
@@ -30,7 +28,7 @@
                                             <EnvelopeIcon class="w-5 text-slate-900" />
                                         </div>
                                         <input type="email" id="input-group-1"
-                                            class="bg-white border border-slate-900 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:text-slate-900"
+                                            class="bg-white border border-slate-900 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:text-slate-900"
                                             placeholder="Email" />
                                     </span>
                                 </div>
@@ -41,7 +39,7 @@
                                         </div>
                                         <label for="input-group-2" class="font-semibold">Password</label>
                                         <input type="password" id="input-group-2"
-                                            class="bg-white border border-slate-900 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:text-slate-900"
+                                            class="bg-white border border-slate-900 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:text-slate-900"
                                             placeholder="Password" />
                                     </span>
                                 </div>
@@ -59,7 +57,7 @@
                                         saya</label>
                                 </div>
                                 <div>
-                                    <a href="../auth/Register.vue"> Lupa Password? </a>
+                                    <a href="/verifikasi"> Lupa Password? </a>
                                 </div>
                             </div>
                         </div>
@@ -94,18 +92,29 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet');
 
     .bg {
-        background-color: #22668D;
-        width: 50vw;
-        /* background: url(@/assets/Login/bg-login.png) no-repeat; */
+        background: url(@/assets/Login/bg.png) center no-repeat;
         font-family: 'Inter', sans-serif;
     }
 
-    .hiasan {
-        background: url(@/assets/Login/hiasan-login.png) no-repeat;
+    .maskot {
+        position: absolute;
+        bottom: 70%;
+        right: 48.7.5%;
+        transform: translate(-50%, -50%);
+        max-width: 100%;
+        transition: opacity 1s ease-out;
+        animation: fadeInFromRight 1s ease-in-out;
     }
 
-    .maskot-container {
-        transition: opacity 1s ease-out;
-        background: url(@/assets/Login/maskot-login.png) right top no-repeat;
+    @keyframes fadeInFromRight {
+        0% {
+            opacity: 1;
+            transform: translateX(10%);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
     }
 </style>

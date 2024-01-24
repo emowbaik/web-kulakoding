@@ -7,7 +7,7 @@
                         class="bg-[url(@/assets/img/logo_kulakoding.png)] w-14 h-14 bg-center bg-contain bg-no-repeat">
                     </div>
                 </router-link>
-                <ul class="flex items-center font-sans lg:ml-auto transition ease-in-out delay-10o0 hover:-translate-y-1 hover:scale-110 duration-300">
+                <ul class="flex items-center font-sans lg:ml-auto">
                     <li>
                         <router-link :to="{ name: 'about' }" class="text-xl  ml-2 font-bold hover:underline">About Us</router-link>
                     </li>

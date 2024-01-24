@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 const Login = () => import('@/views/auth/Login.vue');
 const Register = () => import('@/views/auth/Register.vue');
-// const ResetPassword = () => import('');
+const VerifikasiEmail = () => import('../views/auth/VerificationEmail.vue');
+const ResetPassword = () => import('../views/auth/ResetPassword.vue');
 const Dashboard = () => import('@/views/Dashboard/Dashboard.vue');
 const Detail = () => import('@/views/Dashboard/Detail.vue');
 const Profile = () => import('@/views/Akun/Profile.vue');
@@ -121,6 +122,16 @@ const router = createRouter({
       path: "/register",
       name: "register",
       component: Register,
+    },
+    {
+      path: "/verifikasi",
+      name: "verifikasi",
+      component: VerifikasiEmail,
+    },
+    {
+      path: "/reset-password",
+      name: "reset-password",
+      component: ResetPassword,
     },
   ],
 });
