@@ -92,7 +92,7 @@
             </div>
           </div>
           <div class="flex gap-2">
-            <span class="hidden lg:block">
+            <span class="lg:block">
               <router-link
                 :to="{ name: 'upload' }"
                 class="inline-flex items-center gap-1 font-semibold rounded-md bg-transparent focus:bg-slate-300 border border-gray-300 hover:border-gray-400 dark:bg-transparent dark:focus:bg-slate-900 dark:border-gray-600 hover:dark:border-gray-400 shadow p-2"
