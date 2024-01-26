@@ -3,7 +3,7 @@
     <Navbar class="hidden lg:block" />
     <NavSidebar class="lg:hidden" />
     <Hero class="flex-grow" />
-    <div class="mt-10 lg:mt-0">
+    <div>
       <img src="@/assets/img/Penyekatdark1.png" v-if="isDark === true" alt="Penyekat" class="relative w-full" />
       <img src="@/assets/img/Penyekat1.png" v-else alt="Penyekat" class="relative w-full" />
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center lg:flex-row lg:justify-between lg:-my-5">
+  <div class="flex flex-col items-center lg:flex-row lg:justify-between lg:my-5">
     <div class="flex lg:m-10 items-center mx-auto">
       <div v-if="isDark == true"
         class="rounded-lg bg-no-repeat lg:m-0 m-5 bg-right-top bg-[#FFBC43] bg-opacity-25 bg-[url(@/assets/img/aset-hero1-dark.png)]">
