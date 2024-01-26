@@ -80,10 +80,18 @@ const routes = [
       guestRequired: true,
     },
   },
+  {
+    path: "/verifikasi",
+    name: "verifikasi",
+    component: VerifikasiEmail,
+    meta: {
+      guestRequired: true,
+    },
+  },
 ];
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 });
 

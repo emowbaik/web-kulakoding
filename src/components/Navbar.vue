@@ -38,6 +38,11 @@
             />
           </button>
         </li>
+        <li>
+          <router-link :to="{ name:'login' }" class="py-2 px-5 bg-yellow-400">
+            Login
+          </router-link>
+        </li>
         <!-- <li>
           <router-link :to="{ name: 'user' }">
             <div class="bg-white p-0.5 hover:bg-slate-100 rounded-full shadow">
