@@ -11,88 +11,86 @@ const Upload = () => import("@/views/Akun/Upload.vue");
 const About = () => import("@/views/Dashboard/About.vue");
 const Index = () => import("../views/Index.vue");
 
-const routes = [
-  {
-    path: "/",
-    component: Index,
-  },
-  {
-    path: "/login",
-    name: "login",
-    component: Login,
-    meta: {
-      guestRequired: true,
-    },
-  },
-  {
-    path: "/register",
-    name: "register",
-    component: Register,
-    meta: {
-      guestRequired: true,
-    },
-  },
-  {
-    path: "/dashboard",
-    name: "dashboard",
-    component: Dashboard,
-    meta: {
-      authRequired: true,
-    },
-  },
-  {
-    path: "/user",
-    name: "user",
-    component: Profile,
-    meta: {
-      authRequired: true,
-    },
-  },
-  {
-    path: "/detail/:id",
-    name: "detail",
-    component: Detail,
-    meta: {
-      authRequired: true,
-    },
-  },
-  {
-    path: "/upload",
-    name: "upload",
-    component: Upload,
-    meta: {
-      authRequired: true,
-    },
-  },
-  {
-    path: "/about",
-    name: "about",
-    component: About,
-    meta: {
-      authRequired: true,
-    },
-  },
-  {
-    path: "/reset-password",
-    name: "reset-password",
-    component: ResetPassword,
-    meta: {
-      guestRequired: true,
-    },
-  },
-  {
-    path: "/verifikasi",
-    name: "verifikasi",
-    component: VerifikasiEmail,
-    meta: {
-      guestRequired: true,
-    },
-  },
-];
-
 const router = createRouter({
   history: createWebHistory(),
-  routes,
+  routes: [
+    {
+      path: "/",
+      component: Index,
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: Login,
+      meta: {
+        guestRequired: true,
+      },
+    },
+    {
+      path: "/register",
+      name: "register",
+      component: Register,
+      meta: {
+        guestRequired: true,
+      },
+    },
+    {
+      path: "/dashboard",
+      name: "dashboard",
+      component: Dashboard,
+      meta: {
+        authRequired: true,
+      },
+    },
+    {
+      path: "/user",
+      name: "user",
+      component: Profile,
+      meta: {
+        authRequired: true,
+      },
+    },
+    {
+      path: "/detail/:id",
+      name: "detail",
+      component: Detail,
+      meta: {
+        authRequired: true,
+      },
+    },
+    {
+      path: "/upload",
+      name: "upload",
+      component: Upload,
+      meta: {
+        authRequired: true,
+      },
+    },
+    {
+      path: "/about",
+      name: "about",
+      component: About,
+      meta: {
+        authRequired: true,
+      },
+    },
+    {
+      path: "/reset-password",
+      name: "reset-password",
+      component: ResetPassword,
+      meta: {
+        guestRequired: true,
+      },
+    },
+    {
+      path: "/verifikasi",
+      name: "verifikasi",
+      component: VerifikasiEmail,
+      meta: {
+        guestRequired: true,
+      },
+    },
+  ],
 });
 
 router.beforeEach((to, from, next) => {

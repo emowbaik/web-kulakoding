@@ -43,7 +43,7 @@
             Login
           </router-link>
         </li>
-        <!-- <li>
+        <li>
           <router-link :to="{ name: 'user' }">
             <div class="bg-white p-0.5 hover:bg-slate-100 rounded-full shadow">
               <img
@@ -53,7 +53,7 @@
               />
             </div>
           </router-link>
-        </li> -->
+        </li>
       </ul>
     </div>
   </nav>
