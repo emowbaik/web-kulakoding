@@ -19,7 +19,7 @@
                                     class="opacity-0" />
                             </div>
                             <div
-                                class="relative flex flex-col justify-center items-center bg-[#22668D] rounded-r-md bg-[url(@/assets/Login/pita-kanan-bawah.png)] bg-right-bottom bg-no-repeat w-[450px] h-[500px] z-40">
+                                class="relative flex flex-col justify-evenly items-center bg-[#22668D] rounded-r-md bg-[url(@/assets/Login/pita-kanan-bawah.png)] bg-right-bottom bg-no-repeat w-[450px] h-[500px] z-40">
                                 <div class="m-5">
                                     <h2 class="text-center font-bold text-2xl mb-2">Login</h2>
                                     <span class="flex flex-col gap-3">
@@ -60,9 +60,13 @@
                                                 saya</label>
                                         </div>
                                         <div>
-                                            <router-link :to="{ name:'verifikasi' }"> Lupa Password? </router-link>
+                                            <router-link :to="{ name:'reset-password' }"> Lupa Password? </router-link>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="flex gap-2 text-xs">
+                                    <p>Don't have an account?</p>
+                                    <router-link :to="{ name:'register' }" class="text-[#FFB800]">Register</router-link>
                                 </div>
                             </div>
                         </div>

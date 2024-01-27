@@ -1,13 +1,15 @@
 import { ref } from "vue";
 import axios from "./axios";
 import { useRouter } from "vue-router";
+import useSwal from "./swal";
 
 export default function useAuth() {
   const user = ref([]);
+  const { accepted, failed, confirmed, success } = useSwal();
   const router = useRouter();
 
   async function LoggedIn() {
-    const response = await axios.get("/api/v1/user");
+    const response = await axios.get("/api/user");
     console.log(response.data);
     user.value = response.data;
   }
@@ -20,7 +22,8 @@ export default function useAuth() {
       const token = response.data.token;
       StoreToken(token);
       setTimeout(() => {
-        router.push({ name: "index" });
+        router.push({ name: "dashboard" });
+        success("Login berhasil");
       }, 1200);
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -35,6 +38,7 @@ export default function useAuth() {
       console.log(response.data);
       setTimeout(() => {
         router.push({ name: "login" });
+        success("Register berhasil")
       }, 1200);
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -53,9 +57,29 @@ export default function useAuth() {
     axios.defaults.headers.common.Authorization = "";
   }
 
+  async function Logout() {
+    const response = confirmed("Logout?");
+
+    if ((await response).isConfirmed) {
+      try {
+        await axios.post("/api/v1/auth/logout");
+        RevokeToken();
+        setTimeout(() => {
+          router.push("/");
+          success("Logout sukses");
+        }, 1200);
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          failed(error.response?.data.Body.message);
+        }
+      }
+    }
+  }
+
   return {
     Login,
     Register,
+    Logout,
     LoggedIn,
     user,
   };

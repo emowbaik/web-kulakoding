@@ -10,7 +10,7 @@
             <nav class="flex" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
                     <li class="inline-flex items-center">
-                        <router-link :to="{ name:'dashboard' }"
+                        <router-link :to="{ name: 'dashboard' }"
                             class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
                             <HomeIcon class="text-gray-700 dark:text-gray-400 w-4 mr-1" />
                             Home
@@ -27,7 +27,7 @@
         </div>
         <div class="flex-grow">
             <div class="flex flex-col justify-center items-center lg:my-5 my-20">
-                <div class="flex flex-col items-center my-5">
+                <div class="flex flex-col items-center my-3">
                     <div class="p-0.5 rounded-full">
                         <img :src="`https://api.dicebear.com/7.x/initials/svg?seed=${user.username}`" alt="profile"
                             class="rounded-full w-20 items-center justify-center" />
@@ -71,7 +71,7 @@
                                 Upload Project
                             </router-link>
                         </span>
-                        <button
+                        <button @click="Logout()"
                             class="inline-flex lg:mx-0 mx-auto items-center gap-1 font-semibold rounded-md bg-transparent focus:bg-slate-300 border border-gray-300 hover:border-gray-400 dark:bg-transparent dark:focus:bg-slate-900 dark:border-gray-600 hover:dark:border-gray-400 shadow p-2">
                             <ArrowRightStartOnRectangleIcon class="w-5" />
                             Log Out
@@ -85,25 +85,25 @@
 </template>
 
 <script setup>
-    import {
-        EnvelopeIcon,
-        LockClosedIcon,
-        DocumentPlusIcon,
-        ArrowRightStartOnRectangleIcon,
-        PencilSquareIcon,
-        ArrowLeftIcon,
-        HomeIcon,
-        ChevronRightIcon,
-    } from "@heroicons/vue/24/solid";
-    import useAuth from "../../services/auth";
-    import Navbar from "@/components/Navbar.vue";
-    import NavSidebar from "@/components/NavSidebar.vue";
-    import Hero from "@/components/Hero.vue";
-    import { onMounted } from "vue";
+import {
+    EnvelopeIcon,
+    LockClosedIcon,
+    DocumentPlusIcon,
+    ArrowRightStartOnRectangleIcon,
+    PencilSquareIcon,
+    ArrowLeftIcon,
+    HomeIcon,
+    ChevronRightIcon,
+} from "@heroicons/vue/24/solid";
+import useAuth from "../../services/auth";
+import Navbar from "@/components/Navbar.vue";
+import NavSidebar from "@/components/NavSidebar.vue";
+import Hero from "@/components/Hero.vue";
+import { onMounted } from "vue";
 
-    const { user, LoggedIn } = useAuth();
+const { user, LoggedIn, Logout } = useAuth();
 
-    onMounted(() => {
-        LoggedIn();
-    });
+onMounted(() => {
+    LoggedIn();
+});
 </script>

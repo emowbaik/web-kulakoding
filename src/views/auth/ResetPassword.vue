@@ -14,7 +14,8 @@
                     </div>
                     <div v-if="showMaskot" @click="toggleMaskot" class="maskot absolute z-0">
                         <img src="../../assets/Login/maskot-login.png" alt="maskot" class="" />
-                        <img src="../../assets/Login/maskot-login.png" alt="maskot" v-show="!showMaskot" class="opacity-0" />
+                        <img src="../../assets/Login/maskot-login.png" alt="maskot" v-show="!showMaskot"
+                            class="opacity-0" />
                     </div>
                     <div
                         class="relative flex flex-col justify-center items-center bg-[#22668D] rounded-r-md bg-[url(@/assets/Login/pita-kanan-bawah.png)] bg-right-bottom bg-no-repeat w-[450px] h-[500px] z-40">
@@ -22,23 +23,34 @@
                             <h2 class="text-center font-bold text-2xl mb-2">Reset Password</h2>
                             <span class="flex flex-col gap-3">
                                 <div class="flex flex-col w-[260px]">
-                                    <label for="input-group-1" class="font-semibold">New Password</label>
+                                    <label for="input-group-1" class="font-semibold">Email</label>
+                                    <span>
+                                        <div class="absolute flex items-center p-2.5 pointer-events-none">
+                                            <EnvelopeIcon class="w-5 text-slate-900" />
+                                        </div>
+                                        <input type="email" id="input-group-1"
+                                            class="bg-white border border-slate-900 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:text-slate-900"
+                                            placeholder="Email" />
+                                    </span>
+                                </div>
+                                <div class="flex flex-col w-[260px]">
+                                    <label for="input-group-2" class="font-semibold">New Password</label>
                                     <span>
                                         <div class="absolute flex items-center p-2.5 pointer-events-none">
                                             <LockClosedIcon class="w-5 text-slate-900" />
                                         </div>
-                                        <input type="password" id="input-group-1"
+                                        <input type="password" id="input-group-2"
                                             class="bg-white border border-slate-900 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:text-slate-900"
                                             placeholder="New Password" />
                                     </span>
                                 </div>
                                 <div class="flex flex-col w-[260px]">
-                                    <label for="input-group-1" class="font-semibold">Confirm Password</label>
+                                    <label for="input-group-3" class="font-semibold">Confirm Password</label>
                                     <span>
                                         <div class="absolute flex items-center p-2.5 pointer-events-none">
                                             <LockClosedIcon class="w-5 text-slate-900" />
                                         </div>
-                                        <input type="password" id="input-group-1"
+                                        <input type="password" id="input-group-3"
                                             class="bg-white border border-slate-900 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:text-slate-900"
                                             placeholder="Confirm Password" />
                                     </span>
@@ -48,6 +60,9 @@
                                     Confirm
                                 </button>
                             </span>
+                        </div>
+                        <div class="text-xs">
+                            <router-link :to="{ name:'login' }" class="text-[#FFB800]">Back</router-link>
                         </div>
                     </div>
                 </div>
@@ -59,6 +74,7 @@
 <script setup>
     import { ref } from "vue";
     import {
+        EnvelopeIcon,
         LockClosedIcon,
     } from "@heroicons/vue/24/solid";
 

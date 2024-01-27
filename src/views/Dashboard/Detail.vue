@@ -47,7 +47,7 @@
             v-for="image in project.image"
             :src="baseUrl + '/' + image.image"
             alt="foto_project"
-            class="max-w-full h-auto mx-auto object-contain rounded-md shadow"
+            class="w-full h-48 mx-auto object-contain rounded-md shadow"
           />
         </div>
         <p

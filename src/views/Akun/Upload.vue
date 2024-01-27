@@ -83,7 +83,7 @@
         </div>
 
         <!-- Description Creator -->
-        <div class="flex gap-10">
+        <div class="flex gap-20">
           <label for="deskripsi">Nama Project :</label>
           <div class="relative flex flex-col gap-5">
             <input
@@ -91,7 +91,7 @@
               name="my-input"
               id="deskripsi"
               class="py-2 w-[365px] bg-transparent bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Kasih Deskripsi BANG SATE "
+              placeholder="Nama Project"
             />
           </div>
         </div>
@@ -103,7 +103,7 @@
               name="my-input"
               id="deskripsi"
               class="h-24 py-2 w-[365px] bg-transparent bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Kasih Deskripsi BANG SATE "
+              placeholder="Deskripsi Project"
             />
           </div>
         </div>

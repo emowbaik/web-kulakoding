@@ -70,9 +70,6 @@ const router = createRouter({
       path: "/about",
       name: "about",
       component: About,
-      meta: {
-        authRequired: true,
-      },
     },
     {
       path: "/reset-password",
@@ -94,11 +91,11 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const isLoggedIn = localStorage.getItem("access_token");
+  const isLoggedIn = localStorage.getItem("auth_token");
 
   if (to.matched.some((record) => record.meta.authRequired)) {
     if (!isLoggedIn) {
-      next("/login");
+      next("/");
     } else {
       next();
     }

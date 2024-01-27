@@ -19,7 +19,7 @@
                                     class="opacity-0" />
                             </div>
                             <div
-                                class="relative flex flex-col justify-center items-center bg-[#22668D] rounded-r-md bg-[url(@/assets/Login/pita-kanan-bawah.png)] bg-right-bottom bg-no-repeat w-[450px] h-[500px] z-40">
+                                class="relative flex flex-col justify-evenly items-center bg-[#22668D] rounded-r-md bg-[url(@/assets/Login/pita-kanan-bawah.png)] bg-right-bottom bg-no-repeat w-[450px] h-[500px] z-40">
                                 <div class="m-5">
                                     <h2 class="text-center font-bold text-2xl mb-2">Create Accout</h2>
                                     <span class="flex flex-col gap-3">
@@ -47,8 +47,7 @@
                                         </div>
                                         <div class="flex flex-col w-[250px]">
                                             <span>
-                                                <div
-                                                    class="absolute flex items-center py-[33px] px-3 pointer-events-none">
+                                                <div class="absolute flex items-center py-[33px] px-3 pointer-events-none">
                                                     <LockClosedIcon class="w-5 text-slate-900" />
                                                 </div>
                                                 <label for="input-group-3" class="font-semibold">Password</label>
@@ -62,12 +61,12 @@
                                             Register
                                         </button>
                                     </span>
-                                    <div class="flex justify-between text-sm mt-1">
-                                        <p>
-                                            Already have an account?
-                                            <router-link class="text-[#FFB800]" :to="{ name:'login' }">Login</router-link>
-                                        </p>
-                                    </div>
+                                </div>
+                                <div class="flex text-xs">
+                                    <p>
+                                        Already have an account?
+                                        <router-link class="text-[#FFB800]" :to="{ name: 'login' }">Login</router-link>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -121,7 +120,7 @@
                                 <div class="flex justify-between text-sm mt-1">
                                     <p>
                                         Already have an account?
-                                        <router-link class="text-[#FFB800]" :to="{ name:'login' }">Login</router-link>
+                                        <router-link class="text-[#FFB800]" :to="{ name: 'login' }">Login</router-link>
                                     </p>
                                 </div>
                                 <button type="submit"
@@ -139,65 +138,65 @@
 </template>
 
 <script setup>
-    import { ref, reactive } from "vue";
-    import useAuth from "../../services/auth";
-    import {
-        EnvelopeIcon,
-        LockClosedIcon,
-        UserIcon,
-    } from "@heroicons/vue/24/solid";
+import { ref, reactive } from "vue";
+import useAuth from "../../services/auth";
+import {
+    EnvelopeIcon,
+    LockClosedIcon,
+    UserIcon,
+} from "@heroicons/vue/24/solid";
 
-    const showMaskot = ref(true);
+const showMaskot = ref(true);
 
-    const toggleMaskot = () => {
-        showMaskot.value = !showMaskot.value;
-        if (!showMaskot.value) {
-            setTimeout(() => {
-                showMaskot.value = true;
-            }, 1000);
-        }
-    };
-
-    const payload = reactive({
-        email: "",
-        username: "",
-        password: "",
-    });
-
-    const { Register } = useAuth();
-
-    async function doRegister() {
-        await Register(payload);
+const toggleMaskot = () => {
+    showMaskot.value = !showMaskot.value;
+    if (!showMaskot.value) {
+        setTimeout(() => {
+            showMaskot.value = true;
+        }, 1000);
     }
+};
+
+const payload = reactive({
+    email: "",
+    username: "",
+    password: "",
+});
+
+const { Register } = useAuth();
+
+async function doRegister() {
+    await Register(payload);
+}
 </script>
 
 <style scoped>
-    @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet');
 
-    .bg {
-        background: url(@/assets/Login/bg.png) center no-repeat;
-        font-family: "Inter", sans-serif;
+.bg {
+    background: url(@/assets/Login/bg.png) center no-repeat;
+    font-family: "Inter", sans-serif;
+}
+
+.maskot {
+    position: absolute;
+    bottom: 70%;
+    right: 48.7.5%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    transition: opacity 1s ease-out;
+    animation: fadeInFromRight 1s ease-in-out;
+}
+
+@keyframes fadeInFromRight {
+    0% {
+        opacity: 1;
+        transform: translateX(10%);
     }
 
-    .maskot {
-        position: absolute;
-        bottom: 70%;
-        right: 48.7.5%;
+    100% {
+        opacity: 1;
         transform: translate(-50%, -50%);
-        max-width: 100%;
-        transition: opacity 1s ease-out;
-        animation: fadeInFromRight 1s ease-in-out;
     }
-
-    @keyframes fadeInFromRight {
-        0% {
-            opacity: 1;
-            transform: translateX(10%);
-        }
-
-        100% {
-            opacity: 1;
-            transform: translate(-50%, -50%);
-        }
-    }
+}
 </style>
