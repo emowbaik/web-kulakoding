@@ -6,7 +6,7 @@
             </h2>
             <div class="flex flex-col lg:flex-row lg:justify-between">
                 <div v-for="item in members" :key="item.id" class="mx-auto lg:mx-5 mb-5 lg:mb-0">
-                    <div class="bg-[#0096D1] rounded-md shadow">
+                    <div class="bg-[#0096D1] dark:bg-[#277894] rounded-md shadow">
                         <img :src="item.image" class="w-full h-48 lg:h-64 object-contain rounded-md" alt="Member" />
                     </div>
                     <p class="text-center m-2 text-base font-medium">

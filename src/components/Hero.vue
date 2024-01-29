@@ -1,37 +1,27 @@
 <template>
-  <div class="flex flex-col items-center lg:flex-row lg:justify-between lg:my-5">
-    <div class="flex lg:m-10 items-center mx-auto">
-      <div v-if="isDark == true"
-        class="rounded-lg bg-no-repeat lg:m-0 m-5 bg-right-top bg-[#FFBC43] bg-opacity-25 bg-[url(@/assets/img/aset-hero1-dark.png)]">
-        <div class="bg-no-repeat bg-center bg-cover bg-[url(@/assets/img/aset-hero2-dark.png)]">
-          <div class="bg-no-repeat bg-left-bottom bg-[url(@/assets/img/aset-hero3-dark.png)]">
-            <div class="relative flex items-center w-[100%] lg:w-[748px] min-h-[400px] overflow-hidden">
-              <p class="text-lg m-5 text-center font-bold lg:text-2xl text-black dark:text-white">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, tenetur.
-              </p>
-            </div>
-          </div>
-        </div>
+  <div class="flex flex-col items-center lg:flex-row lg:justify-between m-10 gap-10"> <img
+      src="@/assets/img/work-2.png" alt="bg_hero"
+      class="w-[80%] lg:w-[50%] lg:h-[100%] bg-center bg-cover bg-no-repeat" />
+    <div class="flex flex-col gap-5">
+      <div class="flex flex-col gap-3">
+        <h2 class="text-4xl font-bold text-center lg:text-left">Judul</h2>
+        <p class="font-medium text-center lg:text-left">Selamat datang di Kula Koding! Kami menjadi mitra Anda dalam perjalanan
+          teknologi informasi yang terus berkembang. Dengan dedikasi pada inovasi, kami membawa Anda ke dunia solusi IT
+          yang adaptif, memungkinkan transformasi dan pertumbuhan perusahaan Anda di era digital.</p>
+        <hr style="height:2px;border-width:0;" class="bg-slate-900 dark:bg-white">
       </div>
-      <div v-else
-        class="rounded-lg bg-no-repeat lg:m-0 m-5 bg-right-top bg-[#FFBC43] bg-opacity-25 bg-[url(@/assets/img/aset-hero1.png)]">
-        <div class="bg-no-repeat bg-center bg-cover bg-[url(@/assets/img/aset-hero3.png)]">
-          <div class="bg-no-repeat bg-left-bottom bg-[url(@/assets/img/aset-hero2.png)]">
-            <div class="relative flex items-center w-[100%] lg:w-[748px] min-h-[400px] overflow-hidden">
-              <p class="text-lg m-5 text-center font-bold lg:text-2xl text-black dark:text-white">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, tenetur.
-              </p>
-            </div>
-          </div>
-        </div>
+      <div v-show="current.path !== '/dashboard'" class="flex justify-center lg:justify-start">
+        <router-link :to="{ name:'register' }"
+          class="py-2 px-5 bg-[#3E9ACF] dark:bg-white rounded-md text-white dark:text-slate-900 shadow">Get Started</router-link>
       </div>
     </div>
-    <img src="@/assets/img/work-2.png" alt="bg_hero"
-      class="w-[80%] lg:w-[50%] lg:h-[100%] bg-center bg-cover bg-no-repeat" />
   </div>
 </template>
 <script setup>
   import { useDark, useToggle } from "@vueuse/core";
+  import { useRouter } from "vue-router";
 
+  const router = useRouter();
+  const current = router.currentRoute;
   const isDark = useDark(false);
 </script>

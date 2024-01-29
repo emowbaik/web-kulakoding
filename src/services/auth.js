@@ -26,6 +26,7 @@ export default function useAuth() {
         success("Login berhasil");
       }, 1200);
     } catch (error) {
+      failed(error.response.data.message);
       if (axios.isAxiosError(error)) {
         console.error(error.response.data);
       }
@@ -41,6 +42,7 @@ export default function useAuth() {
         success("Register berhasil")
       }, 1200);
     } catch (error) {
+      failed(error.response.data.message);
       if (axios.isAxiosError(error)) {
         console.error(error.response.data);
       }

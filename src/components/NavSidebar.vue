@@ -13,7 +13,8 @@
                         enter-from="translate-x-full" enter-to="translate-x-0"
                         leave="transition ease-in-out duration-300 transform" leave-from="translate-x-0"
                         leave-to="translate-x-full">
-                        <DialogPanel class="relative flex-1 flex flex-col max-w-64 w-full pb-4 shadow bg-[#0096D1]">
+                        <DialogPanel
+                            class="relative flex-1 flex flex-col max-w-64 w-full pb-4 shadow bg-[#0096D1] dark:bg-[#C1C1C1]">
                             <TransitionChild as="template" enter="ease-in-out duration-300" enter-from="opacity-0"
                                 enter-to="opacity-100" leave="ease-in-out duration-300" leave-from="opacity-100"
                                 leave-to="opacity-0">
@@ -37,12 +38,26 @@
                                     <hr class="h-[2px] border-0 bg-slate-900" />
                                     <nav class="mt-2 flex-shrink-0 h-full divide-y divide-slate-900 overflow-y-auto"
                                         aria-label="Sidebar">
-                                        <div class="px-2 space-y-1">
-                                            <a v-for="item in navigation" @click="sidebarOpen = false" :key="item.name"
+                                        <div v-if="current.path !== '/'" class="px-2 space-y-1">
+                                            <a v-for="item in navDashboard" @click="sidebarOpen = false" :key="item.id"
                                                 :href="item.href" :class="[
                           item.current
                             ? 'bg-gray -800 text-slate-900'
-                            : 'text-slate-900 hover:text-slate-900 hover:bg-[#0080b3]',
+                            : 'text-slate-900 hover:text-slate-900 hover:bg-[#0080b3] dark:hover:bg-white',
+                          'group flex items-center px-2 py-2 text-xs font-medium rounded-md',
+                        ]" :aria-current="item.current ? 'page' : undefined">
+                                                <component :is="item.icon"
+                                                    class="mr-4 flex-shrink-0 h-4 w-4 text-slate-900"
+                                                    aria-hidden="true" />
+                                                {{ item.name }}
+                                            </a>
+                                        </div>
+                                        <div v-else class="px-2 space-y-1">
+                                            <a v-for="item in nav" @click="sidebarOpen = false" :key="item.id"
+                                                :href="item.href" :class="[
+                          item.current
+                            ? 'bg-gray -800 text-slate-900'
+                            : 'text-slate-900 hover:text-slate-900 hover:bg-[#0080b3] dark:hover:bg-white',
                           'group flex items-center px-2 py-2 text-xs font-medium rounded-md',
                         ]" :aria-current="item.current ? 'page' : undefined">
                                                 <component :is="item.icon"
@@ -53,9 +68,9 @@
                                         </div>
                                     </nav>
                                 </div>
-                                <div class="absolute w-full bg-white dark:bg-[#c1c1c1] bottom-0">
+                                <div v-show="current.path !== '/'" class="absolute w-full bg-white bottom-0">
                                     <div class="flex justify-between m-2">
-                                        <button
+                                        <button @click="Logout()"
                                             class="inline-flex lg:mx-0 gap-1 font-semibold rounded-md dark:text-slate-900 bg-transparent focus:bg-slate-300 border border-white hover:border-gray-400 dark:bg-transparent dark:focus:bg-{#818181} dark:border-transparent hover:dark:border-gray-400 p-2">
                                             <ArrowRightStartOnRectangleIcon class="w-5" />
                                             Log Out
@@ -80,7 +95,7 @@
 
         <div class="lg:pl-60 flex flex-col flex-1">
             <div
-                class="sticky top-0 z-10 flex-shrink-0 flex justify-end h-16 bg-[#0096D1] border-b border-gray-200 dark:border-slate-800 lg:border-none shadow-lg">
+                class="sticky top-0 z-10 flex-shrink-0 flex justify-end h-16 bg-[#0096D1] dark:bg-[#C1C1C1] border-b border-gray-200 dark:border-slate-800 lg:border-none shadow-lg">
                 <div class="flex-1 px-4 flex justify-between sm:px-6 lg:max-w-auto lg:mx-auto lg:px-8">
                     <router-link :to="{ name: 'dashboard' }" class="flex-1 flex">
                         <img src="../assets/img/logo_kulakoding.png" alt="logo_kulakoding" />
@@ -97,7 +112,7 @@
     </div>
 </template>
 <script setup>
-    import { ref } from "vue";
+    import { ref, computed } from "vue";
     import {
         Dialog,
         DialogPanel,
@@ -116,20 +131,44 @@
         Bars4Icon,
     } from "@heroicons/vue/24/solid";
     import { useDark, useToggle } from "@vueuse/core";
+    import { useRouter } from "vue-router";
+    import useAuth from "../services/auth";
 
+    const { Logout } = useAuth();
+    const router = useRouter();
+    const current = router.currentRoute;
     const isDark = useDark(false);
     const toggleDark = useToggle(isDark);
 
-    const navigation = [
+    const navDashboard = [
         {
             name: "About Us",
+            id: 1,
             href: "/about",
             icon: UserGroupIcon,
             current: false,
         },
         {
             name: "Profile",
+            id: 2,
             href: "/user",
+            icon: UserCircleIcon,
+            current: false,
+        },
+    ];
+
+    const nav = [
+        {
+            name: "Login",
+            id: 3,
+            href: "/login",
+            icon: UserCircleIcon,
+            current: false,
+        },
+        {
+            name: "Get Started",
+            id: 4,
+            href: "/register",
             icon: UserCircleIcon,
             current: false,
         },

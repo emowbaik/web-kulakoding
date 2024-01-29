@@ -21,7 +21,9 @@
                             <div
                                 class="relative flex flex-col justify-evenly items-center bg-[#22668D] rounded-r-md bg-[url(@/assets/Login/pita-kanan-bawah.png)] bg-right-bottom bg-no-repeat w-[450px] h-[500px] z-40">
                                 <div class="m-5">
-                                    <h2 class="text-center font-bold text-2xl mb-2">Create Accout</h2>
+                                    <h2 class="text-center font-bold text-2xl mb-2">
+                                        Create Accout
+                                    </h2>
                                     <span class="flex flex-col gap-3">
                                         <div class="flex flex-col w-[250px]">
                                             <label for="input-group-1" class="font-semibold">Username</label>
@@ -47,7 +49,8 @@
                                         </div>
                                         <div class="flex flex-col w-[250px]">
                                             <span>
-                                                <div class="absolute flex items-center py-[33px] px-3 pointer-events-none">
+                                                <div
+                                                    class="absolute flex items-center py-[33px] px-3 pointer-events-none">
                                                     <LockClosedIcon class="w-5 text-slate-900" />
                                                 </div>
                                                 <label for="input-group-3" class="font-semibold">Password</label>
@@ -79,9 +82,9 @@
         <section>
             <div class="lg:hidden">
                 <div class="flex flex-col w-screen h-screen overflow-hidden bg-[#22668D]">
-                    <img src="../../assets/Login/pita-mobile-atas.png" alt="" class="w-full">
+                    <img src="../../assets/Login/pita-mobile-atas.png" alt="" class="w-full" />
                     <div class="flex-grow">
-                        <div class="flex flex-col justify-center items-center mt-20 text-white">
+                        <div class="flex flex-col justify-center items-center mt-10 text-white">
                             <h2 class="text-center font-bold text-4xl mb-10">Welcome</h2>
                             <span class="flex flex-col gap-3">
                                 <div class="flex flex-col w-[250px]">
@@ -117,20 +120,20 @@
                                             placeholder="Password" />
                                     </span>
                                 </div>
-                                <div class="flex justify-between text-sm mt-1">
-                                    <p>
-                                        Already have an account?
-                                        <router-link class="text-[#FFB800]" :to="{ name: 'login' }">Login</router-link>
-                                    </p>
-                                </div>
                                 <button type="submit"
                                     class="inline-flex mt-5 justify-center items-center gap-1 font-semibold rounded-md bg-[#3E9ACF] focus:bg-slate-300 border border-slate-900 hover:border-gray-400 dark:bg-transparent dark:focus:bg-slate-900 dark:border-gray-600 hover:dark:border-gray-400 shadow p-2 hover:bg-slate-400 text-slate-900">
                                     Register
                                 </button>
                             </span>
+                            <div class="flex text-sm mt-5">
+                                <p>
+                                    Already have an account?
+                                    <router-link class="text-[#FFB800]" :to="{ name: 'login' }">Login</router-link>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <img src="../../assets/Login/pita-mobile-bawah.png" alt="" class="w-full">
+                    <img src="../../assets/Login/pita-mobile-bawah.png" alt="" class="w-full" />
                 </div>
             </div>
         </section>
@@ -138,65 +141,65 @@
 </template>
 
 <script setup>
-import { ref, reactive } from "vue";
-import useAuth from "../../services/auth";
-import {
-    EnvelopeIcon,
-    LockClosedIcon,
-    UserIcon,
-} from "@heroicons/vue/24/solid";
+    import { ref, reactive } from "vue";
+    import useAuth from "../../services/auth";
+    import {
+        EnvelopeIcon,
+        LockClosedIcon,
+        UserIcon,
+    } from "@heroicons/vue/24/solid";
 
-const showMaskot = ref(true);
+    const showMaskot = ref(true);
 
-const toggleMaskot = () => {
-    showMaskot.value = !showMaskot.value;
-    if (!showMaskot.value) {
-        setTimeout(() => {
-            showMaskot.value = true;
-        }, 1000);
+    const toggleMaskot = () => {
+        showMaskot.value = !showMaskot.value;
+        if (!showMaskot.value) {
+            setTimeout(() => {
+                showMaskot.value = true;
+            }, 1000);
+        }
+    };
+
+    const payload = reactive({
+        email: "",
+        username: "",
+        password: "",
+    });
+
+    const { Register } = useAuth();
+
+    async function doRegister() {
+        await Register(payload);
     }
-};
-
-const payload = reactive({
-    email: "",
-    username: "",
-    password: "",
-});
-
-const { Register } = useAuth();
-
-async function doRegister() {
-    await Register(payload);
-}
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet');
+    @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet');
 
-.bg {
-    background: url(@/assets/Login/bg.png) center no-repeat;
-    font-family: "Inter", sans-serif;
-}
-
-.maskot {
-    position: absolute;
-    bottom: 70%;
-    right: 48.7.5%;
-    transform: translate(-50%, -50%);
-    max-width: 100%;
-    transition: opacity 1s ease-out;
-    animation: fadeInFromRight 1s ease-in-out;
-}
-
-@keyframes fadeInFromRight {
-    0% {
-        opacity: 1;
-        transform: translateX(10%);
+    .bg {
+        background: url(@/assets/Login/bg.png) center no-repeat;
+        font-family: "Inter", sans-serif;
     }
 
-    100% {
-        opacity: 1;
+    .maskot {
+        position: absolute;
+        bottom: 70%;
+        right: 48.7.5%;
         transform: translate(-50%, -50%);
+        max-width: 100%;
+        transition: opacity 1s ease-out;
+        animation: fadeInFromRight 1s ease-in-out;
     }
-}
+
+    @keyframes fadeInFromRight {
+        0% {
+            opacity: 1;
+            transform: translateX(10%);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+    }
 </style>

@@ -12,7 +12,7 @@
         <h2 class="font-bold text-xl lg:text-4xl mb-5 lg:mb-10">Daftar Isi</h2>
         <div class="flex flex-col lg:flex-row lg:justify-around">
           <div v-for="item in daftar" :key="item.id" class="mx-auto lg:mx-5 mb-5 lg:mb-0 transition ease-in-out delay-10o0 hover:-translate-y-1 hover:scale-110 duration-300">
-            <div class="bg-[#0096D1] rounded-md shadow">
+            <div class="bg-[#0096D1] dark:bg-[#277894] rounded-md shadow">
               <a :href="item.link" rel="noopener noreferrer">
                 <img :src="item.image" class="w-full h-48 lg:h-64 object-contain rounded-md" alt="shortcut" />
               </a>

@@ -15,20 +15,20 @@
         <router-view />
       </div>
       <ul class="flex items-center gap-5 font-sans lg:mt-0">
-        <li>
+        <li v-show="current.path !== '/'">
           <!-- Toggle untuk dark mode -->
-          <button @click="toggleDark()" class="text-white mt-1">
+          <button @click="toggleDark()" class="text-white mt-2">
             <img v-if="isDark" src="@/assets/img/Darkmode.png" alt="toggle" class="w-12" />
             <img v-else src="@/assets/img/Lightmode.png" alt="toggle" class="w-12" />
           </button>
         </li>
         <li
           v-if="current.path !== '/dashboard' && current.path !== '/user' && current.path !== '/upload' && current.path !== '/detail' && current.path !== '/about'"
-          class="flex">
+          class="flex -ml-3">
           <router-link :to="{ name:'login' }" class="py-2 px-5">
             Login
           </router-link>
-          <router-link :to="{ name:'register' }" class="py-2 px-5 rounded-md bg-white text-slate-900">
+          <router-link :to="{ name:'register' }" class="py-2 px-5 rounded-md bg-white text-slate-900 shadow">
             Get Started
           </router-link>
         </li>
