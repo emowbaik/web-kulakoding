@@ -142,12 +142,11 @@
 </template>
 
 <script setup>
-    import { reactive, ref, onMounted } from "vue";
+    import { reactive, ref } from "vue";
     import useAuth from "../../services/auth";
     import {
         EnvelopeIcon,
         LockClosedIcon,
-        ArrowRightStartOnRectangleIcon,
     } from "@heroicons/vue/24/solid";
 
     const showMaskot = ref(true);
@@ -170,23 +169,8 @@
     const { Login } = useAuth();
 
     async function doLogin() {
-        if (payload.rememberMe) {
-            localStorage.setItem("loginPayload", JSON.stringify(payload));
-        } else {
-            localStorage.removeItem("loginPayload");
-        }
-
         await Login(payload);
     }
-
-    onMounted(() => {
-        const savedPayload = JSON.parse(localStorage.getItem("loginPayload"));
-        if (savedPayload) {
-            payload.email = savedPayload.email;
-            payload.password = savedPayload.password;
-            payload.rememberMe = savedPayload.rememberMe;
-        }
-    });
 </script>
 
 <style scoped>

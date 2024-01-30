@@ -95,19 +95,25 @@ router.beforeEach((to, from, next) => {
 
   if (to.matched.some((record) => record.meta.authRequired)) {
     if (!isLoggedIn) {
-      next("/");
+      // Pengguna tidak terotentikasi, redirect ke halaman login
+      next({ name: "login" });
     } else {
+      // Pengguna terotentikasi, izinkan navigasi
       next();
     }
   } else if (to.matched.some((record) => record.meta.guestRequired)) {
     if (!isLoggedIn) {
+      // Pengguna tidak terotentikasi, izinkan navigasi
       next();
     } else {
-      next("/dashboard");
+      // Pengguna terotentikasi, redirect ke dashboard
+      next({ name: "dashboard" });
     }
   } else {
+    // Jika tidak ada meta yang didefinisikan, izinkan navigasi
     next();
   }
 });
+
 
 export default router;

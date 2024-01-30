@@ -59,7 +59,7 @@
                         <span class="flex flex-col gap-2">
                             <h2 class="text-2xl text-center font-bold">{{ user.username }}
                             </h2>
-                            <button class="bg-primary py-1.5 px-4 rounded-md text-white shadow">
+                            <button class="inline-flex items-center gap-1 font-semibold text-xs rounded-md bg-transparent focus:border-gray-900 border border-gray-400 hover:border-gray-900 dark:bg-transparent dark:focus:border-gray-400 dark:border-gray-600 hover:dark:border-gray-400 shadow-sm p-1">
                                 Edit Profile >
                             </button>
                         </span>
@@ -72,7 +72,7 @@
                                 </div>
                                 <input disabled type="text" id="input-group-1"
                                     class="bg-transparent text-gray-900 text-sm w-[270px] ps-8 p-2.5 border-transparent border-b-black border-2 h-9 dark:border-transparent dark:border-b-gray-400 dark:placeholder-gray-400 dark:text-white focus:outline-none"
-                                    :value="user.email" />
+                                    placeholder="Email" :value="user.email" />
                             </span>
                         </div>
                         <div class="relative flex gap-2">
@@ -85,16 +85,16 @@
                                     placeholder="Password" :value="user.password" />
                             </span>
                         </div>
-                        <div class="flex gap-2">
-                            <span class="hide lg:block">
+                        <div class="flex mx-auto gap-2">
+                            <span class="hidden lg:block">
                                 <router-link :to="{ name: 'upload' }"
-                                    class="inline-flex items-center gap-1 font-semibold rounded-md bg-transparent focus:border-gray-400 border hover:border-gray-400 dark:bg-transparent dark:focus:border-gray-400 dark:border-gray-600 hover:dark:border-gray-400 shadow-sm p-2">
+                                    class="inline-flex items-center gap-1 font-semibold rounded-md bg-transparent focus:border-gray-900 border border-gray-400 hover:border-gray-900 dark:bg-transparent dark:focus:border-gray-400 dark:border-gray-600 hover:dark:border-gray-400 shadow-sm p-2">
                                     <DocumentPlusIcon class="w-5" />
                                     Upload Project
                                 </router-link>
                             </span>
                             <button @click="Logout()"
-                                class="inline-flex items-center gap-1 font-semibold rounded-md bg-transparent focus:border-gray-400 border hover:border-gray-400 dark:bg-transparent dark:focus:border-gray-400 dark:border-gray-600 hover:dark:border-gray-400 shadow-sm p-2">
+                                class="inline-flex items-center gap-1 font-semibold rounded-md bg-transparent focus:border-gray-900 border border-gray-400 hover:border-gray-900 dark:bg-transparent dark:focus:border-gray-400 dark:border-gray-600 hover:dark:border-gray-400 shadow-sm p-2">
                                 <ArrowRightStartOnRectangleIcon class="w-5" />
                                 Log Out
                             </button>
