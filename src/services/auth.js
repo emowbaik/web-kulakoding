@@ -39,7 +39,7 @@ export default function useAuth() {
       console.log(response.data);
       setTimeout(() => {
         router.push({ name: "login" });
-        success("Register berhasil")
+        success("Register berhasil");
       }, 1200);
     } catch (error) {
       failed(error.response.data.message);
@@ -78,11 +78,47 @@ export default function useAuth() {
     }
   }
 
+  // async function Edit(payload) {
+  //   const status = confirmed("Update data?");
+  //   if (status.isConfirmed) {
+  //     try {
+  //       const response = await axios.post(`/api/v1/user`, payload);
+  //       console.log(response.data);
+  //       accepted(response.data.message);
+  //       router.push("/user");
+  //     } catch (error) {
+  //       failed(error.response.data.message);
+  //       if (axios.isAxiosError(error)) {
+  //         console.error(error.response.data);
+  //       }
+  //     }
+  //   }
+  // }
+
+  async function Edit(payload) {
+    try {
+      const status = await confirmed("Update data?");
+
+      if (status.isConfirmed) {
+        const response = await axios.post(`/api/v1/user`, payload);
+        console.log(response.data);
+        accepted(response.data.message);
+        router.push("/user");
+      }
+    } catch (error) {
+      failed(error.response.data.message);
+      if (axios.isAxiosError(error)) {
+        console.error(error.response.data);
+      }
+    }
+  }
+
   return {
     Login,
     Register,
     Logout,
     LoggedIn,
+    Edit,
     user,
   };
 }

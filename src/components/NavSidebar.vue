@@ -14,7 +14,7 @@
                         leave="transition ease-in-out duration-300 transform" leave-from="translate-x-0"
                         leave-to="translate-x-full">
                         <DialogPanel
-                            class="relative flex-1 flex flex-col max-w-64 w-full pb-4 shadow bg-[#0096D1] dark:bg-[#C1C1C1]">
+                            class="relative flex-1 flex flex-col max-w-64 w-full pb-4 shadow bg-primary dark:bg-[#C1C1C1]">
                             <TransitionChild as="template" enter="ease-in-out duration-300" enter-from="opacity-0"
                                 enter-to="opacity-100" leave="ease-in-out duration-300" leave-from="opacity-100"
                                 leave-to="opacity-0">
@@ -95,7 +95,7 @@
 
         <div class="lg:pl-60 flex flex-col flex-1">
             <div
-                class="sticky top-0 z-10 flex-shrink-0 flex justify-end h-16 bg-[#0096D1] dark:bg-[#C1C1C1] border-b border-gray-200 dark:border-slate-800 lg:border-none shadow-lg">
+                class="sticky top-0 z-10 flex-shrink-0 flex justify-end h-16 bg-primary dark:bg-[#C1C1C1] border-b border-gray-200 dark:border-slate-800 lg:border-none shadow-lg">
                 <div class="flex-1 px-4 flex justify-between sm:px-6 lg:max-w-auto lg:mx-auto lg:px-8">
                     <router-link :to="{ name: 'dashboard' }" class="flex-1 flex">
                         <img src="../assets/img/logo_kulakoding.png" alt="logo_kulakoding" />

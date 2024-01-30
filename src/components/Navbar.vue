@@ -1,5 +1,5 @@
 <template>
-  <nav id="navbar" class="bg-[#0096D1] px-6 shadow dark:bg-[#C1C1C1] text-white dark:text-slate-900">
+  <nav id="navbar" class="bg-primary px-6 shadow dark:bg-[#C1C1C1] text-white dark:text-slate-900">
     <div class="flex items-center justify-between">
       <div class="flex items-center font-sans">
         <router-link :to="{ name: 'dashboard' }" class="p-2">

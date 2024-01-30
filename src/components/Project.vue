@@ -11,7 +11,7 @@
           class="mx-auto mb-5 transition ease-in-out delay-10o0 hover:-translate-y-1 hover:scale-110 duration-300"
         >
           <router-link :to="{ name: 'detail', params: { id: project.id } }">
-            <div class="bg-[#0096D1] dark:bg-[#277894] rounded-md shadow">
+            <div class="bg-primary dark:bg-[#277894] rounded-md shadow">
               <img
                 v-for="image in project.image"
                 :src="routes + '/' + image.image"

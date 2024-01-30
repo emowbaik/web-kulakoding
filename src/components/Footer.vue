@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div
-                class="flex lg:justify-center justify-between -mt-5 bg-[#0096D1] dark:bg-[#C1C1C1] text-slate-900 rounded-b-xl py-1">
+                class="flex lg:justify-center justify-between -mt-5 bg-primary dark:bg-[#C1C1C1] text-slate-900 rounded-b-xl py-1">
                 <p class="ml-2 font-bold">© Copy Right - KulaKoding</p>
                 <div class="flex gap-3 mr-2 lg:hidden">
                     <a href="https://github.com" target="_blank" class="flex gap-2 font-semibold"><i
