@@ -43,7 +43,7 @@ import { onMounted } from "vue";
 
 const { project, Index } = useProject();
 const routes = import.meta.env.VITE_API_URL;
-console.log(routes);
+routes;
 
 onMounted(() => {
   Index();
