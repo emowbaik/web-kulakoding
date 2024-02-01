@@ -13,8 +13,8 @@
           <router-link :to="{ name: 'detail', params: { id: item.id } }">
             <div class="bg-primary dark:bg-[#277894] rounded-md shadow">
               <img
-                v-for="image in item.image"
-                :src="routes + '/' + image.image"
+                v-for="gambar in item.image"
+                :src="routes + '/' + gambar.image"
                 class="w-full h-48 lg:h-64 object-contain rounded-md"
               />
             </div>

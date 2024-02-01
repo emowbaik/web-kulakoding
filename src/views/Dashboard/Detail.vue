@@ -44,9 +44,10 @@
       <div class="text-center mx-auto lg:w-1/2">
         <div class="m-5">
           <img
-            v-for="image in project.image"
-            :src="baseUrl + '/' + image.image"
-            alt="foto_project"
+            v-for="gambar in project.image"
+            :key="gambar.id"
+            :src="baseUrl + '/' + gambar.image"
+            :alt="gambar.image"
             class="w-full h-48 mx-auto object-contain rounded-md shadow"
           />
         </div>

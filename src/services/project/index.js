@@ -1,8 +1,10 @@
 import axios from "../axios";
 import { ref } from "vue";
+import useSwal from "../swal";
 
 export default function useProject() {
   const project = ref([]);
+  const { accepted, failed, confirmed, success } = useSwal();
 
   async function StoreProject(payload) {
     try {
