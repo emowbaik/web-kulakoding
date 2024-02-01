@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full">
+  <main class="h-full">
     <Navbar class="hidden lg:block" />
     <NavSidebar class="lg:hidden" />
     <Hero />
@@ -40,7 +40,7 @@
     </div>
     <Project id="project" />
     <Footer />
-  </div>
+  </main>
 </template>
 
 <script setup>

@@ -8,6 +8,7 @@ const Dashboard = () => import("@/views/Dashboard/Dashboard.vue");
 const Detail = () => import("@/views/Dashboard/Detail.vue");
 const Profile = () => import("@/views/Akun/Profile.vue");
 const Upload = () => import("@/views/Akun/Upload.vue");
+const Edit = () => import("@/views/Akun/Update.vue");
 const About = () => import("@/views/Dashboard/About.vue");
 const Index = () => import("../views/Index.vue");
 
@@ -46,6 +47,14 @@ const router = createRouter({
       path: "/user",
       name: "user",
       component: Profile,
+      meta: {
+        authRequired: true,
+      },
+    },
+    {
+      path: "/user/edit",
+      name: "user.edit",
+      component: Edit,
       meta: {
         authRequired: true,
       },

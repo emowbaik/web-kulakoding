@@ -24,7 +24,7 @@ export default function useProject() {
   async function Index() {
     const response = await axios.get("/api/v1/project");
     console.log(response.data);
-    project.value = response.data;
+    project.value = response.data.data;
   }
 
   return {

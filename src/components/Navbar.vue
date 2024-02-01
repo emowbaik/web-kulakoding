@@ -22,23 +22,43 @@
             <img v-else src="@/assets/img/Lightmode.png" alt="toggle" class="w-12" />
           </button>
         </li>
-        <li
-          v-if="current.path !== '/dashboard' && current.path !== '/user' && current.path !== '/upload' && current.path !== '/detail' && current.path !== '/about'"
-          class="flex -ml-3">
-          <router-link :to="{ name:'login' }" class="py-2 px-5">
+        <li v-if="
+            current.path !== '/dashboard' &&
+            current.path !== '/user' &&
+            current.path !== '/upload' &&
+            current.path !== '/detail' &&
+            current.path !== '/about' &&
+            current.path !== '/user/edit'
+          " class="flex -ml-3">
+          <router-link :to="{ name: 'login' }" class="py-2 px-5">
             Login
           </router-link>
-          <router-link :to="{ name:'register' }" class="py-2 px-5 rounded-md bg-white text-slate-900 shadow">
+          <router-link :to="{ name: 'register' }" class="py-2 px-5 rounded-md bg-white text-slate-900 shadow">
             Get Started
           </router-link>
         </li>
-        <li v-else>
-          <router-link :to="{ name: 'user' }">
-            <div class="bg-white p-0.5 hover:bg-slate-100 rounded-full shadow">
-              <img :src="`https://api.dicebear.com/7.x/initials/svg?seed=${user.username}`" alt="profile"
-                class="rounded-full w-10 items-center justify-center" />
+        <li v-else class="flex gap-3 relative text-end items-center">
+          <img @click="open" class="w-10 h-10 rounded-full cursor-pointer"
+            :src="`https://api.dicebear.com/7.x/initials/svg?seed=${user.username}`" alt="" />
+          <div v-if="isClicked == true"
+            class="absolute rounded-md shadow-md flex flex-col bg-white top-12 right-0 p-3 gap-1">
+            <div class="flex items-center gap-1 p-2 shadow bg-primary rounded-md transition-colors duration-150">
+              <h2 class="text-nowrap font-normal">{{ user.username }} | {{ user.role }}</h2>
             </div>
-          </router-link>
+            <span class="flex flex-col mt-2">
+              <router-link :to="{ name:'user' }"
+                class="flex items-center gap-1 py-1 hover:bg-slate-200 rounded-md transition-colors duration-150">
+                <UserIcon class="w-5 h-5 text-black" />
+                <span class="text-black">Profile</span>
+              </router-link>
+              <hr style="height:1px;border-width:0;color:#565656;background-color:#565656">
+              <button @click="Logout()"
+                class="flex items-center gap-1 py-1 hover:bg-slate-200 rounded-md transition-colors duration-150">
+                <ArrowLeftStartOnRectangleIcon class="w-5 h-5 text-black" />
+                <span class="text-black">Logout</span>
+              </button>
+            </span>
+          </div>
         </li>
       </ul>
     </div>
@@ -46,19 +66,31 @@
 </template>
 
 <script setup>
-  import logoProfil from "@/components/icons/Profil.vue";
+  import {
+    ArrowLeftStartOnRectangleIcon,
+  } from "@heroicons/vue/24/solid";
+  import {
+    UserIcon,
+  } from "@heroicons/vue/24/outline";
   import useAuth from "../services/auth";
   import { useDark, useToggle } from "@vueuse/core";
-  import { onMounted, computed } from "vue";
+  import { onMounted, ref } from "vue";
   import { useRouter } from "vue-router";
 
+  const isClicked = ref(false);
   const router = useRouter();
   const current = router.currentRoute;
   const isDark = useDark(false);
   const toggleDark = useToggle(isDark);
+  const { user, LoggedIn, Logout } = useAuth();
 
-  const { user, LoggedIn } = useAuth();
-
+  function open() {
+    if (isClicked.value == false) {
+      isClicked.value = true;
+    } else {
+      isClicked.value = false;
+    }
+  }
   onMounted(() => {
     LoggedIn();
   });

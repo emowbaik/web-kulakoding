@@ -3,7 +3,7 @@
         EnvelopeIcon,
         LockClosedIcon,
         DocumentPlusIcon,
-        ArrowRightStartOnRectangleIcon,
+        PencilSquareIcon,
         ArrowLeftIcon,
         HomeIcon,
         ChevronRightIcon,
@@ -56,12 +56,10 @@
                             <img :src="`https://api.dicebear.com/7.x/initials/svg?seed=${user.username}`" alt="profile"
                                 class="rounded-full w-20 items-center justify-center" />
                         </div>
-                        <span class="flex flex-col gap-2">
-                            <h2 class="text-2xl text-center font-bold">{{ user.username }}
+                        <span class="flex flex-col">
+                            <h2 class="text-2xl text-center font-bold">
+                                {{ user.username }}
                             </h2>
-                            <button class="inline-flex items-center gap-1 font-semibold text-xs rounded-md bg-transparent focus:border-gray-900 border border-gray-400 hover:border-gray-900 dark:bg-transparent dark:focus:border-gray-400 dark:border-gray-600 hover:dark:border-gray-400 shadow-sm p-1">
-                                Edit Profile >
-                            </button>
                         </span>
                     </div>
                     <div class="flex flex-col justify-center mx-auto gap-3">
@@ -71,7 +69,7 @@
                                     <EnvelopeIcon class="w-5" />
                                 </div>
                                 <input disabled type="text" id="input-group-1"
-                                    class="bg-transparent text-gray-900 text-sm w-[270px] ps-8 p-2.5 border-transparent border-b-black border-2 h-9 dark:border-transparent dark:border-b-gray-400 dark:placeholder-gray-400 dark:text-white focus:outline-none"
+                                    class="bg-transparent text-gray-900 text-sm lg:w-[295px] ps-8 p-2.5 border-transparent border-b-black border-2 h-9 dark:border-transparent dark:border-b-gray-400 dark:placeholder-gray-400 dark:text-white focus:outline-none"
                                     placeholder="Email" :value="user.email" />
                             </span>
                         </div>
@@ -81,7 +79,7 @@
                                     <LockClosedIcon class="w-5" />
                                 </div>
                                 <input disabled type="text" id="input-group-1"
-                                    class="bg-transparent text-gray-900 text-sm w-[270px] ps-8 p-2.5 border-transparent border-b-black border-2 h-9 dark:border-transparent dark:border-b-gray-400 dark:placeholder-gray-400 dark:text-white focus:outline-none"
+                                    class="bg-transparent text-gray-900 text-sm lg:w-[295px] ps-8 p-2.5 border-transparent border-b-black border-2 h-9 dark:border-transparent dark:border-b-gray-400 dark:placeholder-gray-400 dark:text-white focus:outline-none"
                                     placeholder="Password" :value="user.password" />
                             </span>
                         </div>
@@ -93,11 +91,13 @@
                                     Upload Project
                                 </router-link>
                             </span>
-                            <button @click="Logout()"
-                                class="inline-flex items-center gap-1 font-semibold rounded-md bg-transparent focus:border-gray-900 border border-gray-400 hover:border-gray-900 dark:bg-transparent dark:focus:border-gray-400 dark:border-gray-600 hover:dark:border-gray-400 shadow-sm p-2">
-                                <ArrowRightStartOnRectangleIcon class="w-5" />
-                                Log Out
-                            </button>
+                            <span>
+                                <router-link :to="{ name: 'user.edit'}"
+                                    class="inline-flex items-center gap-1 font-semibold rounded-md bg-transparent focus:border-gray-900 border border-gray-400 hover:border-gray-900 dark:bg-transparent dark:focus:border-gray-400 dark:border-gray-600 hover:dark:border-gray-400 shadow-sm p-2">
+                                    <PencilSquareIcon class="w-5" />
+                                    Edit Profile
+                                </router-link>
+                            </span>
                         </div>
                     </div>
                 </div>

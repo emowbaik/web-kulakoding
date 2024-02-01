@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center lg:flex-row lg:justify-between m-10 gap-10"> <img
+  <section class="flex flex-col items-center lg:flex-row lg:justify-between m-10 gap-10"> <img
       src="@/assets/img/work-2.png" alt="bg_hero"
       class="w-[80%] lg:w-[50%] lg:h-[100%] bg-center bg-cover bg-no-repeat" />
     <div class="flex flex-col gap-5">
@@ -15,7 +15,7 @@
           class="py-2 px-5 bg-[#3E9ACF] dark:bg-white rounded-md text-white dark:text-slate-900 shadow">Get Started</router-link>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 <script setup>
   import { useDark, useToggle } from "@vueuse/core";

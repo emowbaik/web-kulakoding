@@ -1,5 +1,5 @@
 <template>
-        <div class="w-full h-[140px] overflow-hidden">
+        <section class="w-full h-[140px] overflow-hidden">
             <div class="flex flex-col items-end">
                 <div
                 v-for="number in 3"
@@ -10,7 +10,7 @@
             <img :src="`../../src/assets/maskot/${number}.png`" @click="next" :alt="'Maskot' + number">
             </div>
             </div>
-        </div>
+        </section>
 </template>
 
 <script>
