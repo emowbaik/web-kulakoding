@@ -22,14 +22,7 @@
             <img v-else src="@/assets/img/Lightmode.png" alt="toggle" class="w-12" />
           </button>
         </li>
-        <li v-if="
-            current.path !== '/dashboard' &&
-            current.path !== '/user' &&
-            current.path !== '/upload' &&
-            current.path !== '/detail' &&
-            current.path !== '/about' &&
-            current.path !== '/user/edit'
-          " class="flex -ml-3">
+        <li v-if="!allowedPaths.includes(current.path)" class="flex -ml-3">
           <router-link :to="{ name: 'login' }" class="py-2 px-5">
             Login
           </router-link>
@@ -46,7 +39,7 @@
               <h2 class="text-nowrap font-normal">{{ user.username }} | {{ user.role }}</h2>
             </div>
             <span class="flex flex-col mt-2">
-              <router-link :to="{ name:'user' }"
+              <router-link :to="{ name: 'user' }"
                 class="flex items-center gap-1 py-1 hover:bg-slate-200 rounded-md transition-colors duration-150">
                 <UserIcon class="w-5 h-5 text-black" />
                 <span class="text-black">Profile</span>
@@ -84,13 +77,23 @@
   const toggleDark = useToggle(isDark);
   const { user, LoggedIn, Logout } = useAuth();
 
+  const number = Array.from({ length: 10000 }, (_, index) => index + 1);
+  const allowedPaths = [
+    "/",
+    "/dashboard",
+    "/user",
+    "/upload",
+    "/detail",
+    "/about",
+    "/user/edit",
+    ...number.map(n => `/detail/${n}`)
+  ];
+
+
   function open() {
-    if (isClicked.value == false) {
-      isClicked.value = true;
-    } else {
-      isClicked.value = false;
-    }
+    isClicked.value = !isClicked.value;
   }
+
   onMounted(() => {
     LoggedIn();
   });
