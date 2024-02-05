@@ -6,6 +6,7 @@ const VerifikasiEmail = () => import("@/views/auth/VerificationEmail.vue");
 const ResetPassword = () => import("@/views/auth/ResetPassword.vue");
 const Dashboard = () => import("@/views/Dashboard/Dashboard.vue");
 const Detail = () => import("@/views/Dashboard/Detail.vue");
+const Explore = () => import("@/views/Dashboard/Explore.vue");
 const Profile = () => import("@/views/Akun/Profile.vue");
 const Upload = () => import("@/views/Akun/Upload.vue");
 const Edit = () => import("@/views/Akun/Update.vue");
@@ -63,6 +64,14 @@ const router = createRouter({
       path: "/detail/:id",
       name: "detail",
       component: Detail,
+      meta: {
+        authRequired: true,
+      },
+    },
+    {
+      path: "/explore",
+      name: "explore",
+      component: Explore,
       meta: {
         authRequired: true,
       },

@@ -1,5 +1,5 @@
 <script setup>
-  import { ref, reactive } from "vue";
+  import { reactive } from "vue";
   import {
     PencilSquareIcon,
     ArrowLeftIcon,
@@ -50,8 +50,6 @@
       payload.image.splice(index, 1);
       console.log(payload.preview);
     }
-    // form.preview.splice(params, 1);
-    // form.image.splice(params, 1);
     console.log(params);
   };
 

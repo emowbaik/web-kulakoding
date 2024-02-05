@@ -5,9 +5,12 @@
         <router-link :to="{ name: 'dashboard' }" class="p-2">
           <div class="bg-[url(@/assets/img/logo_kulakoding.png)] w-14 h-14 bg-center bg-contain bg-no-repeat"></div>
         </router-link>
-        <ul class="flex items-center font-sans lg:ml-auto">
+        <ul class="flex items-center font-sans lg:ml-auto gap-5">
           <li>
             <router-link :to="{ name: 'about' }" class="text-xl ml-2 font-bold hover:underline">About Us</router-link>
+          </li>
+          <li>
+            <router-link :to="{ name: 'explore' }" class="text-xl ml-2 font-bold hover:underline">Explore</router-link>
           </li>
         </ul>
       </div>
@@ -70,8 +73,8 @@
   import { onMounted, ref } from "vue";
   import { useRouter } from "vue-router";
 
-  const isClicked = ref(false);
   const router = useRouter();
+  const isClicked = ref(false);
   const current = router.currentRoute;
   const isDark = useDark(false);
   const toggleDark = useToggle(isDark);
@@ -79,13 +82,13 @@
 
   const number = Array.from({ length: 10000 }, (_, index) => index + 1);
   const allowedPaths = [
-    "/",
     "/dashboard",
     "/user",
     "/upload",
     "/detail",
     "/about",
     "/user/edit",
+    "/explore",
     ...number.map(n => `/detail/${n}`)
   ];
 

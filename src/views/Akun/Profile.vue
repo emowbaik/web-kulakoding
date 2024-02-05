@@ -56,11 +56,14 @@
                             <img :src="`https://api.dicebear.com/7.x/initials/svg?seed=${user.username}`" alt="profile"
                                 class="rounded-full w-20 items-center justify-center" />
                         </div>
-                        <span class="flex flex-col">
+                        <div class="flex flex-col">
                             <h2 class="text-2xl text-center font-bold">
                                 {{ user.username }}
                             </h2>
-                        </span>
+                            <p class="text-sm text-center font-medium">
+                                My role is {{ user.role }}
+                            </p>
+                        </div>
                     </div>
                     <div class="flex flex-col justify-center mx-auto gap-3">
                         <div class="relative flex gap-2">
@@ -84,7 +87,7 @@
                             </span>
                         </div>
                         <div class="flex mx-auto gap-2">
-                            <span class="hidden lg:block">
+                            <span v-if="user.role === 'admin'" class="hidden lg:block">
                                 <router-link :to="{ name: 'upload' }"
                                     class="inline-flex items-center gap-1 font-semibold rounded-md bg-transparent focus:border-gray-900 border border-gray-400 hover:border-gray-900 dark:bg-transparent dark:focus:border-gray-400 dark:border-gray-600 hover:dark:border-gray-400 shadow-sm p-2">
                                     <DocumentPlusIcon class="w-5" />

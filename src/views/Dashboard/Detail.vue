@@ -4,10 +4,10 @@
     <NavSidebar class="lg:hidden" />
     <!-- Start BreadCrumb -->
     <div class="flex justify-between p-2">
-      <router-link :to="{ name: 'dashboard' }" class="flex items-center gap-1 font-semibold mb-4 lg:mb-0">
+      <button @click="$router.back()" class="flex items-center gap-1 font-semibold mb-4 lg:mb-0">
         <ArrowLeftIcon class="w-5" />
         Back
-      </router-link>
+      </button>
       <nav class="flex" aria-label="Breadcrumb">
         <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
           <li class="inline-flex items-center">
@@ -31,8 +31,7 @@
     <div class="flex flex-col lg:flex-row justify-between">
       <div class="text-center mx-auto lg:w-1/2">
         <div class="m-5">
-          <img v-for="item in project.image" :key="item.id" :src="baseUrl + '/' + item.image" :alt="item.image"
-            class="w-full h-48 mx-auto object-contain rounded-md shadow" />
+          <Carousel :data="project.image" class="mb-5"></Carousel>
         </div>
         <p v-show="showAbout"
           class="hidden lg:block text-base font-medium text-center mx-5 break-words whitespace-pre-line">
@@ -126,6 +125,7 @@
     ChevronRightIcon,
   } from "@heroicons/vue/24/solid";
   import Navbar from "@/components/Navbar.vue";
+  import Carousel from "@/components/Carousel.vue";
   import NavSidebar from "@/components/NavSidebar.vue";
   import Footer from "@/components/Footer.vue";
 
