@@ -68,6 +68,11 @@ const routes = [
     name: "project",
     component: Project,
   },
+  {
+    path: "/paginate",
+    name: "paginate",
+    component: () => import("../views/paginate.vue"),
+  },
 ];
 
 const router = createRouter({

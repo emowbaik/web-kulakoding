@@ -22,6 +22,11 @@
               class="text-xl ml-2 font-bold hover:underline"
               >About Us</router-link
             >
+            <router-link
+              :to="{ name: 'project' }"
+              class="text-xl ml-2 font-bold hover:underline"
+              >Project</router-link
+            >
           </li>
         </ul>
       </div>
