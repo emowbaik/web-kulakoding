@@ -37,19 +37,27 @@
           <img @click="open" class="w-10 h-10 rounded-full cursor-pointer"
             :src="`https://api.dicebear.com/7.x/initials/svg?seed=${user.username}`" alt="" />
           <div v-if="isClicked == true"
-            class="absolute rounded-md shadow-md flex flex-col bg-white top-12 right-0 p-3 gap-1">
-            <div class="flex items-center gap-1 p-2 shadow bg-primary rounded-md transition-colors duration-150">
-              <h2 class="text-nowrap font-normal">{{ user.username }} | {{ user.role }}</h2>
+            class="absolute rounded-md shadow-md flex flex-col bg-slate-50 dark:bg-[#C1C1C1] dark:border dark:border-black top-[56px] right-0 p-3 gap-1">
+            <div
+              class="flex items-center gap-1 p-2 shadow bg-primary dark:bg-[#212538] dark:text-white rounded-md transition-colors duration-150">
+              <h2 class="text-nowrap font-normal">
+                {{ user.username }} | {{ user.role }}
+              </h2>
             </div>
             <span class="flex flex-col mt-2">
               <router-link :to="{ name: 'user' }"
-                class="flex items-center gap-1 py-1 hover:bg-slate-200 rounded-md transition-colors duration-150">
+                class="flex items-center gap-1 py-1 hover:bg-gray-300 rounded-md transition-colors duration-150">
                 <UserIcon class="w-5 h-5 text-black" />
                 <span class="text-black">Profile</span>
               </router-link>
-              <hr style="height:1px;border-width:0;color:#565656;background-color:#565656">
+              <hr style="
+                  height: 1px;
+                  border-width: 0;
+                  color: #565656;
+                  background-color: #565656;
+                " />
               <button @click="Logout()"
-                class="flex items-center gap-1 py-1 hover:bg-slate-200 rounded-md transition-colors duration-150">
+                class="flex items-center gap-1 py-1 hover:bg-gray-300 rounded-md transition-colors duration-150">
                 <ArrowLeftStartOnRectangleIcon class="w-5 h-5 text-black" />
                 <span class="text-black">Logout</span>
               </button>
@@ -62,12 +70,8 @@
 </template>
 
 <script setup>
-  import {
-    ArrowLeftStartOnRectangleIcon,
-  } from "@heroicons/vue/24/solid";
-  import {
-    UserIcon,
-  } from "@heroicons/vue/24/outline";
+  import { ArrowLeftStartOnRectangleIcon } from "@heroicons/vue/24/solid";
+  import { UserIcon } from "@heroicons/vue/24/outline";
   import useAuth from "../services/auth";
   import { useDark, useToggle } from "@vueuse/core";
   import { onMounted, ref } from "vue";
@@ -89,9 +93,8 @@
     "/about",
     "/user/edit",
     "/explore",
-    ...number.map(n => `/detail/${n}`)
+    ...number.map((n) => `/detail/${n}`),
   ];
-
 
   function open() {
     isClicked.value = !isClicked.value;
