@@ -22,45 +22,38 @@
         </div>
       </div>
       <div v-if="!allowedPaths.includes(current.path)" class="flex justify-center">
-        <button
+        <router-link :to="{ name: 'explore' }"
           class="inline-flex items-center gap-1 font-semibold rounded-md bg-transparent focus:border-gray-900 border border-gray-400 hover:border-gray-900 dark:bg-transparent dark:focus:border-gray-400 dark:border-gray-600 hover:dark:border-gray-400 shadow-sm p-2">
           Show More
           <ArrowDownIcon class="w-5" />
-        </button>
+        </router-link>
       </div>
       <div v-else class="">
-        <Pagination
-        :from="project.from"
-        :to="project.to"
-        :total="project.total"
-        :perPage="project.per_page"
-        :totalPages="project.last_page"
-        :currentPage="project.current_page"
-        @pagechanged="Index"
-      ></Pagination>
+        <Pagination :from="project.from" :to="project.to" :total="project.total" :perPage="project.per_page"
+          :totalPages="project.last_page" :currentPage="project.current_page" @pagechanged="Index"></Pagination>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-  import Pagination from "@/components/Pagination.vue";
-  import useProject from "../services/project";
-  import { ArrowDownIcon } from "@heroicons/vue/24/solid";
-  import { onMounted } from "vue";
-  import { useRouter } from "vue-router";
+import Pagination from "@/components/Pagination.vue";
+import useProject from "../services/project";
+import { ArrowDownIcon } from "@heroicons/vue/24/solid";
+import { onMounted } from "vue";
+import { useRouter } from "vue-router";
 
-  const router = useRouter();
-  const current = router.currentRoute;
-  const { project, Index } = useProject();
-  const routes = import.meta.env.VITE_API_URL;
-  console.log(routes);
+const router = useRouter();
+const current = router.currentRoute;
+const { project, Index } = useProject();
+const routes = import.meta.env.VITE_API_URL;
+console.log(routes);
 
-  const allowedPaths = [
-    "/explore",
-  ];
+const allowedPaths = [
+  "/explore",
+];
 
-  onMounted(async () => {
-    await Index();
-  });
+onMounted(async () => {
+  await Index();
+});
 </script>

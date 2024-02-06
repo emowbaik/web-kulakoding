@@ -9,7 +9,7 @@
           <li>
             <router-link :to="{ name: 'about' }" class="text-xl ml-2 font-bold hover:underline">About Us</router-link>
           </li>
-          <li>
+          <li v-show="!sampelPath.includes(current.path)">
             <router-link :to="{ name: 'explore' }" class="text-xl ml-2 font-bold hover:underline">Explore</router-link>
           </li>
         </ul>
@@ -18,14 +18,14 @@
         <router-view />
       </div>
       <ul class="flex items-center gap-5 font-sans lg:mt-0">
-        <li v-show="current.path !== '/'">
+        <li v-show="!sampelPath.includes(current.path)">
           <!-- Toggle untuk dark mode -->
           <button @click="toggleDark()" class="text-white mt-2">
             <img v-if="isDark" src="@/assets/img/Darkmode.png" alt="toggle" class="w-12" />
             <img v-else src="@/assets/img/Lightmode.png" alt="toggle" class="w-12" />
           </button>
         </li>
-        <li v-if="!allowedPaths.includes(current.path)" class="flex -ml-3">
+        <li v-if="!loginPath.includes(current.path)" class="flex -ml-3">
           <router-link :to="{ name: 'login' }" class="py-2 px-5">
             Login
           </router-link>
@@ -81,7 +81,7 @@
   const { user, LoggedIn, Logout } = useAuth();
 
   const number = Array.from({ length: 10000 }, (_, index) => index + 1);
-  const allowedPaths = [
+  const loginPath = [
     "/dashboard",
     "/user",
     "/upload",
@@ -90,6 +90,10 @@
     "/user/edit",
     "/explore",
     ...number.map(n => `/detail/${n}`)
+  ];
+
+  const sampelPath = [
+    "/",
   ];
 
 

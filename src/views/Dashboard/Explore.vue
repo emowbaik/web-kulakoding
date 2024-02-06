@@ -41,8 +41,15 @@
     import Footer from "@/components/Footer.vue";
     import NavSidebar from "@/components/NavSidebar.vue";
     import Project from "@/components/Project.vue";
+    import { onMounted } from "vue";
     import { useDark } from "@vueuse/core";
 
     const isDark = useDark(false);
+    function scrollToTop() {
+        window.scrollTo(0, 0);
+    }
 
+    onMounted(() => {
+        scrollToTop();
+    });
 </script>

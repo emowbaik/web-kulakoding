@@ -21,11 +21,11 @@
                         <span class="hidden lg:block text-2xl text-black font-bold">Contact Us</span>
                         <span>
                             <span
-                                class="flex items-center gap-1 lg:justify-center text-xl lg:text-2xl text-black font-bold">
+                                class="flex items-center gap-1 lg:justify-center text-xl lg:text-2xl text-black font-bold break-all">
                                 <PhoneIcon class="w-6" />08123456789
                             </span>
                             <span
-                                class="flex items-center gap-1 justify-center text-xl lg:text-2xl text-black font-bold">
+                                class="flex items-start gap-1 justify-center text-xl lg:text-2xl text-black font-bold break-all">
                                 <EnvelopeIcon class="w-6" />kulakoding@gmail.com
                             </span>
                         </span>
@@ -35,14 +35,14 @@
                 <!-- Visit Us Section -->
                 <div class="flex flex-col text-center lg:mt-4">
                     <label for="visit"
-                        class="hidden lg:flex items-center text-center mx-auto text-2xl text-black font-bold">
+                        class="hidden lg:flex items-center text-center mx-auto text-2xl text-black font-bold break-all">
                         <MapPinIcon class="w-24 lg:w-7" />Visit
                         Us
                     </label>
                     <a id="visit" href="https://maps.app.goo.gl/rKqVuTc3mHENQmiQA" target="_blank">
                         <p
-                            class="flex items-start lg:items-center text-left lg:text-center text-lg text-black font-bold">
-                            <MapPinIcon class="w-24 lg:mt-0 mt-1 lg:w-7 lg:hidden" />
+                            class="flex items-start lg:items-center text-left lg:text-center text-lg text-black font-bold break-words">
+                            <MapPinIcon class="w-24 md:w-10 mt-1 lg:hidden" />
                             Jl. Brig Jend. Hasan Basri
                             No.6, Sungai Miai, Kec. Banjarmasin Utara, Kota Banjarmasin,
                             Kalimantan Selatan.
@@ -51,7 +51,7 @@
                 </div>
 
                 <!-- Logo Section -->
-                <div class="flex m-3 justify-between">
+                <div class="flex m-3 justify-end">
                     <div class="hidden gap-3 mr-2 lg:flex lg:flex-col dark:text-slate-900">
                         <a href="https://github.com" target="_blank" class="flex gap-2 font-semibold"><i
                                 class="bi bi-github text-xl"></i>@KulaKoding</a>
@@ -63,7 +63,8 @@
                                 class="bi bi-twitter-x text-xl"></i>@Kula.Koding</a>
                     </div>
                     <div class="flex flex-col">
-                        <div class="flex items-end justify-end z-10 transition ease-in-out delay-10o0 hover:-translate-y-1 hover:scale-110 duration-300">
+                        <div
+                            class="flex items-end justify-end z-10 transition ease-in-out delay-10o0 hover:-translate-y-1 hover:scale-110 duration-300">
                             <button class="hidden lg:block bg-slate-100 dark:bg-slate-900 rounded-full shadow">
                                 <a href="#navbar">
                                     <ArrowUpIcon class="w-10" />

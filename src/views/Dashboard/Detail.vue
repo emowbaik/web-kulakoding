@@ -27,9 +27,8 @@
       </nav>
     </div>
     <!-- End BreadCrumb -->
-
-    <div class="flex flex-col lg:flex-row justify-between">
-      <div class="text-center mx-auto lg:w-1/2">
+    <div class="flex flex-col lg:flex-row justify-center">
+      <div class="text-center mx-auto hidden lg:block lg:w-1/2">
         <div class="m-5">
           <Carousel :data="project.image" class="mb-5"></Carousel>
         </div>
@@ -46,7 +45,7 @@
         </div>
       </div>
       <!-- Start Profile -->
-      <div class="hidden lg:block text-center mt-20">
+      <div class="hidden lg:block text-center">
         <div class="flex flex-col gap-5 bg-slate-300 dark:bg-[#D9D9D9] shadow rounded-md mx-5 py-10">
           <img :src="`https://api.dicebear.com/7.x/initials/svg?seed=${user.username}`" alt="foto_project"
             class="w-[70%] h-auto lg:w-[50%] lg:h-[50%] mx-auto bg-center bg-cover bg-no-repeat p-2" />
@@ -72,6 +71,9 @@
         </div>
       </div>
       <div class="lg:hidden text-center">
+        <div class="m-5">
+          <Carousel :data="project.image" class="mb-5"></Carousel>
+        </div>
         <span class="flex mx-5 gap-5 items-center">
           <div class="bg-slate-300 dark:bg-[#D9D9D9] shadow rounded-lg">
             <img :src="`https://api.dicebear.com/7.x/initials/svg?seed=${user.username}`" alt="foto_project"
@@ -104,9 +106,8 @@
       </p>
       <div v-show="showTools" class="lg:hidden flex gap-5 mx-5 lg:mx-40">
         <div class="flex flex-col mx-5">
-          <p class="text-left text-sm">
-            Design: Figma<br />Editor Code: VS Code<br />Bahasa Pemrograman:
-            HTML, Tailwind CSS, dan Vue.js
+          <p class="text-left text-sm whitespace-pre-line break-words">
+            {{ project.tools }}
           </p>
         </div>
       </div>
@@ -141,12 +142,6 @@
       showTools.value = true;
     }
   };
-
-  const Tools = [
-    { id: 1, name: "VS CODE" },
-    { id: 2, name: "FIGMA" },
-    { id: 3, name: "LAPTOP" },
-  ];
 
   const { user, LoggedIn } = useAuth();
   const { SingleProject, project } = useProject();
