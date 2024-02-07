@@ -11,6 +11,7 @@ const Upload = () => import("@/views/Akun/Upload.vue");
 const About = () => import("@/views/Dashboard/About.vue");
 const Index = () => import("../views/Index.vue");
 const Project = () => import("../views/project/Project.vue");
+const DetailProject = () => import("../views/Project/DetailProject.vue");
 
 const routes = [
   {
@@ -69,9 +70,9 @@ const routes = [
     component: Project,
   },
   {
-    path: "/paginate",
-    name: "paginate",
-    component: () => import("../views/paginate.vue"),
+    path: "/project/:id",
+    name: "detail.project",
+    component: DetailProject,
   },
 ];
 

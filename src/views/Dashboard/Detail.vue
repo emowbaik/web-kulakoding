@@ -47,19 +47,14 @@
             v-for="image in project.image"
             :src="baseUrl + '/' + image.image"
             alt="foto_project"
-            class="max-w-full h-auto mx-auto object-contain rounded-md shadow"
+            class="max-w-full w-80 h-auto mx-auto object-contain rounded-md shadow"
           />
         </div>
         <p
           v-show="showAbout"
           class="hidden lg:block text-base font-medium text-center mx-5 max-w-[800px]"
         >
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque,
-          beatae odit? Accusantium omnis, commodi mollitia quam iste totam! Iure
-          quam tempore itaque nam exercitationem reprehenderit enim! Ipsum
-          excepturi omnis similique magnam tempora libero est labore nostrum
-          accusamus tenetur doloremque laboriosam natus incidunt molestias
-          maxime ad consequatur, ea quia sapiente? Nobis!
+          {{ project.deskripsi }}
         </p>
         <div v-show="showTools" class="hidden lg:block gap-5 mx-5">
           <div class="flex flex-col mx-auto">
@@ -76,12 +71,12 @@
           class="flex flex-col gap-5 bg-slate-300 dark:bg-[#D9D9D9] shadow rounded-md mx-5 py-10"
         >
           <img
-            :src="`https://api.dicebear.com/7.x/initials/svg?seed=${user.username}`"
+            :src="`https://api.dicebear.com/7.x/initials/svg?seed=${project.user?.username}`"
             alt="foto_project"
             class="w-[70%] h-auto lg:w-[50%] lg:h-[50%] rounded-full mx-auto bg-center bg-cover bg-no-repeat p-2"
           />
           <p class="font-bold text-lg dark:text-black">
-            {{ user.username }}<br />XII PPLG B
+            {{ project.user?.username }}<br />XII PPLG B
           </p>
         </div>
         <div class="flex flex-col justify-center lg:flex-row lg:gap-5 my-10">
@@ -111,13 +106,13 @@
         <span class="flex mx-5 gap-5 items-center">
           <div class="bg-slate-300 dark:bg-[#D9D9D9] shadow rounded-lg">
             <img
-              :src="`https://api.dicebear.com/7.x/initials/svg?seed=${user.username}`"
+              :src="`https://api.dicebear.com/7.x/initials/svg?seed=${project.user?.username}`"
               alt="foto_project"
               class="w-32 bg-center bg-cover bg-no-repeat p-2 rounded-full"
             />
           </div>
           <p class="font-bold text-lg dark:text-white">
-            {{ user.username }}<br />XII PPLG B
+            {{ project.user?.username }}<br />XII PPLG B
           </p>
         </span>
         <div class="flex justify-center my-10 gap-5">

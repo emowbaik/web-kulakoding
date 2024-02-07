@@ -1,7 +1,6 @@
 import axios from "../axios";
 import { ref } from "vue";
 
-
 export default function useProject() {
   const project = ref([]);
 
@@ -17,7 +16,7 @@ export default function useProject() {
 
   async function SingleProject(id) {
     const response = await axios.get(`/api/v1/project/${id}`);
-
+    console.log(response.data);
     project.value = response.data;
   }
 
@@ -26,10 +25,8 @@ export default function useProject() {
     project.value = response.data;
   }
 
-  async function IndexProject(currentPage = 1) {
-    const response = await axios.get(
-      `/api/v1/admin/project?page=${currentPage}`
-    );
+  async function IndexProject() {
+    const response = await axios.get(`/api/v1/admin/allProject`);
     console.log(response.data);
     project.value = response.data;
   }
