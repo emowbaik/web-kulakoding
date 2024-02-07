@@ -50,7 +50,7 @@
           <img :src="`https://api.dicebear.com/7.x/initials/svg?seed=${user.username}`" alt="foto_project"
             class="w-[70%] h-auto lg:w-[50%] lg:h-[50%] mx-auto bg-center bg-cover bg-no-repeat p-2" />
           <p class="font-bold text-lg dark:text-black">
-            {{ user.username }}<br />XII PPLG B
+            {{ project.user?.username }}<br />XII PPLG B
           </p>
         </div>
         <div class="flex flex-col justify-center lg:flex-row lg:gap-5 my-10">
@@ -80,7 +80,7 @@
               class="w-32 bg-center bg-cover bg-no-repeat p-2 rounded-full" />
           </div>
           <p class="font-bold text-lg dark:text-white">
-            {{ user.username }}<br />XII PPLG B
+            {{ project.user?.username }}<br />XII PPLG B
           </p>
         </span>
         <div class="flex justify-center my-10 gap-5">

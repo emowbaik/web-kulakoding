@@ -17,8 +17,7 @@ export default function useAuth() {
   async function Login(payload) {
     try {
       const response = await axios.post("/api/v1/auth/login", payload);
-      console.log(response.data);
-      console.log(response.data.token);
+
       const token = response.data.token;
       StoreToken(token);
       setTimeout(() => {
@@ -28,7 +27,6 @@ export default function useAuth() {
     } catch (error) {
       failed(error.response.data.message);
       if (axios.isAxiosError(error)) {
-        console.error(error.response.data);
       }
     }
   }
@@ -36,7 +34,7 @@ export default function useAuth() {
   async function Register(payload) {
     try {
       const response = await axios.post("/api/v1/auth/register", payload);
-      console.log(response.data);
+
       setTimeout(() => {
         router.push({ name: "login" });
         success("Register berhasil");
@@ -44,7 +42,6 @@ export default function useAuth() {
     } catch (error) {
       failed(error.response.data.message);
       if (axios.isAxiosError(error)) {
-        console.error(error.response.data);
       }
     }
   }

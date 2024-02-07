@@ -1,12 +1,22 @@
 <template>
-    <div class="w-full">
-        <TransitionRoot as="template" :show="sidebarOpen">
-            <Dialog as="div" class="relative z-40 lg:hidden" @close="sidebarOpen = false">
-                <TransitionChild as="template" enter="transition-opacity ease-linear duration-300"
-                    enter-from="opacity-0" enter-to="opacity-100" leave="transition-opacity ease-linear duration-300"
-                    leave-from="opacity-100" leave-to="opacity-0">
-                    <div class="fixed inset-0 bg-transparent" />
-                </TransitionChild>
+  <div class="w-full">
+    <TransitionRoot as="template" :show="sidebarOpen">
+      <Dialog
+        as="div"
+        class="relative z-40 lg:hidden"
+        @close="sidebarOpen = false"
+      >
+        <TransitionChild
+          as="template"
+          enter="transition-opacity ease-linear duration-300"
+          enter-from="opacity-0"
+          enter-to="opacity-100"
+          leave="transition-opacity ease-linear duration-300"
+          leave-from="opacity-100"
+          leave-to="opacity-0"
+        >
+          <div class="fixed inset-0 bg-transparent" />
+        </TransitionChild>
 
                 <div class="fixed justify-end inset-0 flex z-40">
                     <TransitionChild as="template" enter="transition ease-in-out duration-300 transform"
@@ -174,5 +184,5 @@
         },
     ];
 
-    const sidebarOpen = ref(false);
+const sidebarOpen = ref(false);
 </script>

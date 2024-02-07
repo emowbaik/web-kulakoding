@@ -47,7 +47,7 @@ const router = useRouter();
 const current = router.currentRoute;
 const { project, Index } = useProject();
 const routes = import.meta.env.VITE_API_URL;
-console.log(routes);
+routes;
 
 const allowedPaths = [
   "/explore",

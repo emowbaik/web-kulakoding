@@ -9,9 +9,6 @@ export default function useProject() {
   async function StoreProject(payload) {
     try {
       const response = await axios.post("/api/v1/project", payload);
-      console.log(response.data);
-      success(response.data.message);
-      router.back()
     } catch (error) {
       failed(error.response.data.message);
       if (axios.isAxiosError(error)) {
@@ -33,16 +30,15 @@ export default function useProject() {
     }
   }
 
-  async function Index(page = 1) {
-    try {
-      const response = await axios.get(`/api/v1/project?page=${page}`);
-      project.value = response.data.data;
-      console.log(response.data);
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        console.error(error.response.data);
-      }
-    }
+  async function Index() {
+    const response = await axios.get("/api/v1/project");
+    project.value = response.data;
+  }
+
+  async function IndexProject() {
+    const response = await axios.get(`/api/v1/admin/allProject`);
+    console.log(response.data);
+    project.value = response.data;
   }
 
   return {
@@ -50,5 +46,6 @@ export default function useProject() {
     StoreProject,
     Index,
     SingleProject,
+    IndexProject,
   };
 }
