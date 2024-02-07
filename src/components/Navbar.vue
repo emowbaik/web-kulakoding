@@ -13,32 +13,43 @@
         <ul class="flex items-center font-sans lg:ml-auto">
           <li>
             <router-link
+              :to="{ name: 'project' }"
+              class="text-xl ml-2 font-bold hover:underline"
+              >Project</router-link
+            >
+            <router-link
               :to="{ name: 'about' }"
               class="text-xl ml-2 font-bold hover:underline"
               >About Us</router-link
             >
+            <router-link
+              :to="{ name: 'project' }"
+              class="text-xl ml-2 font-bold hover:underline"
+              >Project</router-link
+            >
           </li>
         </ul>
       </div>
-      <ul class="flex items-center gap-5 font-sans lg:mt-0">
-        <li>
-          <!-- Toggle untuk dark mode -->
-          <button @click="toggleDark()" class="text-white mt-1">
-            <img
-              v-if="isDark"
-              src="@/assets/img/Darkmode.png"
-              alt="toggle"
-              class="w-12"
-            />
-            <img
-              v-else
-              src="@/assets/img/Lightmode.png"
-              alt="toggle"
-              class="w-12"
-            />
-          </button>
-        </li>
-        <!-- <li>
+      <div class="flex gap-5">
+        <ul class="flex items-center gap-5 font-sans lg:mt-0">
+          <li>
+            <!-- Toggle untuk dark mode -->
+            <button @click="toggleDark()" class="text-white mt-1">
+              <img
+                v-if="isDark"
+                src="@/assets/img/Darkmode.png"
+                alt="toggle"
+                class="w-12"
+              />
+              <img
+                v-else
+                src="@/assets/img/Lightmode.png"
+                alt="toggle"
+                class="w-12"
+              />
+            </button>
+          </li>
+          <!-- <li>
           <router-link :to="{ name: 'user' }">
             <div class="bg-white p-0.5 hover:bg-slate-100 rounded-full shadow">
               <img
@@ -49,7 +60,15 @@
             </div>
           </router-link>
         </li> -->
-      </ul>
+        </ul>
+        <router-link :to="{ name: 'user' }">
+          <img
+            :src="`https://api.dicebear.com/7.x/initials/svg?seed=${user.username}`"
+            alt="profile"
+            class="rounded-full w-10 items-center justify-center"
+          />
+        </router-link>
+      </div>
     </div>
   </nav>
 </template>

@@ -10,6 +10,8 @@ const Profile = () => import("@/views/Akun/Profile.vue");
 const Upload = () => import("@/views/Akun/Upload.vue");
 const About = () => import("@/views/Dashboard/About.vue");
 const Index = () => import("../views/Index.vue");
+const Project = () => import("../views/project/Project.vue");
+const DetailProject = () => import("../views/Project/DetailProject.vue");
 
 const routes = [
   {
@@ -61,6 +63,16 @@ const routes = [
     path: "/reset-password",
     name: "reset-password",
     component: ResetPassword,
+  },
+  {
+    path: "/project",
+    name: "project",
+    component: Project,
+  },
+  {
+    path: "/project/:id",
+    name: "detail.project",
+    component: DetailProject,
   },
 ];
 

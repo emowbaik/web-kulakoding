@@ -8,15 +8,14 @@ export default function useAuth() {
 
   async function LoggedIn() {
     const response = await axios.get("/api/v1/user");
-    console.log(response.data);
+
     user.value = response.data;
   }
 
   async function Login(payload) {
     try {
       const response = await axios.post("/api/v1/auth/login", payload);
-      console.log(response.data);
-      console.log(response.data.token);
+
       const token = response.data.token;
       StoreToken(token);
       setTimeout(() => {
@@ -24,7 +23,6 @@ export default function useAuth() {
       }, 1200);
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        console.error(error.response.data);
       }
     }
   }
@@ -32,13 +30,12 @@ export default function useAuth() {
   async function Register(payload) {
     try {
       const response = await axios.post("/api/v1/auth/register", payload);
-      console.log(response.data);
+
       setTimeout(() => {
         router.push({ name: "login" });
       }, 1200);
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        console.error(error.response.data);
       }
     }
   }
