@@ -32,11 +32,6 @@ const routes = [
     component: Profile,
   },
   {
-    path: "/detail/:id",
-    name: "detail",
-    component: Detail,
-  },
-  {
     path: "/upload",
     name: "upload",
     component: Upload,
@@ -72,6 +67,11 @@ const routes = [
     component: Project,
   },
   {
+    path: "/detail/:id",
+    name: "detail",
+    component: Detail,
+  },
+  {
     path: "/project/:id",
     name: "detail.project",
     component: DetailProject,
@@ -83,29 +83,29 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
-  const isLoggedIn = localStorage.getItem("auth_token");
+// router.beforeEach((to, from, next) => {
+//   const isLoggedIn = localStorage.getItem("auth_token");
 
-  if (to.matched.some((record) => record.meta.authRequired)) {
-    if (!isLoggedIn) {
-      // Pengguna tidak terotentikasi, redirect ke halaman login
-      next({ name: "login" });
-    } else {
-      // Pengguna terotentikasi, izinkan navigasi
-      next();
-    }
-  } else if (to.matched.some((record) => record.meta.guestRequired)) {
-    if (!isLoggedIn) {
-      // Pengguna tidak terotentikasi, izinkan navigasi
-      next();
-    } else {
-      // Pengguna terotentikasi, redirect ke dashboard
-      next({ name: "dashboard" });
-    }
-  } else {
-    // Jika tidak ada meta yang didefinisikan, izinkan navigasi
-    next();
-  }
-});
+//   if (to.matched.some((record) => record.meta.authRequired)) {
+//     if (!isLoggedIn) {
+//       // Pengguna tidak terotentikasi, redirect ke halaman login
+//       next({ name: "login" });
+//     } else {
+//       // Pengguna terotentikasi, izinkan navigasi
+//       next();
+//     }
+//   } else if (to.matched.some((record) => record.meta.guestRequired)) {
+//     if (!isLoggedIn) {
+//       // Pengguna tidak terotentikasi, izinkan navigasi
+//       next();
+//     } else {
+//       // Pengguna terotentikasi, redirect ke dashboard
+//       next({ name: "dashboard" });
+//     }
+//   } else {
+//     // Jika tidak ada meta yang didefinisikan, izinkan navigasi
+//     next();
+//   }
+// });
 
 export default router;

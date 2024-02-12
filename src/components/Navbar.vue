@@ -20,9 +20,9 @@
           </li>
           <li v-show="!sampelPath.includes(current.path)">
             <router-link
-              :to="{ name: 'explore' }"
+              :to="{ name: 'project' }"
               class="text-xl ml-2 font-bold hover:underline"
-              >Explore</router-link
+              >Project</router-link
             >
           </li>
         </ul>

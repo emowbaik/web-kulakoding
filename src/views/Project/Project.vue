@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col justify-between h-screen">
     <div class="">
-      <Navbar></Navbar>
+      <!-- <Navbar></Navbar> -->
       <div class="flex justify-between p-2 mx-6">
         <router-link
           :to="{ name: 'dashboard' }"
@@ -68,13 +68,15 @@
             <div
               class="absolute flex justify-center items-center z-10 group-hover:z-30 opacity-0 group-hover:opacity-100 bg-[#6e6d6d8a] w-full h-full duration-300 transition-opacity"
             >
-              <RouterLink :to="{ name: 'detail', params: { id: item.id } }">
+              <!-- <RouterLink
+                :to="{ name: 'detail.project', params: { id: item.id } }"
+              >
                 <div class="flex flex-col gap-5 justify-center items-center">
                   <h3 class="text-white font-bold text-3xl">
                     {{ item.nama_project }}
                   </h3>
                 </div>
-              </RouterLink>
+              </RouterLink> -->
             </div>
           </div>
         </main>
