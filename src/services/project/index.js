@@ -37,7 +37,7 @@ export default function useProject() {
   }
 
   async function IndexProject() {
-    const response = await axios.get(`/api/v1/allProject`);
+    const response = await axios.get(`/api/v1/admin/allProject`);
     console.log(response.data);
     project.value = response.data;
   }
