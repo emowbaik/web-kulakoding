@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col w-screen h-screen overflow-x-hidden">
+  <div class="flex flex-col w-screen overflow-x-hidden">
     <Navbar class="hidden lg:block" />
     <NavSidebar class="lg:hidden" />
     <TopBar :toolbar="'User'"></TopBar>

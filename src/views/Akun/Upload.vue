@@ -2,54 +2,7 @@
   <div class="w-full h-full">
     <Navbar class="hidden lg:block" />
     <NavSidebar class="lg:hidden" />
-    <div class="flex justify-between p-2">
-      <router-link
-        :to="{ name: 'user' }"
-        class="flex items-center gap-1 font-semibold"
-      >
-        <ArrowLeftIcon class="w-5" />
-        Back
-      </router-link>
-      <nav class="flex" aria-label="Breadcrumb">
-        <ol
-          class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse"
-        >
-          <li class="inline-flex items-center">
-            <a
-              href="/dashboard"
-              class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
-            >
-              <HomeIcon class="text-gray-700 dark:text-gray-400 w-4 mr-1" />
-              Home
-            </a>
-          </li>
-          <li aria-current="page">
-            <a href="/user">
-              <div class="flex items-center">
-                <ChevronRightIcon
-                  class="text-gray-700 dark:text-gray-400 w-[18px]"
-                />
-                <span
-                  class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400"
-                  >user</span
-                >
-              </div>
-            </a>
-          </li>
-          <li aria-current="page">
-            <div class="flex items-center">
-              <ChevronRightIcon
-                class="text-gray-700 dark:text-gray-400 w-[18px]"
-              />
-              <span
-                class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400"
-                >upload</span
-              >
-            </div>
-          </li>
-        </ol>
-      </nav>
-    </div>
+    <TopBar :toolbar="'Upload'"></TopBar>
     <h2 class="text-center font-bold text-2xl mb-10">Upload Project</h2>
     <div class="flex flex-col gap-5 mx-auto max-w-2xl items-start">
       <form
@@ -117,12 +70,12 @@
               v-if="selected.length > 0"
             >
               <li
-                class="bg-secondary p-1 dark:bg-primary rounded-full text-primary dark:text-secondary w-20 flex justify-start items-center"
+                class="bg-secondary p-1 cursor-pointer dark:bg-primary rounded-full text-primary dark:text-secondary w-20 flex justify-start items-center"
                 v-for="tools in selected"
                 :key="tools.id"
               >
                 <h3 @click="destroy(tools.id)" class="text-center w-full">
-                  {{ tools.name }}
+                  {{ tools.tools }}
                 </h3>
               </li>
             </ul>
@@ -180,7 +133,7 @@
                             'font-normal': !selected,
                           }"
                         >
-                          {{ tool.name }}
+                          {{ tool.tools }}
                         </span>
                         <span
                           v-if="selected"
@@ -215,7 +168,7 @@
   </div>
 </template>
 <script setup>
-import { ref, reactive, computed } from "vue";
+import { ref, reactive, computed, onMounted } from "vue";
 import {
   PencilSquareIcon,
   ArrowLeftIcon,
@@ -227,6 +180,8 @@ import {
 import useProject from "../../services/project/index";
 import Navbar from "../../components/Navbar.vue";
 import NavSidebar from "../../components/NavSidebar.vue";
+import TopBar from "../../components/TopBar.vue";
+import useTools from "../../services/tools";
 import {
   Combobox,
   ComboboxInput,
@@ -236,27 +191,20 @@ import {
   TransitionRoot,
 } from "@headlessui/vue";
 
-const Tools = [
-  { id: 1, name: "HTML" },
-  { id: 2, name: "Laptop" },
-  { id: 3, name: "figma" },
-  { id: 4, name: "css" },
-  { id: 5, name: "php" },
-  { id: 6, name: "laravel" },
-  { id: 7, name: "javascript" },
-  { id: 8, name: "f" },
-];
-
 const selected = ref([]);
 const query = ref("");
 
 function destroy(id) {
-  console.log(id);
-  console.log(selected.value);
-  selected.value.splice(selected.value.indexOf(id), 1);
+  const index = selected.value.findIndex((item) => item.id === id);
+  if (index !== -1) {
+    selected.value.splice(index, 1);
+  } else {
+    console.error("Item not found in selected.value array.");
+  }
 }
 
 const projectPicturePreview = ref(null);
+const { IndexTools, tools } = useTools();
 
 const payload = reactive({
   nama_project: "",
@@ -291,17 +239,6 @@ const getImage = ($event) => {
   form.preview = URL.createObjectURL($event.target.files[0]);
 };
 
-let filter = computed(() =>
-  query.value === ""
-    ? Tools
-    : Tools.filter((tool) =>
-        tool.name
-          .toLowerCase()
-          .replace(/\s+/g, "")
-          .includes(query.value.toLowerCase().replace(/\s+/g, ""))
-      )
-);
-
 const { StoreProject } = useProject();
 
 async function Upload() {
@@ -312,4 +249,19 @@ async function Upload() {
   formData.append("image", payload.image);
   await StoreProject(formData);
 }
+
+onMounted(() => {
+  IndexTools();
+});
+
+let filter = computed(() =>
+  query.value === ""
+    ? tools.value
+    : tools.value.filter((tool) =>
+        tool.tools
+          .toLowerCase()
+          .replace(/\s+/g, "")
+          .includes(query.value.toLowerCase().replace(/\s+/g, ""))
+      )
+);
 </script>
