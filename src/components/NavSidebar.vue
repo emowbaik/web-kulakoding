@@ -29,7 +29,7 @@
             leave-to="translate-x-full"
           >
             <DialogPanel
-              class="relative flex-1 flex flex-col max-w-64 w-full pb-4 shadow bg-[#0096D1]"
+              class="relative flex-1 flex flex-col max-w-64 w-full pb-4 shadow bg-primary dark:bg-secondary"
             >
               <TransitionChild
                 as="template"
@@ -131,16 +131,13 @@
 
     <div class="lg:pl-60 flex flex-col flex-1">
       <div
-        class="sticky top-0 z-10 flex-shrink-0 flex justify-end h-16 bg-[#0096D1] border-b border-gray-200 dark:border-slate-800 lg:border-none shadow-lg"
+        class="sticky top-0 z-10 flex-shrink-0 flex justify-end h-16 bg-primary dark:bg-secondary border-b border-gray-200 dark:border-slate-800 lg:border-none shadow-lg"
       >
         <div
           class="flex-1 px-4 flex justify-between sm:px-6 lg:max-w-auto lg:mx-auto lg:px-8"
         >
           <router-link :to="{ name: 'dashboard' }" class="flex-1 flex">
-            <img
-              src="../assets/img/logo_kulakoding.png"
-              alt="logo_kulakoding"
-            />
+            <img src="../assets/img/iconkula.png" alt="logo_kulakoding" />
           </router-link>
         </div>
         <button

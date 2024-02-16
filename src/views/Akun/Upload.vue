@@ -2,54 +2,7 @@
   <div class="w-full h-full">
     <Navbar class="hidden lg:block" />
     <NavSidebar class="lg:hidden" />
-    <div class="flex justify-between p-2">
-      <router-link
-        :to="{ name: 'user' }"
-        class="flex items-center gap-1 font-semibold"
-      >
-        <ArrowLeftIcon class="w-5" />
-        Back
-      </router-link>
-      <nav class="flex" aria-label="Breadcrumb">
-        <ol
-          class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse"
-        >
-          <li class="inline-flex items-center">
-            <a
-              href="/dashboard"
-              class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
-            >
-              <HomeIcon class="text-gray-700 dark:text-gray-400 w-4 mr-1" />
-              Home
-            </a>
-          </li>
-          <li aria-current="page">
-            <a href="/user">
-              <div class="flex items-center">
-                <ChevronRightIcon
-                  class="text-gray-700 dark:text-gray-400 w-[18px]"
-                />
-                <span
-                  class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400"
-                  >user</span
-                >
-              </div>
-            </a>
-          </li>
-          <li aria-current="page">
-            <div class="flex items-center">
-              <ChevronRightIcon
-                class="text-gray-700 dark:text-gray-400 w-[18px]"
-              />
-              <span
-                class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400"
-                >upload</span
-              >
-            </div>
-          </li>
-        </ol>
-      </nav>
-    </div>
+    <TopBar :toolbar="'Upload'"></TopBar>
     <h2 class="text-center font-bold text-2xl mb-10">Upload Project</h2>
     <div class="flex flex-col gap-5 mx-auto max-w-2xl items-start">
       <form
@@ -112,24 +65,92 @@
         <div class="flex gap-36">
           <label for="tools">Tools :</label>
           <div class="flex flex-col gap-2">
-            <input
-              type="text"
-              id="tools"
-              class="py-2 w-[365px] bg-transparent bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Design: Figma"
-            />
-            <input
-              type="text"
-              id="tools"
-              class="py-2 w-[365px] bg-transparent bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Code Editor: VS Code"
-            />
-            <input
-              type="text"
-              id="tools"
-              class="py-2 w-[365px] bg-transparent bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Bahasa Pemrograman: Tailwind CSS, dan Vue.js"
-            />
+            <ul
+              class="flex flex-wrap w-[350px] gap-5"
+              v-if="selected.length > 0"
+            >
+              <li
+                class="bg-secondary p-1 cursor-pointer dark:bg-primary rounded-full text-primary dark:text-secondary w-20 flex justify-start items-center"
+                v-for="tools in selected"
+                :key="tools.id"
+              >
+                <h3 @click="destroy(tools.id)" class="text-center w-full">
+                  {{ tools.tools }}
+                </h3>
+              </li>
+            </ul>
+            <Combobox v-model="selected" multiple>
+              <div class="relative mt-1">
+                <div class="">
+                  <ComboboxInput
+                    class="py-2 w-[365px] bg-transparent border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    :displayValue="(tool) => tool.name"
+                    @change="query = $event.target.value"
+                  />
+                  <ComboboxButton
+                    class="absolute inset-y-0 right-0 flex items-center pr-2"
+                  >
+                    <ChevronUpDownIcon
+                      class="h-5 w-5 text-gray-400"
+                      aria-hidden="true"
+                    />
+                  </ComboboxButton>
+                </div>
+                <TransitionRoot
+                  leave="transition ease-in duration-100"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                  @after-leave="query = ''"
+                >
+                  <ComboboxOptions
+                    class="py-2 w-[365px] bg-transparent border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  >
+                    <div
+                      v-if="filter.length === 0 && query !== ''"
+                      class="relative cursor-default select-none px-4 py-2 text-gray-700"
+                    >
+                      Nothing found.
+                    </div>
+
+                    <ComboboxOption
+                      v-for="tool in filter"
+                      as="template"
+                      :key="tool.id"
+                      :value="tool"
+                      v-slot="{ selected, active }"
+                    >
+                      <li
+                        class="relative cursor-default select-none py-2 pl-10 pr-4"
+                        :class="{
+                          'bg-primary text-secondary': active,
+                          'text-blue-400': !active,
+                        }"
+                      >
+                        <span
+                          class="block truncate"
+                          :class="{
+                            'font-medium': selected,
+                            'font-normal': !selected,
+                          }"
+                        >
+                          {{ tool.tools }}
+                        </span>
+                        <span
+                          v-if="selected"
+                          class="absolute inset-y-0 left-0 flex items-center pl-3"
+                          :class="{
+                            'text-green-600': active,
+                            'text-neutral-300 font-bold': !active,
+                          }"
+                        >
+                          <CheckIcon class="h-6 w-6" aria-hidden="true" />
+                        </span>
+                      </li>
+                    </ComboboxOption>
+                  </ComboboxOptions>
+                </TransitionRoot>
+              </div>
+            </Combobox>
           </div>
         </div>
 
@@ -147,29 +168,43 @@
   </div>
 </template>
 <script setup>
-import { ref, reactive } from "vue";
+import { ref, reactive, computed, onMounted } from "vue";
 import {
   PencilSquareIcon,
   ArrowLeftIcon,
   HomeIcon,
   ChevronRightIcon,
+  CheckIcon,
+  ChevronUpDownIcon,
 } from "@heroicons/vue/24/solid";
 import useProject from "../../services/project/index";
 import Navbar from "../../components/Navbar.vue";
 import NavSidebar from "../../components/NavSidebar.vue";
+import TopBar from "../../components/TopBar.vue";
+import useTools from "../../services/tools";
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxButton,
+  ComboboxOptions,
+  ComboboxOption,
+  TransitionRoot,
+} from "@headlessui/vue";
 
-const Tools = [
-  { id: 1, name: "HTML", icon: "../../../src/assets/iconTools/html.svg" },
-  { id: 2, name: "Laptop", icon: "../../../src/assets/iconTools/css.svg" },
-  { id: 3, name: "a", icon: "../../../src/assets/iconTools/css.svg" },
-  { id: 4, name: "b", icon: "../../../src/assets/iconTools/css.svg" },
-  { id: 5, name: "c", icon: "../../../src/assets/iconTools/css.svg" },
-  { id: 6, name: "d", icon: "../../../src/assets/iconTools/css.svg" },
-  { id: 7, name: "e", icon: "../../../src/assets/iconTools/css.svg" },
-  { id: 8, name: "f", icon: "../../../src/assets/iconTools/css.svg" },
-];
+const selected = ref([]);
+const query = ref("");
+
+function destroy(id) {
+  const index = selected.value.findIndex((item) => item.id === id);
+  if (index !== -1) {
+    selected.value.splice(index, 1);
+  } else {
+    console.error("Item not found in selected.value array.");
+  }
+}
 
 const projectPicturePreview = ref(null);
+const { IndexTools, tools } = useTools();
 
 const payload = reactive({
   nama_project: "",
@@ -214,4 +249,19 @@ async function Upload() {
   formData.append("image", payload.image);
   await StoreProject(formData);
 }
+
+onMounted(() => {
+  IndexTools();
+});
+
+let filter = computed(() =>
+  query.value === ""
+    ? tools.value
+    : tools.value.filter((tool) =>
+        tool.tools
+          .toLowerCase()
+          .replace(/\s+/g, "")
+          .includes(query.value.toLowerCase().replace(/\s+/g, ""))
+      )
+);
 </script>
