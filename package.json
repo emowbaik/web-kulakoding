@@ -17,6 +17,7 @@
     "axios": "^1.6.5",
     "flowbite": "^2.2.1",
     "pinia": "^2.1.7",
+    "sweetalert2": "^11.10.5",
     "vue": "^3.4.7",
     "vue-router": "^4.2.5"
   },

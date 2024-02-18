@@ -19,7 +19,7 @@
                                     class="opacity-0" />
                             </div>
                             <div
-                                class="relative flex flex-col justify-center items-center bg-[#22668D] rounded-r-md bg-[url(@/assets/Login/pita-kanan-bawah.png)] bg-right-bottom bg-no-repeat w-[450px] h-[500px] z-40">
+                                class="relative flex flex-col justify-evenly items-center bg-[#22668D] rounded-r-md bg-[url(@/assets/Login/pita-kanan-bawah.png)] bg-right-bottom bg-no-repeat w-[450px] h-[500px] z-40">
                                 <div class="m-5">
                                     <h2 class="text-center font-bold text-2xl mb-2">Login</h2>
                                     <span class="flex flex-col gap-3">
@@ -51,18 +51,18 @@
                                             Login
                                         </button>
                                     </span>
-                                    <div class="flex justify-between text-sm mt-1 text-[#FFB800]">
-                                        <div class="flex items-center me-4">
-                                            <input id="red-checkbox" type="checkbox" value=""
-                                                class="w-4 h-4 text-slate-800 bg-gray-100 border-gray-300 rounded focus:ring-slate-500 dark:focus:ring-slate-800 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                                            <label for="red-checkbox"
-                                                class="ms-2 text-sm font-medium text-white dark:text-gray-300">Ingat
-                                                saya</label>
-                                        </div>
+                                    <div class="flex justify-end text-sm mt-1 text-[#FFB800]">
                                         <div>
-                                            <router-link :to="{ name:'verifikasi' }"> Lupa Password? </router-link>
+                                            <router-link :to="{ name: 'reset-password' }">
+                                                Lupa Password?
+                                            </router-link>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="flex gap-2 text-xs">
+                                    <p>Don't have an account?</p>
+                                    <router-link :to="{ name: 'register' }"
+                                        class="text-[#FFB800]">Register</router-link>
                                 </div>
                             </div>
                         </div>
@@ -75,8 +75,8 @@
         <section>
             <div class="lg:hidden">
                 <div class="flex flex-col w-screen h-screen overflow-hidden bg-[#22668D]">
-                    <img src="../../assets/Login/pita-mobile-atas.png" alt="" class="w-full">
-                    <div class="flex-grow">
+                    <img src="../../assets/Login/pita-mobile-atas.png" alt="" class="w-full" />
+                    <div class="flex flex-col flex-grow justify-between">
                         <div class="flex flex-col justify-center items-center mt-20 text-white">
                             <h2 class="text-center font-bold text-4xl mb-10">Welcome</h2>
                             <span class="flex flex-col gap-3">
@@ -103,15 +103,10 @@
                                     </span>
                                 </div>
                                 <div class="flex justify-between text-sm mt-1 text-[#FFB800]">
-                                    <div class="flex items-center me-4">
-                                        <input v-model="payload.rememberMe" id="red-checkbox" type="checkbox" value=""
-                                            class="w-4 h-4 text-slate-800 bg-gray-100 border-gray-300 rounded focus:ring-slate-500 dark:focus:ring-slate-800 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                                        <label for="red-checkbox"
-                                            class="ms-2 text-sm font-medium text-white dark:text-gray-300">Ingat
-                                            saya</label>
-                                    </div>
                                     <div>
-                                        <router-link :to="{ name:'verifikasi' }"> Lupa Password? </router-link>
+                                        <router-link :to="{ name: 'reset-password' }">
+                                            Lupa Password?
+                                        </router-link>
                                     </div>
                                 </div>
                                 <button type="submit"
@@ -120,8 +115,12 @@
                                 </button>
                             </span>
                         </div>
+                        <div class="flex mx-auto gap-2 text-xs text-white">
+                            <p>Don't have an account?</p>
+                            <router-link :to="{ name: 'register' }" class="text-[#FFB800]">Register</router-link>
+                        </div>
                     </div>
-                    <img src="../../assets/Login/pita-mobile-bawah.png" alt="" class="w-full">
+                    <img src="../../assets/Login/pita-mobile-bawah.png" alt="" class="w-full" />
                 </div>
             </div>
         </section>
@@ -129,12 +128,11 @@
 </template>
 
 <script setup>
-    import { reactive, ref, onMounted } from "vue";
+    import { reactive, ref } from "vue";
     import useAuth from "../../services/auth";
     import {
         EnvelopeIcon,
         LockClosedIcon,
-        ArrowRightStartOnRectangleIcon,
     } from "@heroicons/vue/24/solid";
 
     const showMaskot = ref(true);
@@ -151,29 +149,13 @@
     const payload = reactive({
         email: "",
         password: "",
-        rememberMe: false,
     });
 
     const { Login } = useAuth();
 
     async function doLogin() {
-        if (payload.rememberMe) {
-            localStorage.setItem("loginPayload", JSON.stringify(payload));
-        } else {
-            localStorage.removeItem("loginPayload");
-        }
-
         await Login(payload);
-    };
-
-    onMounted(() => {
-        const savedPayload = JSON.parse(localStorage.getItem("loginPayload"));
-        if (savedPayload) {
-            payload.email = savedPayload.email;
-            payload.password = savedPayload.password;
-            payload.rememberMe = savedPayload.rememberMe;
-        }
-    });
+    }
 </script>
 
 <style scoped>

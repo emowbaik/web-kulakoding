@@ -11,6 +11,8 @@ export default {
       colors: {
         primary: "#F5F8FD",
         secondary: "#212538",
+        kuning: "#FFAC0B",
+        bluelight: "#3E9ACF",
       },
     },
   },

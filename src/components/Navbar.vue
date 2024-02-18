@@ -1,120 +1,82 @@
 <template>
-  <nav
-    id="navbar"
-    class="bg-primary px-6 dark:bg-secondary mx-6 text-white dark:text-slate-900"
-  >
+  <nav id="navbar" class="bg-primary px-6 shadow dark:bg-secondary text-kuning dark:text-primary">
     <div class="flex items-center justify-between">
-      <div class="flex items-center font-sans">
+      <div class="flex items-center font-sans gap-2">
         <router-link :to="{ name: 'dashboard' }" class="p-2">
-          <div
-            class="bg-[url(@/assets/img/iconkula.png)] w-20 h-20 bg-center bg-contain bg-no-repeat"
-          ></div>
+          <div class="bg-[url(@/assets/img/iconkula.png)] w-16 h-16 bg-center bg-contain bg-no-repeat"></div>
         </router-link>
-        <ul class="flex items-center font-sans lg:ml-auto">
+        <ul class="flex items-center font-sans lg:ml-auto gap-5">
           <li>
-            <router-link
-              :to="{ name: 'about' }"
-              class="text-lg ml-2 text-secondary dark:text-primary font-semibold hover:underline"
-              >About Us</router-link
-            >
-            <router-link
-              :to="{ name: 'project' }"
-              class="text-lg text-secondary dark:text-primary ml-2 font-semibold hover:underline"
-              >Project</router-link
-            >
+            <router-link :to="{ name: 'about' }" class="text-xl ml-2 font-bold hover:underline">About Us</router-link>
+          </li>
+          <li>
+            <router-link :to="{ name: 'project' }" class="text-xl ml-2 font-bold hover:underline">Explore</router-link>
           </li>
         </ul>
       </div>
-      <div class="flex gap-5">
-        <ul class="flex items-center gap-5 font-sans lg:mt-0">
-          <li>
-            <!-- Toggle untuk dark mode -->
-            <button @click="toggleDark()" class="text-white mt-1">
-              <img
-                v-if="isDark"
-                src="@/assets/img/Darkmode.png"
-                alt="toggle"
-                class="w-12"
-              />
-              <img
-                v-else
-                src="@/assets/img/Lightmode.png"
-                alt="toggle"
-                class="w-12"
-              />
-            </button>
-          </li>
-          <!-- <li>
-          <router-link :to="{ name: 'user' }">
-            <div class="bg-white p-0.5 hover:bg-slate-100 rounded-full shadow">
-              <img
-                :src="`https://api.dicebear.com/7.x/initials/svg?seed=${user.username}`"
-                alt="profile"
-                class="rounded-full w-10 items-center justify-center"
-              />
+      <div>
+        <router-view />
+      </div>
+      <ul class="flex items-center gap-5 font-sans lg:mt-0">
+        <li>
+          <!-- Toggle untuk dark mode -->
+          <button @click="toggleDark()" class="text-white mt-2">
+            <img v-if="isDark" src="@/assets/img/Darkmode.png" alt="toggle" class="w-12" />
+            <img v-else src="@/assets/img/Lightmode.png" alt="toggle" class="w-12" />
+          </button>
+        </li>
+        <li class="flex gap-3 relative text-end items-center">
+          <img @click="open" class="w-10 h-10 rounded-full cursor-pointer"
+            :src="`https://api.dicebear.com/7.x/initials/svg?seed=${user.username}`" alt="" />
+          <div v-if="isClicked == true"
+            class="absolute rounded-md shadow flex flex-col bg-slate-50 dark:bg-primary top-[56px] right-0 p-3 gap-1">
+            <div
+              class="flex items-center gap-1 py-2 px-10 shadow bg-bluelight dark:bg-secondary text-primary rounded-md transition-colors duration-150">
+              <h2 class="font-normal text-center">
+                {{ user.username }}
+              </h2>
             </div>
-          </router-link>
-        </li> -->
-        </ul>
-        <img
-          @click="show"
-          :src="`https://api.dicebear.com/7.x/initials/svg?seed=${user.username}`"
-          alt="profile"
-          class="rounded-full w-10 items-center justify-center"
-        />
-        <div class="flex justify-end">
-          <div
-            v-if="isShow == true"
-            class="bg-secondary z-20 dark:bg-primary absolute right-8 flex top-20 justify-center p-6 items-center rounded-lg w-36 aspect-[3/2] shadow-md"
-          >
-            <div class="flex flex-col justify-center items-center">
-              <div
-                class="bg-primary mb-5 dark:bg-secondary text-secondary dark:text-primary w-28 flex justify-center items-center p-2 rounded-full"
-              >
-                <h3 class="">{{ user.username }}</h3>
-              </div>
-              <router-link class="flex" :to="{ name: 'user' }">
-                <UserIcon class="w-5 h-5 text-primary dark:text-secondary">
-                </UserIcon>
-                <h3 class="font-bold">Profile</h3>
+            <span class="flex flex-col mt-2 text-secondary">
+              <router-link :to="{ name: 'user' }"
+                class="flex items-center gap-1 py-1 rounded-md transition-colors duration-150">
+                <UserIcon class="w-5 h-5 " />
+                <span class="">Profile</span>
               </router-link>
-              <div class="bg-primary dark:bg-secondary py-0.5 mt-2 w-20"></div>
-              <button class="flex mt-2">
-                <arrow-right-start-on-rectangle-icon
-                  class="w-5 h-5 text-primary dark:text-secondary"
-                >
-                </arrow-right-start-on-rectangle-icon>
-                <h3 class="font-bold">Logout</h3>
+              <hr style="
+                  height: 1px;
+                  border-width: 0;
+                  color: #565656;
+                  background-color: #565656;
+                " />
+              <button @click="Logout()" class="flex items-center gap-1 py-1 rounded-md transition-colors duration-150">
+                <ArrowLeftStartOnRectangleIcon class="w-5 h-5 " />
+                <span class="">Logout</span>
               </button>
-            </div>
+            </span>
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   </nav>
 </template>
 
 <script setup>
-import logoProfil from "@/components/icons/Profil.vue";
-import useAuth from "../services/auth";
-import { useDark, useToggle } from "@vueuse/core";
-import {
-  UserIcon,
-  ArrowRightStartOnRectangleIcon,
-} from "@heroicons/vue/24/solid";
-import { onMounted, ref } from "vue";
+  import { ArrowLeftStartOnRectangleIcon } from "@heroicons/vue/24/solid";
+  import { UserIcon } from "@heroicons/vue/24/outline";
+  import useAuth from "../services/auth";
+  import { useDark, useToggle } from "@vueuse/core";
+  import { onMounted, ref } from "vue";
 
-const isDark = useDark(false);
-const toggleDark = useToggle(isDark);
-const isShow = ref(false);
+  const isClicked = ref(false);
+  const isDark = useDark(false);
+  const toggleDark = useToggle(isDark);
+  const { user, LoggedIn, Logout } = useAuth();
 
-const { user, LoggedIn } = useAuth();
+  function open() {
+    isClicked.value = !isClicked.value;
+  }
 
-function show() {
-  isShow.value = !isShow.value;
-}
-
-onMounted(() => {
-  LoggedIn();
-});
+  onMounted(() => {
+    LoggedIn();
+  });
 </script>
