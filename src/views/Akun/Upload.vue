@@ -2,7 +2,7 @@
   <div class="w-full h-full">
     <Navbar class="hidden lg:block" />
     <NavSidebar class="lg:hidden" />
-    <div class="flex justify-between p-2">
+    <div class="flex justify-between p-2 mx-6 mt-2">
       <router-link :to="{ name: 'user' }" class="flex items-center gap-1 font-semibold">
         <ArrowLeftIcon class="w-5" />
         Back
@@ -91,7 +91,7 @@
         </div>
 
         <!-- Tools -->
-        <div class="flex gap-[140px]">
+        <div class="flex gap-[125px]">
           <label for="tools">Tools :</label>
           <div class="flex flex-col gap-2">
             <ul class="flex flex-wrap w-[350px] gap-5" v-if="selected.length > 0">
@@ -105,12 +105,12 @@
             </ul>
             <Combobox v-model="selected" multiple>
               <div class="relative mt-1">
-                <div class="">
-                  <ComboboxInput
-                    class="py-2 w-[365px] bg-transparent border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    :displayValue="(tool) => tool.name" @change="query = $event.target.value" />
-                  <ComboboxButton class="absolute inset-y-0 right-0 flex items-center pr-2">
-                    <ChevronUpDownIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
+                <div>
+                  <ComboboxButton>
+                    <ComboboxInput
+                      class="py-2 w-[365px] bg-transparent border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      :displayValue="(tool) => tool.name" @change="query = $event.target.value" />
+                    <!-- <ChevronUpDownIcon class="h-5 w-5 text-gray-400" aria-hidden="true" /> -->
                   </ComboboxButton>
                 </div>
                 <TransitionRoot leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0"
@@ -125,19 +125,19 @@
                     <ComboboxOption v-for="tool in filter" as="template" :key="tool.id" :value="tool"
                       v-slot="{ selected, active }">
                       <li class="relative cursor-default select-none py-2 pl-10 pr-4" :class="{
-                        'bg-primary text-secondary': active,
-                        'text-blue-400': !active,
-                      }">
-                        <span class="block truncate" :class="{
-                          'font-medium': selected,
-                          'font-normal': !selected,
+                          'bg-primary text-secondary': active,
+                          'text-blue-400': !active,
                         }">
+                        <span class="block truncate" :class="{
+                            'font-medium': selected,
+                            'font-normal': !selected,
+                          }">
                           {{ tool.tools }}
                         </span>
                         <span v-if="selected" class="absolute inset-y-0 left-0 flex items-center pl-3" :class="{
-                          'text-green-600': active,
-                          'text-neutral-300 font-bold': !active,
-                        }">
+                            'text-green-600': active,
+                            'text-neutral-300 font-bold': !active,
+                          }">
                           <CheckIcon class="h-6 w-6" aria-hidden="true" />
                         </span>
                       </li>
@@ -196,7 +196,6 @@
     }
   }
 
-  const projectPicturePreview = ref(null);
   const { IndexTools, tools } = useTools();
 
   const payload = reactive({
@@ -204,8 +203,10 @@
     image: [],
     nama_project: "",
     deskripsi: "",
-    // tools: "",
+    tools: ""
   });
+
+  // console.log(payload);
 
   const getImage = ($event) => {
     const file = $event.target.files;
@@ -246,7 +247,7 @@
     const formData = new FormData();
     formData.append("nama_project", payload.nama_project);
     formData.append("deskripsi", payload.deskripsi);
-    // formData.append("tools", payload.tools);
+    formData.append("tools", payload.tools);
     for (let i = 0; i < payload.image.length; i++) {
       formData.append("image[]", payload.image[i]);
     }
