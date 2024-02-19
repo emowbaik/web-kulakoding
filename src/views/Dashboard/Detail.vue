@@ -58,9 +58,9 @@
         </p>
         <div v-show="showTools" class="hidden lg:block gap-5 mx-5">
           <div class="flex flex-col mx-auto">
-            <p class="text-left text-sm">
-              Design: Figma<br />Editor Code: VS Code<br />Bahasa Pemrograman:
-              HTML, Tailwind CSS, dan Vue.js
+            <p v-for="item in tools" class="text-left text-sm">
+              {{ item.tools }}
+              <img :src="BASE_URL + '/' + item.image" alt="" />
             </p>
           </div>
         </div>
@@ -147,9 +147,8 @@
       </p>
       <div v-show="showTools" class="lg:hidden flex gap-5 mx-5 lg:mx-40">
         <div class="flex flex-col mx-5">
-          <p class="text-left text-sm">
-            Design: Figma<br />Editor Code: VS Code<br />Bahasa Pemrograman:
-            HTML, Tailwind CSS, dan Vue.js
+          <p v-for="item in tools" class="text-left text-sm">
+            {{ item.tools }}
           </p>
         </div>
       </div>
@@ -172,6 +171,7 @@ import NavSidebar from "@/components/NavSidebar.vue";
 import Footer from "@/components/Footer.vue";
 
 const showAbout = ref(true);
+const BASE_URL = import.meta.env.VITE_API_URL;
 const showTools = ref(false);
 
 const toggleContent = (content) => {
@@ -191,7 +191,7 @@ const Tools = [
 ];
 
 const { user, LoggedIn } = useAuth();
-const { SingleProject, project } = useProject();
+const { SingleProject, project, tools } = useProject();
 
 const router = useRoute();
 const baseUrl = import.meta.env.VITE_API_URL;
@@ -200,6 +200,10 @@ onMounted(() => {
   scrollToTop();
   SingleProject(router.params.id);
   LoggedIn();
+
+  setTimeout(() => {
+    console.log(tools.value);
+  }, 1200);
 });
 
 function scrollToTop() {

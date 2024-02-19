@@ -210,6 +210,7 @@ const payload = reactive({
   nama_project: "",
   deskripsi: "",
   image: "",
+  tool: selected.value,
 });
 
 const previewProjectPicture = (event) => {
@@ -242,11 +243,15 @@ const getImage = ($event) => {
 const { StoreProject } = useProject();
 
 async function Upload() {
-  payload;
   const formData = new FormData();
   formData.append("nama_project", payload.nama_project);
   formData.append("deskripsi", payload.deskripsi);
   formData.append("image", payload.image);
+  formData.append("tool", JSON.stringify(selected.value));
+
+  console.log(selected);
+  // console.log(formData.values);
+
   await StoreProject(formData);
 }
 
