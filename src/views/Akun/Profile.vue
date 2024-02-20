@@ -23,9 +23,7 @@
         <div class="flex flex-col gap-3">
           <div class="relative flex gap-2">
             <span>
-              <div
-                class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
-              >
+              <div class=" ">
                 <EnvelopeIcon class="w-5" />
               </div>
               <input

@@ -12,6 +12,7 @@ const About = () => import("@/views/Dashboard/About.vue");
 const Index = () => import("../views/Index.vue");
 const Project = () => import("../views/project/Project.vue");
 const DetailProject = () => import("../views/Project/DetailProject.vue");
+const EditAkun = () => import("../views/akun/Edit.vue");
 
 const routes = [
   {
@@ -28,6 +29,11 @@ const routes = [
     path: "/user",
     name: "user",
     component: Profile,
+  },
+  {
+    path: "/edit-user",
+    name: "user.edit",
+    component: EditAkun,
   },
   {
     path: "/detail/:id",

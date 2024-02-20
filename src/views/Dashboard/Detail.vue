@@ -3,41 +3,7 @@
     <Navbar class="hidden lg:block" />
     <NavSidebar class="lg:hidden" />
     <!-- Start BreadCrumb -->
-    <div class="flex justify-between p-2">
-      <router-link
-        :to="{ name: 'dashboard' }"
-        class="flex items-center gap-1 font-semibold mb-4 lg:mb-0"
-      >
-        <ArrowLeftIcon class="w-5" />
-        Back
-      </router-link>
-      <nav class="flex" aria-label="Breadcrumb">
-        <ol
-          class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse"
-        >
-          <li class="inline-flex items-center">
-            <a
-              href="/dashboard"
-              class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white"
-            >
-              <HomeIcon class="text-gray-700 dark:text-gray-400 w-4 mr-1" />
-              Home
-            </a>
-          </li>
-          <li aria-current="page">
-            <div class="flex items-center">
-              <ChevronRightIcon
-                class="text-gray-700 dark:text-gray-400 w-[18px]"
-              />
-              <span
-                class="ms-1 text-sm font-medium text-gray-500 md:ms-2 dark:text-gray-400"
-                >detail</span
-              >
-            </div>
-          </li>
-        </ol>
-      </nav>
-    </div>
+    <TopBar :toolbar="project.nama_project"></TopBar>
     <!-- End BreadCrumb -->
 
     <div class="flex flex-col lg:flex-row justify-between">
@@ -153,7 +119,7 @@
         </div>
       </div>
     </div>
-    <Footer class="mt-20" />
+    <Komentar :user="user" :project="router.params.id"></Komentar>
   </div>
 </template>
 <script setup>
@@ -169,6 +135,8 @@ import {
 import Navbar from "@/components/Navbar.vue";
 import NavSidebar from "@/components/NavSidebar.vue";
 import Footer from "@/components/Footer.vue";
+import Komentar from "../../components/Komentar.vue";
+import TopBar from "../../components/TopBar.vue";
 
 const showAbout = ref(true);
 const BASE_URL = import.meta.env.VITE_API_URL;

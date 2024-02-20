@@ -60,7 +60,7 @@
           @click="show"
           :src="`https://api.dicebear.com/7.x/initials/svg?seed=${user.username}`"
           alt="profile"
-          class="rounded-full w-10 items-center justify-center"
+          class="rounded-full cursor-pointer w-10 items-center justify-center"
         />
         <div class="flex justify-end">
           <div
