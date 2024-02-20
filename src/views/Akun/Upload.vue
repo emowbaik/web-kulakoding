@@ -198,65 +198,54 @@
 
   const { IndexTools, tools } = useTools();
 
-  const payload = reactive({
-    preview: [],
-    image: [],
-    nama_project: "",
-    deskripsi: "",
-    tools: ""
-  });
+const payload = reactive({
+  nama_project: "",
+  deskripsi: "",
+  image: "",
+  tool: selected.value,
+});
 
-  // console.log(payload);
+const previewProjectPicture = (event) => {
+  const allowedExtensions = ["png", "jpg", "jpeg"];
+  const file = event.target.files[0];
+  payload.image = file;
 
-  const getImage = ($event) => {
-    const file = $event.target.files;
-
-    payload.image = Array.from(file);
-    const gambar = Array.from(file);
-    console.log(file);
-    console.log(gambar);
-
-    for (let i = 0; i < payload.image.length; i++) {
-      const files = payload.image[i];
-      const url = URL.createObjectURL(files);
-      console.log(url);
-
-      payload.preview.push(url);
-      console.log(files);
-      console.log(payload.preview);
-    }
-  };
-
-  const click = (params) => {
-    const index = payload.preview.indexOf(params);
-    console.log("clicked");
-    console.log(index);
-    console.log(payload.preview);
-    if (index !== -1) {
-      payload.preview.splice(index, 1);
-      payload.image.splice(index, 1);
-      console.log(payload.preview);
-    }
-    console.log(params);
-  };
-
-  const image = [];
-  const { StoreProject } = useProject();
-
-  async function Upload() {
-    const formData = new FormData();
-    formData.append("nama_project", payload.nama_project);
-    formData.append("deskripsi", payload.deskripsi);
-    formData.append("tools", payload.tools);
-    for (let i = 0; i < payload.image.length; i++) {
-      formData.append("image[]", payload.image[i]);
-    }
-    console.log(payload.tools);
-    console.log(payload);
-    console.log(formData.value);
-    await StoreProject(formData);
-    console.log(payload.image);
+  // Validasi ekstensi file
+  const extension = file.name.split(".").pop().toLowerCase();
+  if (!allowedExtensions.includes(extension)) {
+    alert("File harus berupa gambar dengan ekstensi PNG, JPG, atau JPEG.");
+    event.target.value = "";
+    return;
   }
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      projectPicturePreview.value = reader.result;
+    };
+    reader.readAsDataURL(file);
+  }
+};
+
+const getImage = ($event) => {
+  const target = $event.target;
+  form.image = target.files[0];
+  form.preview = URL.createObjectURL($event.target.files[0]);
+};
+
+const { StoreProject } = useProject();
+
+async function Upload() {
+  const formData = new FormData();
+  formData.append("nama_project", payload.nama_project);
+  formData.append("deskripsi", payload.deskripsi);
+  formData.append("image", payload.image);
+  formData.append("tool", JSON.stringify(selected.value));
+
+  console.log(selected);
+  // console.log(formData.values);
+
+  await StoreProject(formData);
+}
 
   onMounted(() => {
     IndexTools();
