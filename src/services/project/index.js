@@ -25,9 +25,11 @@ export default function useProject() {
     project.value = response.data;
   }
 
-  async function Index() {
+  async function Index(limit = -6) {
     const response = await axios.get("/api/v1/project");
-    project.value = response.data;
+    const projectData = response.data;
+    project.value = projectData.slice(limit);
+    console.log(project.value);
   }
 
   async function IndexProject() {

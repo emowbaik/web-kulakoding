@@ -132,7 +132,7 @@
                             'font-medium': selected,
                             'font-normal': !selected,
                           }">
-                          {{ tool.id }}
+                          {{ tool.tools }}
                         </span>
                         <span v-if="selected" class="absolute inset-y-0 left-0 flex items-center pl-3" :class="{
                             'text-green-600': active,

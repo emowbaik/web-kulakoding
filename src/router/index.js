@@ -8,13 +8,12 @@ const Register = () => import("@/views/auth/Register.vue");
 const VerifikasiEmail = () => import("@/views/auth/VerificationEmail.vue");
 const ResetPassword = () => import("@/views/auth/ResetPassword.vue");
 const Dashboard = () => import("@/views/Dashboard/Dashboard.vue");
-const Detail = () => import("@/views/Dashboard/Detail.vue");
 const Profile = () => import("@/views/Akun/Profile.vue");
 const Upload = () => import("@/views/Akun/Upload.vue");
 const About = () => import("@/views/Dashboard/About.vue");
 const Index = () => import("../views/Index.vue");
 const Edit = () => import("@/views/Akun/Update.vue");
-const Project = () => import("../views/project/Project.vue");
+const Project = () => import("../views/project/Explore.vue");
 const DetailProject = () => import("../views/Project/DetailProject.vue");
 
 const router = createRouter({
@@ -82,14 +81,6 @@ const router = createRouter({
       path: "/user/edit",
       name: "user.edit",
       component: Edit,
-      meta: {
-        authRequired: true,
-      },
-    },
-    {
-      path: "/detail/:id",
-      name: "detail",
-      component: Detail,
       meta: {
         authRequired: true,
       },
