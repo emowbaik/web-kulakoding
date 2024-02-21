@@ -12,7 +12,7 @@
         :class="{ 'cursor-not-allowed': isInFirstPage }"
       >
         <ChevronLeftIcon
-          class="mr-2 text-center h-4 w-4 font-bold text-black"
+          class="text-center h-4 w-4 font-bold text-black"
           aria-hidden="false"
         />
       </button>
@@ -24,7 +24,7 @@
         :class="{ 'cursor-not-allowed': isInLastPage }"
       >
         <ChevronRightIcon
-          class="ml-2 text-center h-4 w-4 font-bold text-black"
+          class="text-center h-4 w-4 font-bold text-black"
           aria-hidden="false"
         />
       </button>

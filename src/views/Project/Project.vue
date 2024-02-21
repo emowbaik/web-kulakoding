@@ -8,12 +8,12 @@
           <h3 class="font-bold text-2xl font-sans">Explore Project</h3>
           <label for="" class="relative">
             <MagnifyingGlassIcon
-              class="absolute w-5 h-5 focus:hidden top-1/2 transform -translate-y-1/2 left-3"
+              class="absolute w-5 h-5 focus:hidden top-1/2 transform -translate-y-1/2 left-3 dark:text-black"
             ></MagnifyingGlassIcon>
             <input
               v-model="keyword"
               type="search"
-              class="rounded-md h-8 pl-9"
+              class="rounded-md h-8 pl-9 dark:text-black"
               placeholder=""
             />
           </label>
@@ -23,7 +23,7 @@
         >
           <div
             v-for="item in searchings"
-            class="w-72 h-56 relative rounded-md group flex justify-center items-center bg-blue-400"
+            class="w-72 h-56 relative rounded-md group flex justify-center items-center dark:text-black bg-blue-400"
           >
             <img
               class="absolute w-full h-full"

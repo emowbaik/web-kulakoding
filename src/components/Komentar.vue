@@ -1,7 +1,7 @@
 <template>
-  <div class="flex justify-center items-center pb-12">
+  <div class="flex mx-45 justify-center items-center pb-12 px-36">
     <div
-      class="p-6 flex flex-col gap-5 bg-tertiary rounded-md border border-primary text-primary"
+      class="p-6 w-full flex flex-col gap-5 bg-tertiary rounded-md border border-primary text-primary"
     >
       <h3 class="text-[#ABABAB] text-[20px]">Komentar</h3>
       <div class="flex gap-12 flex-col">
@@ -13,16 +13,16 @@
           />
           <form @submit.prevent="save">
             <label for="" class="relative flex items-center gap-5">
-              <div class="relative">
+              <div class="">
                 <input
                   v-model="payload.komentar"
                   type="text"
-                  class="bg-secondary z-10 text-white placeholder:text-primary w-96 border-2 border-primary rounded-full py-4 pl-8"
+                  class="bg-secondary z-10 text-white placeholder:text-primary w-[40rem] lg:w-[70rem] border border-primary rounded-full py-4 pl-8"
                   placeholder="Masukkan komentar anda..."
                 />
                 <button
                   type="submit"
-                  class="absolute inset-y-0 right-0 flex items-center justify-center w-7 mx-4 h-full text-white"
+                  class="absolute inset-y-0 right-0 flex items-center justify-center w-7 mr-6 pb-1 h-full text-white"
                 >
                   <PaperAirplaneIcon
                     class="w-8 h-8 -rotate-45"
@@ -41,7 +41,7 @@
             alt="profile"
             class="rounded-full cursor-pointer w-10 items-center justify-center"
           />
-          <div class="flex flex-col">
+          <div class="flex flex-col relative">
             <div class="flex gap-4 items-center">
               <h3 class="">{{ item.user?.username }}</h3>
               <h3 class="text-primary bg-secondary p-2 rounded-md">
@@ -51,9 +51,20 @@
             <input
               disabled
               type="text"
-              class="bg-tertiary text-white placeholder:text-primary w-96 border-none py-4"
+              class="bg-tertiary text-white placeholder:text-primary w-96 border-none p-0 py-4"
               :value="item.komentar"
             />
+            <div class="flex gap-2">
+              <button @click="like" class="text-primary w-6 flex">
+                <span v-if="liked == false">
+                  <HeartIcon class="w-6 h-6 text-primary"></HeartIcon>
+                </span>
+                <span v-else>
+                  <HeartIcon class="w-6 h-6 text-[#eb000e]"></HeartIcon>
+                </span>
+              </button>
+              <h3>0</h3>
+            </div>
           </div>
         </div>
       </div>
@@ -62,8 +73,8 @@
 </template>
 
 <script setup>
-import { PaperAirplaneIcon } from "@heroicons/vue/24/solid";
-import { defineProps, reactive, onMounted } from "vue";
+import { PaperAirplaneIcon, HeartIcon } from "@heroicons/vue/24/solid";
+import { defineProps, reactive, onMounted, ref } from "vue";
 import useKomentar from "../services/komentar/index";
 import { useRoute } from "vue-router";
 
@@ -74,6 +85,12 @@ const router = useRoute();
 const payload = reactive({
   komentar: "",
 });
+
+const liked = ref(false);
+
+function like() {
+  liked.value = !liked.value;
+}
 
 async function save() {
   await StoreKomentar(props.project, payload);
