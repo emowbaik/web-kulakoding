@@ -9,10 +9,12 @@ const Detail = () => import("@/views/Dashboard/Detail.vue");
 const Profile = () => import("@/views/Akun/Profile.vue");
 const Upload = () => import("@/views/Akun/Upload.vue");
 const About = () => import("@/views/Dashboard/About.vue");
-const Index = () => import("../views/Index.vue");
-const Project = () => import("../views/project/Project.vue");
-const DetailProject = () => import("../views/Project/DetailProject.vue");
-const EditAkun = () => import("../views/akun/Edit.vue");
+const Index = () => import("@/views/Index.vue");
+const Project = () => import("@/views/project/Project.vue");
+const DetailProject = () => import("@/views/Project/DetailProject.vue");
+const EditAkun = () => import("@/views/akun/Edit.vue");
+const IndexBlog = () => import("@/views/blog/Index.vue");
+const DetailBlog = () => import("@/views/blog/Detail.vue");
 
 const routes = [
   {
@@ -79,6 +81,16 @@ const routes = [
     path: "/project/:id",
     name: "detail.project",
     component: DetailProject,
+  },
+  {
+    path: "/blog",
+    name: "blog",
+    component: IndexBlog,
+  },
+  {
+    path: "/blog/:slug",
+    name: "blog.detail",
+    component: DetailBlog,
   },
 ];
 

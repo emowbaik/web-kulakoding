@@ -22,6 +22,11 @@
               class="text-lg text-secondary dark:text-primary ml-2 font-semibold hover:underline"
               >Project</router-link
             >
+            <router-link
+              :to="{ name: 'blog' }"
+              class="text-lg text-secondary dark:text-primary ml-2 font-semibold hover:underline"
+              >Blog</router-link
+            >
           </li>
         </ul>
       </div>
