@@ -10,7 +10,8 @@
     ChevronRightIcon,
   } from "@heroicons/vue/24/solid";
   import useAuth from "../../services/auth";
-  import useUser from "../../services/user/index";
+  // import useUser from "../../services/user/index";
+  import usePages from "../../services/project/page";
   import Navbar from "@/components/Navbar.vue";
   import TopBar from "@/components/TopBar.vue";
   import NavSidebar from "@/components/NavSidebar.vue";
@@ -19,15 +20,20 @@
   import { onMounted } from "vue";
 
   const { user, LoggedIn, Logout } = useAuth();
-  const { IndexProject, project } = useUser();
+  // const { IndexProject, project } = useUser();
+  // const { getproject, project } = usePages();
+  const page = usePages();
+  const routes = import.meta.env.VITE_API_URL;
 
   onMounted(() => {
     LoggedIn();
-    IndexProject();
+    // IndexProject();
+    page.getproject(page.page);
 
     setTimeout(() => {
-      console.log();
-    }, 1200);
+      console.log(page.project);
+      // page.getproject(page.page);
+    }, 1000);
   });
 </script>
 
@@ -92,19 +98,20 @@
         </div>
       </div>
     </div>
-    <div class="mt-7 flex flex-col justify-center items-center">
+    <div class="mt-16 flex flex-col justify-center items-center">
       <h3 class="text-center font-bold text-3xl dark:text-white">My Project</h3>
 
-      <div class="flex flex-col" v-if="project.data?.length > 0">
+      <div class="flex flex-col" v-if="page.project.data?.length > 0">
         <main class="grid grid-cols-3 justify-center place-items-center mt-12 gap-12">
-          <div v-for="item in project.data"
-            class="w-72 h-56 relative rounded-md group flex justify-center items-center bg-blue-400">
-            <img class="absolute w-full h-full" v-for="gambar in item.image" :src="route + '/' + gambar.image" alt="" />
+          <div v-for="item in page.project.data"
+            class="w-72 h-56 relative rounded-md group flex justify-center items-center bg-blue-400 transition ease-in-out delay-10o0 hover:-translate-y-1 hover:scale-110 duration-300">
+            <img v-if="item.image && item.image.length > 0" :src="routes + '/' + item.image[0].image"
+              class="absolute w-full h-full rounded-md" />
             <div
               class="absolute flex justify-center items-center z-10 group-hover:z-30 opacity-0 group-hover:opacity-100 bg-[#6e6d6d8a] w-full h-full duration-300 transition-opacity">
-              <RouterLink :to="{ name: 'detail', params: { id: item.id } }">
+              <RouterLink :to="{ name: 'detail.project', params: { id: item.id } }">
                 <div class="flex flex-col gap-5 justify-center items-center">
-                  <h3 class="text-white font-bold text-3xl">
+                  <h3 class="text-white font-bold text-2xl break-words text-center mx-2">
                     {{ item.nama_project }}
                   </h3>
                 </div>
@@ -114,14 +121,9 @@
         </main>
 
         <div class="mt-5">
-          <Paginate
-          :from="project.from"
-          :to="project.to"
-          :total="project.total"
-          :perPage="project.per_page"
-          :totalPages="project.last_page"
-          :currentPage="project.current_page"
-          @pagechanged="getproject">
+          <Paginate :from="page.project.from" :to="page.project.to" :total="page.project.total"
+            :perPage="page.project.per_page" :totalPages="page.project.last_page"
+            :currentPage="page.project.current_page" @pagechanged="page.getproject">
           </Paginate>
         </div>
       </div>

@@ -74,7 +74,7 @@
 import Navbar from "../../components/Navbar.vue";
 import Footer from "../../components/Footer.vue";
 import Paginate from "../../components/Paginate.vue";
-import { usePages } from "../../services/project/page";
+import usePages from "../../services/project/page";
 import TopBar from "../../components/TopBar.vue";
 import { onMounted, computed, ref } from "vue";
 import {

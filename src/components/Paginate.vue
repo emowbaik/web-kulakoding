@@ -33,7 +33,7 @@
 </template>
 <script setup>
 import { computed } from "vue";
-import { usePages } from "../services/project/page";
+import usePages from "../services/project/page";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/vue/24/outline";
 
 const props = defineProps({
