@@ -6,32 +6,50 @@
         <TopBar :toolbar="'Blog'"></TopBar>
       </div>
     </header>
-    <main class="flex mx-12 mt-5 flex-col">
-      <h3 class="font-semibold text-3xl">Blog</h3>
-      <div
-        class="grid grid-cols-3 justify-center place-items-center mt-12 gap-12"
-      >
+    <main class="mx-12 mt-5">
+      <div class="flex gap-12 flex-col">
         <div
           v-for="item in blog"
-          class="w-72 h-56 relative rounded-md group flex justify-center items-center dark:text-black"
+          class="flex lg:flex-row flex-col items-center justify-between"
         >
+          <div class="flex gap-5 flex-col">
+            <div class="flex items-center gap-5">
+              <img
+                :src="`https://api.dicebear.com/7.x/initials/svg?seed=${item.user?.username}`"
+                alt="profile"
+                class="rounded-full cursor-pointer w-10 items-center justify-center"
+              />
+              <h3 class="">{{ item.user?.username }}</h3>
+            </div>
+            <RouterLink
+              :to="{ name: 'blog.detail', params: { slug: item.slug } }"
+              class="font-bold"
+              >{{ item.judul }}</RouterLink
+            >
+            <h3 class="line-clamp-2 w-[80%] text-[#B1B1B1]">
+              {{ item.konten }}
+            </h3>
+            <div class="flex gap-1 text-[#B1B1B1]">
+              <p class="">
+                {{
+                  new Date(item.created_at).toLocaleString("id-ID", {
+                    weekday: "long",
+                  })
+                }}
+              </p>
+              <p class="">
+                {{ new Date(item.created_at).getDate() }}
+              </p>
+              <p class="">
+                {{ new Date(item.created_at).getFullYear() }}
+              </p>
+            </div>
+          </div>
           <img
-            class="absolute w-full h-full"
             :src="route + '/' + item.thumbnail"
+            class="w-[280px] h-[185px]"
             alt=""
           />
-
-          <div
-            class="absolute flex justify-center items-center z-10 group-hover:z-30 opacity-0 group-hover:opacity-100 bg-[#6e6d6d8a] w-full h-full rounded-md duration-300 transition-opacity"
-          >
-            <RouterLink :to="{ name: 'blog.detail', params: { slug: item.slug } }">
-              <div class="flex flex-col gap-5 justify-center items-center">
-                <h3 class="text-white font-bold text-3xl">
-                  {{ item.judul }}
-                </h3>
-              </div>
-            </RouterLink>
-          </div>
         </div>
       </div>
     </main>

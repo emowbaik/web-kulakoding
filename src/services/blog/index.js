@@ -11,8 +11,15 @@ export default function useBlog() {
     blog.value = response.data;
   }
 
+  async function ShowBlog(slug) {
+    const response = await axios.get(`/api/v1/admin/blog/${slug}`);
+    console.log(response.data);
+    blog.value = response.data;
+  }
+
   return {
     blog,
     IndexBlog,
+    ShowBlog,
   };
 }
