@@ -10,7 +10,7 @@
       <div class="flex gap-12 flex-col">
         <div
           v-for="item in blog"
-          class="flex lg:flex-row flex-col items-center justify-between"
+          class="flex lg:flex-row flex-col-reverse items-center justify-between"
         >
           <div class="flex gap-5 flex-col">
             <div class="flex items-center gap-5">
@@ -26,14 +26,21 @@
               class="font-bold"
               >{{ item.judul }}</RouterLink
             >
-            <h3 class="line-clamp-2 w-[80%] text-[#B1B1B1]">
+            <h3 class="line-clamp-2 w-[80%] dark:text-[#B1B1B1]">
               {{ item.konten }}
             </h3>
-            <div class="flex gap-1 text-[#B1B1B1]">
+            <div class="flex gap-1 dark:text-[#B1B1B1]">
               <p class="">
                 {{
                   new Date(item.created_at).toLocaleString("id-ID", {
                     weekday: "long",
+                  })
+                }}
+              </p>
+              <p class="">
+                {{
+                  new Date(item.created_at).toLocaleString("id-ID", {
+                    month: "short",
                   })
                 }}
               </p>

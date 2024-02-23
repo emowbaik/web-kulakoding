@@ -2,7 +2,7 @@
   <Navbar></Navbar>
   <div v-for="item in blog" class="flex pb-12 flex-col mx-[361px]">
     <h3 class="font-extrabold text-[35px]">{{ item.judul }}</h3>
-    <p class="text-[#B1B1B1] font-bold text-[24px] mt-[36px] line-clamp-2">
+    <p class="dark:text-[#B1B1B1] font-bold text-[24px] mt-[36px] line-clamp-2">
       {{ item.konten }}
     </p>
     <div class="flex mt-[27px] items-center gap-3">
@@ -13,11 +13,18 @@
       />
       <div class="flex flex-col">
         <p class="">{{ item.user?.username }}</p>
-        <div class="flex gap-1 text-[#B1B1B1]">
+        <div class="flex gap-1 dark:text-[#B1B1B1]">
           <p class="">
             {{
               new Date(item.created_at).toLocaleString("id-ID", {
                 weekday: "long",
+              })
+            }}
+          </p>
+          <p class="">
+            {{
+              new Date(item.created_at).toLocaleString("id-ID", {
+                month: "short",
               })
             }}
           </p>
