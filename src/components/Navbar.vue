@@ -1,7 +1,7 @@
 <template>
   <nav
     id="navbar"
-    class="bg-primary px-6 dark:bg-secondary mx-6 text-white dark:text-slate-900"
+    class="bg-primary px-6 dark:bg-secondary lg:mx-6 text-white dark:text-slate-900"
   >
     <div class="flex items-center justify-between">
       <div class="flex items-center font-sans">
@@ -10,7 +10,7 @@
             class="bg-[url(@/assets/img/iconkula.png)] w-20 h-20 bg-center bg-contain bg-no-repeat"
           ></div>
         </router-link>
-        <ul class="flex items-center font-sans lg:ml-auto">
+        <ul class="lg:flex hidden items-center font-sans lg:ml-auto">
           <li>
             <router-link
               :to="{ name: 'about' }"
@@ -30,7 +30,7 @@
           </li>
         </ul>
       </div>
-      <div class="flex gap-5">
+      <div class="hidden lg:flex gap-5">
         <ul class="flex items-center gap-5 font-sans lg:mt-0">
           <li>
             <!-- Toggle untuk dark mode -->

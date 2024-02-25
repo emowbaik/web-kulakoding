@@ -1,11 +1,13 @@
 <template>
-  <div class="flex mx-45 justify-center items-center pb-12 px-36">
+  <div class="flex lg:mx-45 mx-12 justify-center items-center pb-12 lg:px-36">
     <div
       class="p-6 w-full flex flex-col gap-5 bg-tertiary rounded-md border border-primary text-primary"
     >
       <h3 class="text-[#ABABAB] text-[20px]">Komentar</h3>
       <div class="flex gap-12 flex-col">
-        <div class="flex justify-between gap-5 items-center">
+        <div
+          class="flex flex-col lg:flex-row justify-between gap-5 items-center"
+        >
           <img
             :src="`https://api.dicebear.com/7.x/initials/svg?seed=${user.username}`"
             alt="profile"
@@ -17,7 +19,7 @@
                 <input
                   v-model="payload.komentar"
                   type="text"
-                  class="bg-secondary z-10 text-white placeholder:text-primary w-[40rem] lg:w-[70rem] border border-primary rounded-full py-4 pl-8"
+                  class="bg-secondary z-10 text-white placeholder:text-primary w-[15rem] lg:w-[65rem] border border-primary rounded-full py-4 pl-8"
                   placeholder="Masukkan komentar anda..."
                 />
                 <button
@@ -51,7 +53,7 @@
             <input
               disabled
               type="text"
-              class="bg-tertiary text-white placeholder:text-primary w-96 border-none p-0 py-4"
+              class="bg-tertiary text-white placeholder:text-primary lg:w-96 border-none p-0 py-4"
               :value="item.komentar"
             />
             <div class="flex gap-2">

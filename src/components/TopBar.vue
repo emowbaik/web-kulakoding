@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between p-2 mx-6 mt-2">
+  <div class="flex justify-between p-2 lg:mx-6 mt-2">
     <router-link
       :to="{ name: 'dashboard' }"
       class="flex items-center gap-1 font-semibold"

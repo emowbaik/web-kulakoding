@@ -1,6 +1,6 @@
 <template>
   <Navbar></Navbar>
-  <div v-for="item in blog" class="flex pb-12 flex-col mx-[361px]">
+  <div v-for="item in blog" class="flex pb-12 flex-col mx-7 lg:mx-[361px]">
     <h3 class="font-extrabold text-[35px]">{{ item.judul }}</h3>
     <p class="dark:text-[#B1B1B1] font-bold text-[24px] mt-[36px] line-clamp-2">
       {{ item.konten }}
