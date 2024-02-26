@@ -19,12 +19,12 @@
 </template>
 
 <script setup>
-    const members = [
-        { id: 1, name: "Alam", image: "../../src/assets/img/work-2.png" },
-        { id: 2, name: "Yadzka", image: "../../src/assets/img/work-2.png" },
-        { id: 3, name: "Pandu", image: "../../src/assets/img/work-2.png" },
-        { id: 4, name: "Lana", image: "../../src/assets/img/work-2.png" },
-        { id: 5, name: "Faris", image: "../../src/assets/img/work-2.png" },
-        { id: 6, name: "Nabeel", image: "../../src/assets/img/work-2.png" },
-    ];
+const members = [
+    { id: 1, name: "Alam", image: "../../src/assets/img/person.png" },
+    { id: 2, name: "Yadzka", image: "../../src/assets/img/person.png" },
+    { id: 3, name: "Pandu", image: "../../src/assets/img/person.png" },
+    { id: 4, name: "Lana", image: "../../src/assets/img/person.png" },
+    { id: 5, name: "Faris", image: "../../src/assets/img/person.png" },
+    { id: 6, name: "Nabeel", image: "../../src/assets/img/person.png" },
+];
 </script>

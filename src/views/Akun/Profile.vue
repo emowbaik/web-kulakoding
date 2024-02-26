@@ -58,7 +58,7 @@
                 My role is {{ user.role }}
               </p> -->
           </div>
-        </div>
+        </div> 
         <div class="flex flex-col justify-center mx-auto gap-3">
           <div class="relative flex gap-2">
             <span>

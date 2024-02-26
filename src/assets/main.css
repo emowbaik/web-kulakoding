@@ -9,7 +9,7 @@ html.dark {
 }
 
 body {
-  @apply bg-slate-100 text-slate-900 dark:bg-[#1f2336] dark:text-primary;
+  @apply bg-lightmode text-dark dark:bg-darkmode dark:text-light;
 }
 
 * {

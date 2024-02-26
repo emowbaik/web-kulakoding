@@ -1,19 +1,13 @@
 <template>
-  <nav id="navbar" class="bg-primary px-6 shadow dark:bg-secondary text-kuning">
+  <nav id="navbar" class="bg-light px-6 shadow dark:bg-secondary text-kuning">
     <div class="flex items-center justify-between">
       <div class="flex items-center font-sans gap-2">
         <router-link :to="{ name: 'dashboard' }" class="p-2">
-          <div
-            class="bg-[url(@/assets/img/iconkula.png)] w-16 h-16 bg-center bg-contain bg-no-repeat"
-          ></div>
+          <div class="bg-[url(@/assets/img/iconkula.png)] w-16 h-16 bg-center bg-contain bg-no-repeat"></div>
         </router-link>
         <ul class="flex items-center font-sans lg:ml-auto gap-5">
           <li>
-            <router-link
-              :to="{ name: 'about' }"
-              class="text-xl ml-2 font-bold hover:underline"
-              >About Us</router-link
-            >
+            <router-link :to="{ name: 'about' }" class="text-xl ml-2 font-bold hover:underline">About Us</router-link>
           </li>
           <!-- <li>
                         <router-link :to="{ name: 'blog' }"
@@ -29,10 +23,7 @@
           <router-link :to="{ name: 'login' }" class="py-2 px-5">
             Login
           </router-link>
-          <router-link
-            :to="{ name: 'register' }"
-            class="py-2 px-5 rounded-md bg-kuning text-white shadow"
-          >
+          <router-link :to="{ name: 'register' }" class="py-2 px-5 rounded-md bg-kuning text-white shadow">
             Get Started
           </router-link>
         </li>

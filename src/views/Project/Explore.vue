@@ -9,39 +9,21 @@
             Explore Project
           </h3>
           <label for="" class="relative">
-            <MagnifyingGlassIcon
-              class="absolute w-5 h-5 focus:hidden top-1/2 transform -translate-y-1/2 left-3"
-            ></MagnifyingGlassIcon>
-            <input
-              v-model="keyword"
-              type="search"
-              class="rounded-md h-8 pl-9"
-              placeholder=""
-            />
+            <MagnifyingGlassIcon class="absolute w-5 h-5 focus:hidden top-1/2 transform -translate-y-1/2 left-3">
+            </MagnifyingGlassIcon>
+            <input v-model="keyword" type="search" class="rounded-md h-8 pl-9" placeholder="" />
           </label>
         </div>
-        <main
-          class="grid grid-cols-3 justify-center place-items-center mt-12 gap-12"
-        >
-          <div
-            v-for="item in searchings"
-            class="w-72 h-56 relative rounded-md group flex justify-center items-center bg-blue-400 transition ease-in-out delay-10o0 hover:-translate-y-1 hover:scale-110 duration-300"
-          >
-            <img
-              v-if="item.image && item.image.length > 0"
-              :src="routes + '/' + item.image[0].image"
-              class="absolute w-full h-full rounded-md"
-            />
+        <main class="grid grid-cols-3 justify-center place-items-center mt-12 gap-12">
+          <div v-for="item in searchings"
+            class="w-72 h-56 relative rounded-md group flex justify-center items-center bg-blue-400 transition ease-in-out delay-10o0 hover:-translate-y-1 hover:scale-110 duration-300">
+            <img v-if="item.image && item.image.length > 0" :src="routes + '/' + item.image[0].image"
+              class="absolute w-full h-full rounded-md p-2" />
             <div
-              class="absolute flex justify-center items-center z-10 group-hover:z-30 opacity-0 group-hover:opacity-100 bg-[#6e6d6d8a] w-full h-full duration-300 transition-opacity"
-            >
-              <RouterLink
-                :to="{ name: 'detail.project', params: { id: item.id } }"
-              >
+              class="absolute flex justify-center items-center z-10 group-hover:z-30 opacity-0 group-hover:opacity-100 bg-[#6e6d6d8a] w-full h-full duration-300 transition-opacity">
+              <RouterLink :to="{ name: 'detail.project', params: { id: item.id } }">
                 <div class="flex flex-col gap-5 justify-center items-center">
-                  <h3
-                    class="text-white font-bold text-2xl break-words text-center mx-2"
-                  >
+                  <h3 class="text-white font-bold text-2xl break-words text-center mx-2">
                     {{ item.nama_project }}
                   </h3>
                 </div>
@@ -51,15 +33,9 @@
         </main>
 
         <div class="mt-5">
-          <Paginate
-            :from="page.project.from"
-            :to="page.project.to"
-            :total="page.project.total"
-            :perPage="page.project.per_page"
-            :totalPages="page.project.last_page"
-            :currentPage="page.project.current_page"
-            @pagechanged="page.getproject"
-          >
+          <Paginate :from="page.project.from" :to="page.project.to" :total="page.project.total"
+            :perPage="page.project.per_page" :totalPages="page.project.last_page" :currentPage="page.project.current_page"
+            @pagechanged="page.getproject">
           </Paginate>
         </div>
       </div>
