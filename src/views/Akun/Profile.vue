@@ -7,6 +7,7 @@
     ArrowLeftIcon,
     HomeIcon,
     WrenchScrewdriverIcon,
+    AcademicCapIcon,
     ChevronRightIcon,
   } from "@heroicons/vue/24/solid";
   import useAuth from "../../services/auth";
@@ -77,6 +78,16 @@
               <input disabled type="text" id="input-group-1"
                 class="bg-transparent text-gray-900 text-sm lg:w-[295px] ps-8 p-2.5 border-transparent border-b-black border-2 h-9 dark:border-transparent dark:border-b-gray-400 dark:placeholder-gray-400 dark:text-white focus:outline-none"
                 placeholder="Role" :value="user.role" />
+            </span>
+          </div>
+          <div class="relative flex gap-2">
+            <span>
+              <div class="absolute inset-y-0 start-0 flex items-center ps-1 pointer-events-none">
+                <AcademicCapIcon class="w-5" />
+              </div>
+              <input disabled type="text" id="input-group-1"
+                class="bg-transparent text-gray-900 text-sm lg:w-[295px] ps-8 p-2.5 border-transparent border-b-black border-2 h-9 dark:border-transparent dark:border-b-gray-400 dark:placeholder-gray-400 dark:text-white focus:outline-none"
+                placeholder="Kelas" :value="user.kelas" />
             </span>
           </div>
           <div class="flex mx-auto gap-2">

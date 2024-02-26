@@ -6,6 +6,7 @@ import {
   ArrowLeftIcon,
   HomeIcon,
   ChevronRightIcon,
+  AcademicCapIcon,
   ChevronLeftIcon,
   UserIcon,
 } from "@heroicons/vue/24/solid";
@@ -14,16 +15,18 @@ import Navbar from "@/components/Navbar.vue";
 import NavSidebar from "@/components/NavSidebar.vue";
 import { onMounted, reactive, watch } from "vue";
 
-const { user, LoggedIn, Edit } = useAuth();
+const { user, LoggedIn } = useAuth();
 
 const payload = reactive({
   username: "",
+  kelas: "",
   email: "",
   password: "",
 });
 
 watch(user, (item) => {
   payload.username = item.username;
+  payload.kelas = item.kelas;
   payload.email = item.email;
   payload.password = item.password;
 });
@@ -111,8 +114,24 @@ onMounted(() => {
                 v-model="payload.username"
                 type="text"
                 id="input-group-1"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-slate-900 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Reset Username"
+              />
+            </span>
+          </div>
+          <div class="relative flex gap-2">
+            <span>
+              <div
+                class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none"
+              >
+                <AcademicCapIcon class="w-5" />
+              </div>
+              <input
+                v-model="payload.kelas"
+                type="text"
+                id="input-group-1"
+                class="bg-gray-50 border border-slate-900 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                placeholder="Reset Kelas"
               />
             </span>
           </div>
@@ -127,7 +146,7 @@ onMounted(() => {
                 v-model="payload.email"
                 type="text"
                 id="input-group-1"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-slate-900 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Reset Email"
               />
             </span>
@@ -143,7 +162,7 @@ onMounted(() => {
                 v-model="payload.password"
                 type="password"
                 id="input-group-1"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-slate-900 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-64 ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Reset Password"
               />
             </span>
@@ -151,14 +170,14 @@ onMounted(() => {
           <div class="flex justify-between gap-2">
             <router-link
               :to="{ name: 'user' }"
-              class="inline-flex items-center gap-1 font-semibold rounded-md bg-transparent focus:bg-slate-300 border border-gray-300 hover:border-gray-400 dark:bg-transparent dark:focus:bg-slate-900 dark:border-gray-600 hover:dark:border-gray-400 shadow p-2"
+              class="inline-flex items-center gap-1 font-semibold rounded-md bg-transparent focus:border-gray-900 border border-gray-400 hover:border-gray-900 dark:bg-transparent dark:focus:border-gray-400 dark:border-gray-600 hover:dark:border-gray-400 shadow-sm p-2"
             >
               <ChevronLeftIcon class="w-5" />
               Kembali
             </router-link>
             <button
               type="submit"
-              class="inline-flex lg:mx-0 mx-auto items-center gap-1 font-semibold rounded-md bg-transparent focus:bg-slate-300 border border-gray-300 hover:border-gray-400 dark:bg-transparent dark:focus:bg-slate-900 dark:border-gray-600 hover:dark:border-gray-400 shadow p-2"
+              class="inline-flex items-center gap-1 font-semibold rounded-md bg-transparent focus:border-gray-900 border border-gray-400 hover:border-gray-900 dark:bg-transparent dark:focus:border-gray-400 dark:border-gray-600 hover:dark:border-gray-400 shadow-sm p-2"
             >
               <PencilSquareIcon class="w-5" />
               Simpan

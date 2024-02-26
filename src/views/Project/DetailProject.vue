@@ -115,6 +115,7 @@
         </div>
       </div>
     </div>
+    <Komentar :user="user" :project="router.params.id"></Komentar>
     <Footer class="mt-20" />
   </div>
 </template>
@@ -129,13 +130,13 @@ import {
   ChevronRightIcon,
 } from "@heroicons/vue/24/solid";
 import Navbar from "@/components/Navbar.vue";
+import Komentar from "@/components/Komentar.vue";
 import NavSidebar from "@/components/NavSidebar.vue";
 import Footer from "@/components/Footer.vue";
 import Carousel from "@/components/Carousel.vue";
 import TopBar from "@/components/TopBar.vue";
 
 const showAbout = ref(true);
-const BASE_URL = import.meta.env.VITE_API_URL;
 const showTools = ref(false);
 
 const toggleContent = (content) => {
@@ -147,12 +148,6 @@ const toggleContent = (content) => {
     showTools.value = true;
   }
 };
-
-const Tools = [
-  { id: 1, name: "VS CODE" },
-  { id: 2, name: "FIGMA" },
-  { id: 3, name: "LAPTOP" },
-];
 
 const { user, LoggedIn } = useAuth();
 const { SingleProject, project, tools } = useProject();

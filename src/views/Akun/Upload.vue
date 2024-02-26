@@ -96,7 +96,7 @@
           <div class="flex flex-col gap-2">
             <ul class="flex flex-wrap w-[350px] gap-5" v-if="selected.length > 0">
               <li
-                class="bg-secondary p-1 cursor-pointer dark:bg-primary rounded-full text-primary dark:text-secondary w-20 flex justify-start items-center"
+                class="bg-secondary p-1 cursor-pointer dark:bg-primary rounded-full text-primary dark:text-secondary w-24 flex justify-start items-center"
                 v-for="tools in selected" :key="tools.id">
                 <h3 @click="destroy(tools.id)" class="text-center w-full">
                   {{ tools.tools }}

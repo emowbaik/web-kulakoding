@@ -25,6 +25,13 @@
               >Explore</router-link
             >
           </li>
+          <li>
+            <router-link
+              :to="{ name: 'blog' }"
+              class="text-xl ml-2 font-bold hover:underline"
+              >Blog</router-link
+            >
+          </li>
         </ul>
       </div>
       <div>
