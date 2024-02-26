@@ -1,7 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import useAuth from "../services/auth";
-
-const { user, LoggedIn } = useAuth();
 
 const Login = () => import("@/views/auth/Login.vue");
 const Register = () => import("@/views/auth/Register.vue");
@@ -11,10 +8,12 @@ const Dashboard = () => import("@/views/Dashboard/Dashboard.vue");
 const Profile = () => import("@/views/Akun/Profile.vue");
 const Upload = () => import("@/views/Akun/Upload.vue");
 const About = () => import("@/views/Dashboard/About.vue");
-const Index = () => import("../views/Index.vue");
+const Index = () => import("@/views/Index.vue");
 const Edit = () => import("@/views/Akun/Update.vue");
-const Project = () => import("../views/project/Explore.vue");
-const DetailProject = () => import("../views/Project/DetailProject.vue");
+const Project = () => import("@/views/project/Explore.vue");
+const DetailProject = () => import("@/views/Project/DetailProject.vue");
+const IndexBlog = () => import("@/views/blog/Index.vue");
+const DetailBlog = () => import("@/views/blog/Detail.vue");
 
 const router = createRouter({
   history: createWebHistory(),
@@ -108,6 +107,16 @@ const router = createRouter({
       meta: {
         authRequired: true,
       },
+    },
+    {
+      path: "/blog",
+      name: "blog",
+      component: IndexBlog,
+    },
+    {
+      path: "/blog/:slug",
+      name: "blog.detail",
+      component: DetailBlog,
     },
   ],
 });
