@@ -57,7 +57,7 @@
               :value="item.komentar"
             />
             <div class="flex gap-2">
-              <button @click="like" class="text-primary w-6 flex">
+              <button @click="like(item.id)" class="text-primary w-6 flex">
                 <span v-if="liked == false">
                   <HeartIcon class="w-6 h-6 text-primary"></HeartIcon>
                 </span>
@@ -78,20 +78,30 @@
 import { PaperAirplaneIcon, HeartIcon } from "@heroicons/vue/24/solid";
 import { defineProps, reactive, onMounted, ref } from "vue";
 import useKomentar from "../services/komentar/index";
+import useLike from "../services/like";
 import { useRoute } from "vue-router";
 
 const { StoreKomentar, komentar, IndexKomentar } = useKomentar();
 const props = defineProps(["user", "project"]);
 const router = useRoute();
 
+const { storeLike, showLike, likes } = useLike();
+
 const payload = reactive({
   komentar: "",
 });
 
+const likePayload = reactive({
+  user_id: props.user?.id,
+  komentar_id: "",
+  project_id: props.project,
+});
+
 const liked = ref(false);
 
-function like() {
-  liked.value = !liked.value;
+function like(id) {
+  likePayload.komentar_id = id;
+  storeLike(likePayload);
 }
 
 async function save() {
@@ -99,6 +109,7 @@ async function save() {
 }
 
 onMounted(() => {
+  showLike(router.params.id);
   IndexKomentar(router.params.id);
 });
 </script>
