@@ -95,7 +95,7 @@
           <div class="flex flex-col gap-2">
             <ul class="flex flex-wrap w-[350px] gap-5" v-if="selected.length > 0">
               <li
-                class="bg-secondary p-1 cursor-pointer dark:bg-primary rounded-full text-primary dark:text-secondary w-24 flex justify-start items-center"
+                class="bg-dark p-1 cursor-pointer dark:bg-light rounded-full text-light dark:text-dark w-24 flex justify-start items-center"
                 v-for="tools in selected" :key="tools.id">
                 <h3 @click="destroy(tools.id)" class="text-center w-full">
                   {{ tools.tools }}
@@ -125,7 +125,7 @@
                     <ComboboxOption v-for="tool in filter" as="template" :key="tool.id" :value="tool"
                       v-slot="{ selected, active }">
                       <li class="relative cursor-default select-none py-2 pl-10 pr-4" :class="{
-                        'bg-primary text-secondary': active,
+                        'bg-transparent text-secondary': active,
                         'text-blue-400': !active,
                       }">
                         <span class="block truncate" :class="{

@@ -1,5 +1,5 @@
 <template>
-  <nav id="navbar" class="bg-light px-6 shadow dark:bg-dark text-dark dark:text-light">
+  <nav id="navbar" class="bg-light px-6 shadow dark:bg-dark text-kuning dark:text-light">
     <div class="flex items-center justify-between">
       <div class="flex items-center font-sans gap-2">
         <router-link :to="{ name: 'dashboard' }" class="p-2">
@@ -39,7 +39,7 @@
                 {{ user.username }}
               </h2>
             </div>
-            <span class="flex flex-col mt-2 text-secondary">
+            <span class="flex flex-col mt-2 text-dark dark:text-light">
               <router-link :to="{ name: 'user' }"
                 class="flex items-center gap-1 py-1 rounded-md transition-colors duration-150">
                 <UserIcon class="w-5 h-5" />
