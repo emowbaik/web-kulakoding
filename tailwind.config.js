@@ -10,7 +10,7 @@ export default {
     extend: {
       colors: {
         lightmode: "#F3F3F3",
-        darkmode: "#0C143C",
+        darkmode: "#13182E",
         kuning: "#FFAC0B",
         bluelight: "#3E9ACF",
         light: "#FFF",

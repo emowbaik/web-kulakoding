@@ -1,5 +1,5 @@
 <template>
-  <nav id="navbar" class="bg-light px-6 shadow dark:bg-secondary text-kuning">
+  <nav id="navbar" class="bg-lightmode dark:bg-dark px-6 shadow text-kuning">
     <div class="flex items-center justify-between">
       <div class="flex items-center font-sans gap-2">
         <router-link :to="{ name: 'dashboard' }" class="p-2">
@@ -36,12 +36,12 @@
 import { ArrowLeftStartOnRectangleIcon } from "@heroicons/vue/24/solid";
 import { UserIcon } from "@heroicons/vue/24/outline";
 import useAuth from "../services/auth";
-import { useDark, useToggle } from "@vueuse/core";
+// import { useDark, useToggle } from "@vueuse/core";
 import { onMounted, ref } from "vue";
 
 const isClicked = ref(false);
-const isDark = useDark(false);
-const toggleDark = useToggle(isDark);
+// const isDark = useDark(false);
+// const toggleDark = useToggle(isDark);
 const { user, LoggedIn, Logout } = useAuth();
 
 function open() {

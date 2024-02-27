@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-col w-full h-full">
+  <div class="flex flex-col w-screen h-screen overflow-hidden">
     <NavLogin class="hidden lg:block" />
     <NavSidebar class="lg:hidden" />
     <Hero class="flex-grow" />
-    <div class="mt-10 lg:mt-0">
+    <div class="-mt-20">
       <img src="@/assets/img/Wave-light.png" v-if="isDark === true" alt="Penyekat" class="relative w-full" />
       <img src="@/assets/img/Wave-dark.png" v-else alt="Penyekat" class="relative w-full" />
     </div>

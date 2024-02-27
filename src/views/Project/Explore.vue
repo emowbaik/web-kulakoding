@@ -34,62 +34,65 @@
 
         <div class="mt-5">
           <Paginate :from="page.project.from" :to="page.project.to" :total="page.project.total"
-            :perPage="page.project.per_page" :totalPages="page.project.last_page" :currentPage="page.project.current_page"
-            @pagechanged="page.getproject">
+            :perPage="page.project.per_page" :totalPages="page.project.last_page"
+            :currentPage="page.project.current_page" @pagechanged="page.getproject">
           </Paginate>
         </div>
       </div>
     </div>
     <div class="">
-      <Footer></Footer>
+      <img src="@/assets/img/Wave-light.png" v-if="isDark === true" alt="Wave" class="relative z-0 w-full" />
+      <img src="@/assets/img/Wave-dark.png" v-else alt="Wave" class="relative z-0 w-full" />
     </div>
   </div>
 </template>
 
 <script setup>
-import Navbar from "../../components/Navbar.vue";
-import Footer from "../../components/Footer.vue";
-import Paginate from "../../components/Paginate.vue";
-import usePages from "../../services/project/page";
-import TopBar from "../../components/TopBar.vue";
-import { onMounted, computed, ref } from "vue";
-import {
-  ArrowLeftIcon,
-  HomeIcon,
-  ChevronRightIcon,
-  MagnifyingGlassIcon,
-} from "@heroicons/vue/24/solid";
-import useProject from "../../services/project";
+  import Navbar from "../../components/Navbar.vue";
+  import Footer from "../../components/Footer.vue";
+  import Paginate from "../../components/Paginate.vue";
+  import usePages from "../../services/project/page";
+  import TopBar from "../../components/TopBar.vue";
+  import { onMounted, computed, ref } from "vue";
+  import {
+    ArrowLeftIcon,
+    HomeIcon,
+    ChevronRightIcon,
+    MagnifyingGlassIcon,
+  } from "@heroicons/vue/24/solid";
+  import useProject from "../../services/project";
+  import { useDark } from "@vueuse/core";
 
-const { IndexProject, project } = useProject();
-const page = usePages();
-const keyword = ref("");
-const routes = import.meta.env.VITE_API_URL;
-// const route = import.meta.env.VITE_API_URL;
+  const isDark = useDark(false);
+  const { IndexProject, project } = useProject();
+  const page = usePages();
+  const keyword = ref("");
+  const routes = import.meta.env.VITE_API_URL;
+  // const route = import.meta.env.VITE_API_URL;
 
-// console.log(routes);
+  // console.log(routes);
 
-const searchings = computed(() => {
-  if (keyword.value) {
-    return project.value.filter((item) => {
-      console.log(project.value);
-      return keyword.value
-        .toLowerCase()
-        .split(" ")
-        .every((items) => item.nama_project.toLowerCase().includes(items));
-    });
-  } else {
-    return page.project.data;
+  const searchings = computed(() => {
+    if (keyword.value) {
+      return project.value.filter((item) => {
+        console.log(project.value);
+        return keyword.value
+          .toLowerCase()
+          .split(" ")
+          .every((items) => item.nama_project.toLowerCase().includes(items));
+      });
+    } else {
+      return page.project.data;
+    }
+  });
+
+  function scrollToTop() {
+    window.scrollTo(0, 0);
   }
-});
 
-function scrollToTop() {
-  window.scrollTo(0, 0);
-}
-
-onMounted(() => {
-  scrollToTop();
-  IndexProject();
-  page.getproject(page.page);
-});
+  onMounted(() => {
+    scrollToTop();
+    IndexProject();
+    page.getproject(page.page);
+  });
 </script>

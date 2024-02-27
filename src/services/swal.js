@@ -6,8 +6,8 @@ export default function useSwal() {
             text: text == null ? "Apa Anda Yakin?" : text,
             icon: "question",
             showCancelButton: true,
-            confirmButtonColor: "#fb923c",
-            cancelButtonColor: "#d33",
+            confirmButtonColor: "#212538",
+            cancelButtonColor: "#FFAC0B",
             confirmButtonText: "Yakin",
             cancelButtonText: "Tidak",
         });

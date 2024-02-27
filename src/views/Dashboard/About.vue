@@ -96,25 +96,25 @@
       </div>
     </div>
 
-    <img v-if="isDark == true" src="@/assets/img/wave-about-dark.png" alt="Penyekat" class="w-full relative z-10" />
-    <img v-else src="@/assets/img/wave-about.png" alt="Penyekat" class="w-full relative z-10" />
+    <img v-if="isDark == true" src="@/assets/img/wave-light.png" alt="Penyekat" class="w-full relative z-10" />
+    <img v-else src="@/assets/img/wave-dark.png" alt="Penyekat" class="w-full relative z-10" />
   </div>
 </template>
 
 <script setup>
-  import { ref } from 'vue';
-  import {
-    ArrowLeftIcon,
-    HomeIcon,
-    ChevronRightIcon,
-  } from "@heroicons/vue/24/solid";
-  import TopBar from "../../components/TopBar.vue";
-  import Navbar from "@/components/Navbar.vue";
-  import NavLogin from "@/components/NavbarLogin.vue";
-  import NavSidebar from "@/components/NavSidebar.vue";
-  import Hero from "@/components/Hero.vue";
-  import { useDark, useToggle } from "@vueuse/core";
+import { ref } from 'vue';
+import {
+  ArrowLeftIcon,
+  HomeIcon,
+  ChevronRightIcon,
+} from "@heroicons/vue/24/solid";
+import TopBar from "../../components/TopBar.vue";
+import Navbar from "@/components/Navbar.vue";
+import NavLogin from "@/components/NavbarLogin.vue";
+import NavSidebar from "@/components/NavSidebar.vue";
+import Hero from "@/components/Hero.vue";
+import { useDark, useToggle } from "@vueuse/core";
 
-  const isDark = useDark(false);
-  const isLoggedIn = ref(localStorage.getItem("auth_token") !== null);
+const isDark = useDark(false);
+const isLoggedIn = ref(localStorage.getItem("auth_token") !== null);
 </script>

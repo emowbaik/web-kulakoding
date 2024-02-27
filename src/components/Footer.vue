@@ -1,13 +1,13 @@
 <template>
     <div class="mt-20 mb-5 sm:mb-10 md:mb-20">
-        <img src="../assets/img/penyekatdark5.png" v-if="isDark === true" alt="Penyekat" class="relative z-0 w-full" />
-        <img src="@/assets/img/Penyekat5.png" v-else alt="Penyekat" class="relative z-0 w-full" />
+        <img src="../assets/img/penyekat-dark.png" v-if="isDark === true" alt="Penyekat" class="relative z-0 w-full" />
+        <img src="@/assets/img/Penyekat-light.png" v-else alt="Penyekat" class="relative z-0 w-full" />
     </div>
     <!-- footer -->
     <footer>
         <div class="mx-4 lg:mx-10 mb-5">
             <h2 class="text-4xl text-center font-bold m-2">Our Team</h2>
-            <div class="shadow rounded-xl grid lg:grid-cols-3 gap-4 bg-[#FFE4B0] dark:bg-[#277894]">
+            <div class="shadow rounded-xl grid lg:grid-cols-3 gap-4 bg-[#FFE4B0] dark:bg-[#427A8D]">
                 <div class="relative flex lg:hidden items-end justify-end m-2 z-0">
                     <a href="#navbar">
                         <button class="bg-slate-100 dark:bg-slate-900 rounded-full shadow">
@@ -63,7 +63,8 @@
                                 class="bi bi-twitter-x text-xl"></i>@Kula.Koding</a>
                     </div>
                     <div class="flex flex-col">
-                        <div class="flex items-end justify-end z-10 transition ease-in-out delay-10o0 hover:-translate-y-1 hover:scale-110 duration-300">
+                        <div
+                            class="flex items-end justify-end z-10 transition ease-in-out delay-10o0 hover:-translate-y-1 hover:scale-110 duration-300">
                             <button class="hidden lg:block bg-slate-100 dark:bg-slate-900 rounded-full shadow">
                                 <a href="#navbar">
                                     <ArrowUpIcon class="w-10" />
@@ -75,7 +76,7 @@
                 </div>
             </div>
             <div
-                class="flex lg:justify-center justify-between -mt-5 bg-[#0096D1] dark:bg-[#C1C1C1] text-slate-900 rounded-b-xl py-1">
+                class="flex lg:justify-center justify-between -mt-5 bg-dark dark:bg-tertiary text-light rounded-b-xl py-1">
                 <p class="ml-2 font-bold">© Copy Right - KulaKoding</p>
                 <div class="flex gap-3 mr-2 lg:hidden">
                     <a href="https://github.com" target="_blank" class="flex gap-2 font-semibold"><i

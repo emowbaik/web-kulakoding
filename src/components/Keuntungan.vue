@@ -1,5 +1,5 @@
 <template>
-  <div id="untung" class="flex flex-col relative z-10 lg:flex-row justify-center gap-5 lg:items-start -mb-14 m-10">
+  <div id="untung" class="flex flex-col relative z-10 lg:flex-row justify-center gap-5 lg:items-start mb-14 m-10">
     <div class="bg-[#0096D1] rounded-md shadow mb-5 lg:mb-0">
       <img src="../assets/img/work-2.png" class="w-full h-48 lg:h-64 object-contain rounded-md" alt="shortcut" />
     </div>

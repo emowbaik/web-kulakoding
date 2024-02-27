@@ -19,7 +19,7 @@
                                     class="opacity-0" />
                             </div>
                             <div
-                                class="relative flex flex-col justify-center items-center bg-[#22668D] rounded-r-md bg-[url(@/assets/Login/pita-kanan-bawah.png)] bg-right-bottom bg-no-repeat w-[450px] h-[500px] z-40">
+                                class="relative flex flex-col justify-center items-center bg-dark rounded-r-md bg-[url(@/assets/Login/pita-kanan-bawah.png)] bg-right-bottom bg-no-repeat w-[450px] h-[500px] z-40">
                                 <div class="m-5">
                                     <h2 class="text-center font-bold text-2xl mb-2">Create Accout</h2>
                                     <span class="flex flex-col gap-3">
@@ -35,37 +35,47 @@
                                             </span>
                                         </div>
                                         <div class="flex flex-col w-[250px]">
-                                            <label for="input-group-2" class="font-semibold">Email</label>
+                                            <label for="input-group-2" class="font-semibold">Kelas</label>
+                                            <span>
+                                                <div class="absolute flex items-center p-2.5 pointer-events-none">
+                                                    <AcademicCapIcon class="w-5 text-slate-900" />
+                                                </div>
+                                                <input v-model="payload.kelas" type="text" id="input-group-2"
+                                                    class="bg-white border border-slate-900 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:text-slate-900"
+                                                    placeholder="Kelas" />
+                                            </span>
+                                        </div>
+                                        <div class="flex flex-col w-[250px]">
+                                            <label for="input-group-3" class="font-semibold">Email</label>
                                             <span>
                                                 <div class="absolute flex items-center p-2.5 pointer-events-none">
                                                     <EnvelopeIcon class="w-5 text-slate-900" />
                                                 </div>
-                                                <input v-model="payload.email" type="email" id="input-group-2"
+                                                <input v-model="payload.email" type="email" id="input-group-3"
                                                     class="bg-white border border-slate-900 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:text-slate-900"
                                                     placeholder="Email" />
                                             </span>
                                         </div>
                                         <div class="flex flex-col w-[250px]">
                                             <span>
-                                                <div
-                                                    class="absolute flex items-center py-[33px] px-3 pointer-events-none">
+                                                <div class="absolute flex items-center py-[33px] px-3 pointer-events-none">
                                                     <LockClosedIcon class="w-5 text-slate-900" />
                                                 </div>
-                                                <label for="input-group-3" class="font-semibold">Password</label>
-                                                <input v-model="payload.password" type="password" id="input-group-3"
+                                                <label for="input-group-4" class="font-semibold">Password</label>
+                                                <input v-model="payload.password" type="password" id="input-group-4"
                                                     class="bg-white border border-slate-900 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:text-slate-900"
                                                     placeholder="Password" />
                                             </span>
                                         </div>
                                         <button type="submit"
-                                            class="inline-flex mt-5 lg:mx-0 mx-auto justify-center items-center gap-1 font-semibold rounded-md bg-[#3E9ACF] focus:bg-slate-300 border border-slate-900 hover:border-gray-400 dark:bg-transparent dark:focus:bg-slate-900 dark:border-gray-600 hover:dark:border-gray-400 shadow p-2 hover:bg-slate-400 text-slate-900">
+                                            class="inline-flex mt-5 lg:mx-0 mx-auto justify-center items-center gap-1 font-semibold rounded-md bg-kuning focus:bg-slate-300 border border-slate-900 hover:border-gray-400 dark:bg-transparent dark:focus:bg-slate-900 dark:border-gray-600 hover:dark:border-gray-400 shadow p-2 hover:bg-slate-400 text-slate-900">
                                             Register
                                         </button>
                                     </span>
                                     <div class="flex justify-between text-sm mt-1">
                                         <p>
                                             Already have an account?
-                                            <router-link class="text-[#FFB800]" :to="{ name:'login' }">Login</router-link>
+                                            <router-link class="text-kuning" :to="{ name: 'login' }">Login</router-link>
                                         </p>
                                     </div>
                                 </div>
@@ -79,32 +89,43 @@
         <!-- Mobile -->
         <section>
             <div class="lg:hidden">
-                <div class="flex flex-col w-screen h-screen overflow-hidden bg-[#22668D]">
+                <div class="flex flex-col w-screen h-screen overflow-hidden bg-dark">
                     <img src="../../assets/Login/pita-mobile-atas.png" alt="" class="w-full">
                     <div class="flex-grow">
                         <div class="flex flex-col justify-center items-center mt-20 text-white">
                             <h2 class="text-center font-bold text-4xl mb-10">Welcome</h2>
                             <span class="flex flex-col gap-3">
                                 <div class="flex flex-col w-[250px]">
-                                    <label for="input-group-1" class="font-semibold">Username</label>
+                                    <label for="input-group-5" class="font-semibold">Username</label>
                                     <span>
                                         <div class="absolute flex items-center p-2.5 pointer-events-none">
                                             <UserIcon class="w-5 text-slate-900" />
                                         </div>
-                                        <input v-model="payload.username" type="text" id="input-group-1"
+                                        <input v-model="payload.username" type="text" id="input-group-5"
                                             class="bg-white border border-slate-900 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:text-slate-900"
-                                            placeholder="Username" />
+                                            placeholder="Budi" />
                                     </span>
                                 </div>
                                 <div class="flex flex-col w-[250px]">
-                                    <label for="input-group-2" class="font-semibold">Email</label>
+                                    <label for="input-group-6" class="font-semibold">Kelas</label>
+                                    <span>
+                                        <div class="absolute flex items-center p-2.5 pointer-events-none">
+                                            <UserIcon class="w-5 text-slate-900" />
+                                        </div>
+                                        <input v-model="payload.kelas" type="text" id="input-group-6"
+                                            class="bg-white border border-slate-900 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:text-slate-900"
+                                            placeholder="12 PPLG B" />
+                                    </span>
+                                </div>
+                                <div class="flex flex-col w-[250px]">
+                                    <label for="input-group-7" class="font-semibold">Email</label>
                                     <span>
                                         <div class="absolute flex items-center p-2.5 pointer-events-none">
                                             <EnvelopeIcon class="w-5 text-slate-900" />
                                         </div>
-                                        <input v-model="payload.email" type="email" id="input-group-2"
+                                        <input v-model="payload.email" type="email" id="input-group-7"
                                             class="bg-white border border-slate-900 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:text-slate-900"
-                                            placeholder="Email" />
+                                            placeholder="kulakoding@gmail.com" />
                                     </span>
                                 </div>
                                 <div class="flex flex-col w-[250px]">
@@ -112,8 +133,8 @@
                                         <div class="absolute flex items-center py-[33px] px-3 pointer-events-none">
                                             <LockClosedIcon class="w-5 text-slate-900" />
                                         </div>
-                                        <label for="input-group-3" class="font-semibold">Password</label>
-                                        <input v-model="payload.password" type="password" id="input-group-3"
+                                        <label for="input-group-8" class="font-semibold">Password</label>
+                                        <input v-model="payload.password" type="password" id="input-group-8"
                                             class="bg-white border border-slate-900 text-slate-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 placeholder:text-slate-900"
                                             placeholder="Password" />
                                     </span>
@@ -121,11 +142,11 @@
                                 <div class="flex justify-between text-sm mt-1">
                                     <p>
                                         Already have an account?
-                                        <router-link class="text-[#FFB800]" :to="{ name:'login' }">Login</router-link>
+                                        <router-link class="text-kuning" :to="{ name: 'login' }">Login</router-link>
                                     </p>
                                 </div>
                                 <button type="submit"
-                                    class="inline-flex mt-5 justify-center items-center gap-1 font-semibold rounded-md bg-[#3E9ACF] focus:bg-slate-300 border border-slate-900 hover:border-gray-400 dark:bg-transparent dark:focus:bg-slate-900 dark:border-gray-600 hover:dark:border-gray-400 shadow p-2 hover:bg-slate-400 text-slate-900">
+                                    class="inline-flex mt-5 justify-center items-center gap-1 font-semibold rounded-md bg-dark focus:bg-slate-300 border border-slate-900 hover:border-gray-400 dark:bg-transparent dark:focus:bg-slate-900 dark:border-gray-600 hover:dark:border-gray-400 shadow p-2 hover:bg-slate-400 text-slate-900">
                                     Register
                                 </button>
                             </span>
@@ -139,65 +160,67 @@
 </template>
 
 <script setup>
-    import { ref, reactive } from "vue";
-    import useAuth from "../../services/auth";
-    import {
-        EnvelopeIcon,
-        LockClosedIcon,
-        UserIcon,
-    } from "@heroicons/vue/24/solid";
+import { ref, reactive } from "vue";
+import useAuth from "../../services/auth";
+import {
+    EnvelopeIcon,
+    AcademicCapIcon,
+    LockClosedIcon,
+    UserIcon,
+} from "@heroicons/vue/24/solid";
 
-    const showMaskot = ref(true);
+const showMaskot = ref(true);
 
-    const toggleMaskot = () => {
-        showMaskot.value = !showMaskot.value;
-        if (!showMaskot.value) {
-            setTimeout(() => {
-                showMaskot.value = true;
-            }, 1000);
-        }
-    };
-
-    const payload = reactive({
-        email: "",
-        username: "",
-        password: "",
-    });
-
-    const { Register } = useAuth();
-
-    async function doRegister() {
-        await Register(payload);
+const toggleMaskot = () => {
+    showMaskot.value = !showMaskot.value;
+    if (!showMaskot.value) {
+        setTimeout(() => {
+            showMaskot.value = true;
+        }, 1000);
     }
+};
+
+const payload = reactive({
+    email: "",
+    kelas: "",
+    username: "",
+    password: "",
+});
+
+const { Register } = useAuth();
+
+async function doRegister() {
+    await Register(payload);
+}
 </script>
 
 <style scoped>
-    @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet');
 
-    .bg {
-        background: url(@/assets/Login/bg.png) center no-repeat;
-        font-family: "Inter", sans-serif;
+.bg {
+    background: url(@/assets/Login/bg.png) center no-repeat;
+    font-family: "Inter", sans-serif;
+}
+
+.maskot {
+    position: absolute;
+    bottom: 70%;
+    right: 48.7.5%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    transition: opacity 1s ease-out;
+    animation: fadeInFromRight 1s ease-in-out;
+}
+
+@keyframes fadeInFromRight {
+    0% {
+        opacity: 1;
+        transform: translateX(10%);
     }
 
-    .maskot {
-        position: absolute;
-        bottom: 70%;
-        right: 48.7.5%;
+    100% {
+        opacity: 1;
         transform: translate(-50%, -50%);
-        max-width: 100%;
-        transition: opacity 1s ease-out;
-        animation: fadeInFromRight 1s ease-in-out;
     }
-
-    @keyframes fadeInFromRight {
-        0% {
-            opacity: 1;
-            transform: translateX(10%);
-        }
-
-        100% {
-            opacity: 1;
-            transform: translate(-50%, -50%);
-        }
-    }
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="-mb-20">
+    <div class="mb-20">
         <div id="member" class="m-5 relative z-10 lg:m-20">
             <h2 class="text-center font-bold text-xl lg:text-4xl mb-5 lg:mb-10">
                 Member

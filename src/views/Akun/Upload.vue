@@ -39,8 +39,7 @@
         <!-- Project Picture -->
         <div class="flex gap-16 col-span-6 sm:col-span-6">
           <label for="picture" class="text-nowrap">Project Picture :</label>
-          <div
-            class="relative flex flex-col border border-gray-300 focus:outline-none rounded-md items-center p-2 gap-5">
+          <div class="relative flex flex-col border border-gray-300 focus:outline-none rounded-md items-center p-2 gap-5">
             <div class="flex px-4 py-4 my-2 rounded-md items-center text-sm bg-yellow-300 text-slate-900">
               Pastikan gambar menggunakan Warna dan informasi yang jelas.
             </div>
@@ -109,7 +108,8 @@
                   <ComboboxButton>
                     <ComboboxInput
                       class="py-2 w-[365px] bg-transparent border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-transparent dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      :displayValue="(tool) => tool.name" @change="query = $event.target.value" />
+                      :displayValue="(tool) => tool.name" @change="query = $event.target.value"
+                      placeholder="Pilih Tools" />
                     <!-- <ChevronUpDownIcon class="h-5 w-5 text-gray-400" aria-hidden="true" /> -->
                   </ComboboxButton>
                 </div>
@@ -125,19 +125,19 @@
                     <ComboboxOption v-for="tool in filter" as="template" :key="tool.id" :value="tool"
                       v-slot="{ selected, active }">
                       <li class="relative cursor-default select-none py-2 pl-10 pr-4" :class="{
-                          'bg-primary text-secondary': active,
-                          'text-blue-400': !active,
-                        }">
+                        'bg-primary text-secondary': active,
+                        'text-blue-400': !active,
+                      }">
                         <span class="block truncate" :class="{
-                            'font-medium': selected,
-                            'font-normal': !selected,
-                          }">
+                          'font-medium': selected,
+                          'font-normal': !selected,
+                        }">
                           {{ tool.tools }}
                         </span>
                         <span v-if="selected" class="absolute inset-y-0 left-0 flex items-center pl-3" :class="{
-                            'text-green-600': active,
-                            'text-neutral-300 font-bold': !active,
-                          }">
+                          'text-green-600': active,
+                          'text-neutral-300 font-bold': !active,
+                        }">
                           <CheckIcon class="h-6 w-6" aria-hidden="true" />
                         </span>
                       </li>
@@ -161,114 +161,114 @@
   </div>
 </template>
 <script setup>
-  import { ref, reactive, computed, onMounted } from "vue";
-  import {
-    PencilSquareIcon,
-    ArrowLeftIcon,
-    HomeIcon,
-    ChevronRightIcon,
-    CheckIcon,
-    ChevronUpDownIcon,
-  } from "@heroicons/vue/24/solid";
-  import useProject from "../../services/project/index";
-  import Navbar from "../../components/Navbar.vue";
-  import NavSidebar from "../../components/NavSidebar.vue";
-  import TopBar from "../../components/TopBar.vue";
-  import useTools from "../../services/tools";
-  import {
-    Combobox,
-    ComboboxInput,
-    ComboboxButton,
-    ComboboxOptions,
-    ComboboxOption,
-    TransitionRoot,
-  } from "@headlessui/vue";
+import { ref, reactive, computed, onMounted } from "vue";
+import {
+  PencilSquareIcon,
+  ArrowLeftIcon,
+  HomeIcon,
+  ChevronRightIcon,
+  CheckIcon,
+  ChevronUpDownIcon,
+} from "@heroicons/vue/24/solid";
+import useProject from "../../services/project/index";
+import Navbar from "../../components/Navbar.vue";
+import NavSidebar from "../../components/NavSidebar.vue";
+import TopBar from "../../components/TopBar.vue";
+import useTools from "../../services/tools";
+import {
+  Combobox,
+  ComboboxInput,
+  ComboboxButton,
+  ComboboxOptions,
+  ComboboxOption,
+  TransitionRoot,
+} from "@headlessui/vue";
 
-  const selected = ref([]);
-  const query = ref("");
+const selected = ref([]);
+const query = ref("");
 
-  function destroy(id) {
-    const index = selected.value.findIndex((item) => item.id === id);
-    if (index !== -1) {
-      selected.value.splice(index, 1);
-    } else {
-      console.error("Item not found in selected.value array.");
-    }
+function destroy(id) {
+  const index = selected.value.findIndex((item) => item.id === id);
+  if (index !== -1) {
+    selected.value.splice(index, 1);
+  } else {
+    console.error("Item not found in selected.value array.");
   }
+}
 
-  const { IndexTools, tools } = useTools();
+const { IndexTools, tools } = useTools();
 
-  const payload = reactive({
-    preview: [],
-    image: [],
-    nama_project: "",
-    deskripsi: "",
-    tool: selected.value,
-  });
+const payload = reactive({
+  preview: [],
+  image: [],
+  nama_project: "",
+  deskripsi: "",
+  tool: selected.value,
+});
 
-  const image = [];
-  const { StoreProject } = useProject();
+const image = [];
+const { StoreProject } = useProject();
 
-  const getImage = ($event) => {
-    const file = $event.target.files;
+const getImage = ($event) => {
+  const file = $event.target.files;
 
-    payload.image = Array.from(file);
-    const gambar = Array.from(file);
-    console.log(file);
-    console.log(gambar);
+  payload.image = Array.from(file);
+  const gambar = Array.from(file);
+  console.log(file);
+  console.log(gambar);
 
-    for (let i = 0; i < payload.image.length; i++) {
-      const files = payload.image[i];
-      const url = URL.createObjectURL(files);
-      console.log(url);
+  for (let i = 0; i < payload.image.length; i++) {
+    const files = payload.image[i];
+    const url = URL.createObjectURL(files);
+    console.log(url);
 
-      payload.preview.push(url);
-      console.log(files);
-      console.log(payload.preview);
-    }
-  };
-
-  const click = (params) => {
-    const index = payload.preview.indexOf(params);
-    console.log("clicked");
-    console.log(index);
+    payload.preview.push(url);
+    console.log(files);
     console.log(payload.preview);
-    if (index !== -1) {
-      payload.preview.splice(index, 1);
-      payload.image.splice(index, 1);
-      console.log(payload.preview);
-    }
-    console.log(params);
-  };
-
-  async function Upload() {
-    const formData = new FormData();
-    formData.append("nama_project", payload.nama_project);
-    formData.append("deskripsi", payload.deskripsi);
-    formData.append("tool", JSON.stringify(selected.value));
-    // formData.append("tools", selected.value.map(tool => tool.id));
-    for (let i = 0; i < payload.image.length; i++) {
-      formData.append("image[]", payload.image[i]);
-    }
-    console.log(payload.tool);
-    console.log(payload);
-    console.log(formData.value);
-    await StoreProject(formData);
-    console.log(payload.image);
   }
+};
 
-  onMounted(() => {
-    IndexTools();
-  });
+const click = (params) => {
+  const index = payload.preview.indexOf(params);
+  console.log("clicked");
+  console.log(index);
+  console.log(payload.preview);
+  if (index !== -1) {
+    payload.preview.splice(index, 1);
+    payload.image.splice(index, 1);
+    console.log(payload.preview);
+  }
+  console.log(params);
+};
 
-  let filter = computed(() =>
-    query.value === ""
-      ? tools.value
-      : tools.value.filter((tool) =>
-        tool.tools
-          .toLowerCase()
-          .replace(/\s+/g, "")
-          .includes(query.value.toLowerCase().replace(/\s+/g, ""))
-      )
-  );
+async function Upload() {
+  const formData = new FormData();
+  formData.append("nama_project", payload.nama_project);
+  formData.append("deskripsi", payload.deskripsi);
+  formData.append("tool", JSON.stringify(selected.value));
+  // formData.append("tools", selected.value.map(tool => tool.id));
+  for (let i = 0; i < payload.image.length; i++) {
+    formData.append("image[]", payload.image[i]);
+  }
+  console.log(payload.tool);
+  console.log(payload);
+  console.log(formData.value);
+  await StoreProject(formData);
+  console.log(payload.image);
+}
+
+onMounted(() => {
+  IndexTools();
+});
+
+let filter = computed(() =>
+  query.value === ""
+    ? tools.value
+    : tools.value.filter((tool) =>
+      tool.tools
+        .toLowerCase()
+        .replace(/\s+/g, "")
+        .includes(query.value.toLowerCase().replace(/\s+/g, ""))
+    )
+);
 </script>

@@ -1,41 +1,41 @@
 <script setup>
-  import {
-    EnvelopeIcon,
-    LockClosedIcon,
-    DocumentPlusIcon,
-    PencilSquareIcon,
-    ArrowLeftIcon,
-    HomeIcon,
-    WrenchScrewdriverIcon,
-    AcademicCapIcon,
-    ChevronRightIcon,
-  } from "@heroicons/vue/24/solid";
-  import useAuth from "../../services/auth";
-  // import useUser from "../../services/user/index";
-  import usePages from "../../services/project/page";
-  import Navbar from "@/components/Navbar.vue";
-  import TopBar from "@/components/TopBar.vue";
-  import NavSidebar from "@/components/NavSidebar.vue";
-  import Paginate from "@/components/Paginate.vue";
-  import Hero from "@/components/Hero.vue";
-  import { onMounted } from "vue";
+import {
+  EnvelopeIcon,
+  LockClosedIcon,
+  DocumentPlusIcon,
+  PencilSquareIcon,
+  ArrowLeftIcon,
+  HomeIcon,
+  WrenchScrewdriverIcon,
+  AcademicCapIcon,
+  ChevronRightIcon,
+} from "@heroicons/vue/24/solid";
+import useAuth from "../../services/auth";
+// import useUser from "../../services/user/index";
+import usePages from "../../services/project/page";
+import Navbar from "@/components/Navbar.vue";
+import TopBar from "@/components/TopBar.vue";
+import NavSidebar from "@/components/NavSidebar.vue";
+import Paginate from "@/components/Paginate.vue";
+import Hero from "@/components/Hero.vue";
+import { onMounted } from "vue";
 
-  const { user, LoggedIn, Logout } = useAuth();
-  // const { IndexProject, project } = useUser();
-  // const { getproject, project } = usePages();
-  const page = usePages();
-  const routes = import.meta.env.VITE_API_URL;
+const { user, LoggedIn, Logout } = useAuth();
+// const { IndexProject, project } = useUser();
+// const { getproject, project } = usePages();
+const page = usePages();
+const routes = import.meta.env.VITE_API_URL;
 
-  onMounted(() => {
-    LoggedIn();
-    // IndexProject();
-    page.getproject(page.page);
+onMounted(() => {
+  LoggedIn();
+  // IndexProject();
+  page.getproject(page.page);
 
-    setTimeout(() => {
-      console.log(page.project);
-      // page.getproject(page.page);
-    }, 1000);
-  });
+  setTimeout(() => {
+    console.log(page.project);
+    // page.getproject(page.page);
+  }, 1000);
+});
 </script>
 
 <template>
@@ -58,7 +58,7 @@
                 My role is {{ user.role }}
               </p> -->
           </div>
-        </div> 
+        </div>
         <div class="flex flex-col justify-center mx-auto gap-3">
           <div class="relative flex gap-2">
             <span>
@@ -131,10 +131,10 @@
           </div>
         </main>
 
-        <div class="mt-5">
+        <div class="my-5">
           <Paginate :from="page.project.from" :to="page.project.to" :total="page.project.total"
-            :perPage="page.project.per_page" :totalPages="page.project.last_page"
-            :currentPage="page.project.current_page" @pagechanged="page.getproject">
+            :perPage="page.project.per_page" :totalPages="page.project.last_page" :currentPage="page.project.current_page"
+            @pagechanged="page.getproject">
           </Paginate>
         </div>
       </div>

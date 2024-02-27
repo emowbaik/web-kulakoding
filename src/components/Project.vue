@@ -1,5 +1,5 @@
 <template>
-  <div class="-mb-20">
+  <div class="mb-20">
     <div id="project" class="m-5 relative z-10 lg:m-20">
       <h2 class="text-center font-bold text-xl lg:text-4xl mb-5 lg:mb-10">
         Project
@@ -30,15 +30,15 @@
 </template>
 
 <script setup>
-  import useProject from "../services/project";
-  import { ArrowDownIcon } from "@heroicons/vue/24/solid";
-  import { onMounted } from "vue";
+import useProject from "../services/project";
+import { ArrowDownIcon } from "@heroicons/vue/24/solid";
+import { onMounted } from "vue";
 
-  const { project, Index } = useProject();
-  const routes = import.meta.env.VITE_API_URL;
-  routes;
+const { project, Index } = useProject();
+const routes = import.meta.env.VITE_API_URL;
+routes;
 
-  onMounted(() => {
-    Index();
-  });
+onMounted(() => {
+  Index();
+});
 </script>

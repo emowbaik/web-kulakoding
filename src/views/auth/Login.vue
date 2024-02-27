@@ -19,7 +19,7 @@
                                     class="opacity-0" />
                             </div>
                             <div
-                                class="relative flex flex-col justify-evenly items-center bg-[#22668D] rounded-r-md bg-[url(@/assets/Login/pita-kanan-bawah.png)] bg-right-bottom bg-no-repeat w-[450px] h-[500px] z-40">
+                                class="relative flex flex-col justify-evenly items-center bg-dark rounded-r-md bg-[url(@/assets/Login/pita-kanan-bawah.png)] bg-right-bottom bg-no-repeat w-[450px] h-[500px] z-40">
                                 <div class="m-5">
                                     <h2 class="text-center font-bold text-2xl mb-2">Login</h2>
                                     <span class="flex flex-col gap-3">
@@ -47,11 +47,11 @@
                                             </span>
                                         </div>
                                         <button type="submit"
-                                            class="inline-flex mt-5 lg:mx-0 mx-auto justify-center items-center gap-1 font-semibold rounded-md bg-[#3E9ACF] focus:bg-slate-300 border border-slate-900 hover:border-gray-400 dark:bg-transparent dark:focus:bg-slate-900 dark:border-gray-600 hover:dark:border-gray-400 shadow p-2 hover:bg-slate-400 text-slate-900">
+                                            class="inline-flex mt-5 lg:mx-0 mx-auto justify-center items-center gap-1 font-semibold rounded-md bg-kuning focus:bg-slate-300 border border-slate-900 hover:border-gray-400 dark:bg-transparent dark:focus:bg-slate-900 dark:border-gray-600 hover:dark:border-gray-400 shadow p-2 hover:bg-slate-400 text-slate-900">
                                             Login
                                         </button>
                                     </span>
-                                    <div class="flex justify-end text-sm mt-1 text-[#FFB800]">
+                                    <div class="flex justify-end text-sm mt-1 text-kuning">
                                         <div>
                                             <router-link :to="{ name: 'reset-password' }">
                                                 Lupa Password?
@@ -62,7 +62,7 @@
                                 <div class="flex gap-2 text-xs">
                                     <p>Don't have an account?</p>
                                     <router-link :to="{ name: 'register' }"
-                                        class="text-[#FFB800]">Register</router-link>
+                                        class="text-kuning">Register</router-link>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
         <!-- Mobile -->
         <section>
             <div class="lg:hidden">
-                <div class="flex flex-col w-screen h-screen overflow-hidden bg-[#22668D]">
+                <div class="flex flex-col w-screen h-screen overflow-hidden bg-dark">
                     <img src="../../assets/Login/pita-mobile-atas.png" alt="" class="w-full" />
                     <div class="flex flex-col flex-grow justify-between">
                         <div class="flex flex-col justify-center items-center mt-20 text-white">
@@ -102,7 +102,7 @@
                                             placeholder="Password" />
                                     </span>
                                 </div>
-                                <div class="flex justify-between text-sm mt-1 text-[#FFB800]">
+                                <div class="flex justify-between text-sm mt-1 text-kuning">
                                     <div>
                                         <router-link :to="{ name: 'reset-password' }">
                                             Lupa Password?
@@ -110,14 +110,14 @@
                                     </div>
                                 </div>
                                 <button type="submit"
-                                    class="inline-flex mt-5 mx-0 justify-center items-center gap-1 font-semibold rounded-md bg-[#3E9ACF] focus:bg-slate-300 border border-slate-900 hover:border-gray-400 dark:bg-transparent dark:focus:bg-slate-900 dark:border-gray-600 hover:dark:border-gray-400 shadow p-2 hover:bg-slate-400 text-slate-900">
+                                    class="inline-flex mt-5 mx-0 justify-center items-center gap-1 font-semibold rounded-md bg-dark focus:bg-slate-300 border border-slate-900 hover:border-gray-400 dark:bg-transparent dark:focus:bg-slate-900 dark:border-gray-600 hover:dark:border-gray-400 shadow p-2 hover:bg-slate-400 text-slate-900">
                                     Login
                                 </button>
                             </span>
                         </div>
                         <div class="flex mx-auto gap-2 text-xs text-white">
                             <p>Don't have an account?</p>
-                            <router-link :to="{ name: 'register' }" class="text-[#FFB800]">Register</router-link>
+                            <router-link :to="{ name: 'register' }" class="text-kuning">Register</router-link>
                         </div>
                     </div>
                     <img src="../../assets/Login/pita-mobile-bawah.png" alt="" class="w-full" />
