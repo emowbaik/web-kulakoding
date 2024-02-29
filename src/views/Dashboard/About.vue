@@ -7,6 +7,8 @@
     <div class="flex flex-col">
       <h2 class="text-center font-bold text-3xl my-5">About Us</h2>
       <div class="flex flex-col items-center lg:flex-row lg:justify-between lg:-my-5">
+        <img src="@/assets/img/code-typing.png" alt="bg_hero"
+          class="w-[80%] lg:w-[50%] lg:h-[100%] bg-center bg-cover bg-no-repeat" />
         <div class="flex lg:m-10 items-center mx-auto">
           <div v-if="isDark == true"
             class="rounded-lg bg-no-repeat lg:m-0 m-5 bg-right-top bg-[#FFBC43] bg-opacity-25 bg-[url(@/assets/img/aset-hero1-dark.png)]">
@@ -17,33 +19,11 @@
                     Our Purpose
                   </h2>
                   <p class="text-lg m-5 text-center font-bold lg:text-2xl text-black dark:text-white">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Provident quas reprehenderit sit dolorem maiores. Quasi enim
-                    dolore, aliquid at error numquam ut ipsum, ratione fugiat
-                    atque hic nihil exercitationem eaque mollitia esse velit
-                    itaque quibusdam provident eligendi maxime dolor. Provident
-                    aliquam itaque exercitationem alias architecto illum vitae,
-                    ipsum corporis laborum odit ratione quos? Obcaecati nostrum
-                    odit voluptatem illo perferendis esse dolores totam
-                    voluptate, maiores quod soluta sed magni dolore odio unde
-                    repudiandae quae, recusandae nemo corrupti. Explicabo libero
-                    nemo quas neque repellendus sunt voluptatum, deleniti earum!
-                    Ad ut fugit libero repellendus provident doloribus tenetur
-                    voluptatum recusandae soluta architecto ratione numquam
-                    dolorum, eveniet eum minus? Distinctio adipisci explicabo
-                    eligendi quidem! Dolores culpa, praesentium ab placeat
-                    consequatur error iste facere quas, libero quisquam
-                    deserunt! Suscipit laboriosam non perspiciatis fuga
-                    explicabo illum saepe voluptates. Illum, quod. Aliquid quo
-                    ex, quisquam necessitatibus vitae pariatur tenetur soluta
-                    modi sapiente fugit mollitia eligendi blanditiis officia
-                    unde consequuntur. Vitae rem consequuntur magnam modi rerum
-                    error accusantium possimus dolorum eos adipisci sequi
-                    necessitatibus minus unde dolores, animi similique quod
-                    eligendi quis magni porro facere. Soluta nostrum reiciendis
-                    itaque hic saepe ipsa nam, quod ullam laboriosam quae
-                    impedit nulla magnam corporis laborum ratione neque illo
-                    illum adipisci. Debitis, ducimus!
+                    Selamat datang di Kula Koding! Kami menjadi mitra Anda dalam
+                    perjalanan
+                    teknologi informasi yang terus berkembang. Dengan dedikasi pada inovasi, kami membawa Anda ke dunia
+                    solusi IT
+                    yang adaptif, memungkinkan transformasi dan pertumbuhan perusahaan Anda di era digital.
                   </p>
                 </div>
               </div>
@@ -58,41 +38,17 @@
                     Our Purpose
                   </h2>
                   <p class="text-lg m-5 text-center font-bold lg:text-2xl text-black dark:text-white">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Provident quas reprehenderit sit dolorem maiores. Quasi enim
-                    dolore, aliquid at error numquam ut ipsum, ratione fugiat
-                    atque hic nihil exercitationem eaque mollitia esse velit
-                    itaque quibusdam provident eligendi maxime dolor. Provident
-                    aliquam itaque exercitationem alias architecto illum vitae,
-                    ipsum corporis laborum odit ratione quos? Obcaecati nostrum
-                    odit voluptatem illo perferendis esse dolores totam
-                    voluptate, maiores quod soluta sed magni dolore odio unde
-                    repudiandae quae, recusandae nemo corrupti. Explicabo libero
-                    nemo quas neque repellendus sunt voluptatum, deleniti earum!
-                    Ad ut fugit libero repellendus provident doloribus tenetur
-                    voluptatum recusandae soluta architecto ratione numquam
-                    dolorum, eveniet eum minus? Distinctio adipisci explicabo
-                    eligendi quidem! Dolores culpa, praesentium ab placeat
-                    consequatur error iste facere quas, libero quisquam
-                    deserunt! Suscipit laboriosam non perspiciatis fuga
-                    explicabo illum saepe voluptates. Illum, quod. Aliquid quo
-                    ex, quisquam necessitatibus vitae pariatur tenetur soluta
-                    modi sapiente fugit mollitia eligendi blanditiis officia
-                    unde consequuntur. Vitae rem consequuntur magnam modi rerum
-                    error accusantium possimus dolorum eos adipisci sequi
-                    necessitatibus minus unde dolores, animi similique quod
-                    eligendi quis magni porro facere. Soluta nostrum reiciendis
-                    itaque hic saepe ipsa nam, quod ullam laboriosam quae
-                    impedit nulla magnam corporis laborum ratione neque illo
-                    illum adipisci. Debitis, ducimus!
+                    Selamat datang di Kula Koding! Kami menjadi mitra Anda dalam
+                    perjalanan
+                    teknologi informasi yang terus berkembang. Dengan dedikasi pada inovasi, kami membawa Anda ke dunia
+                    solusi IT
+                    yang adaptif, memungkinkan transformasi dan pertumbuhan perusahaan Anda di era digital.
                   </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <img src="@/assets/img/code-typing.png" alt="bg_hero"
-          class="w-[80%] lg:w-[50%] lg:h-[100%] bg-center bg-cover bg-no-repeat" />
       </div>
     </div>
 
@@ -102,19 +58,19 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import {
-  ArrowLeftIcon,
-  HomeIcon,
-  ChevronRightIcon,
-} from "@heroicons/vue/24/solid";
-import TopBar from "../../components/TopBar.vue";
-import Navbar from "@/components/Navbar.vue";
-import NavLogin from "@/components/NavbarLogin.vue";
-import NavSidebar from "@/components/NavSidebar.vue";
-import Hero from "@/components/Hero.vue";
-import { useDark, useToggle } from "@vueuse/core";
+  import { ref } from 'vue';
+  import {
+    ArrowLeftIcon,
+    HomeIcon,
+    ChevronRightIcon,
+  } from "@heroicons/vue/24/solid";
+  import TopBar from "../../components/TopBar.vue";
+  import Navbar from "@/components/Navbar.vue";
+  import NavLogin from "@/components/NavbarLogin.vue";
+  import NavSidebar from "@/components/NavSidebar.vue";
+  import Hero from "@/components/Hero.vue";
+  import { useDark, useToggle } from "@vueuse/core";
 
-const isDark = useDark(false);
-const isLoggedIn = ref(localStorage.getItem("auth_token") !== null);
+  const isDark = useDark(false);
+  const isLoggedIn = ref(localStorage.getItem("auth_token") !== null);
 </script>

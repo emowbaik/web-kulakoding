@@ -113,7 +113,7 @@ onMounted(() => {
       <h3 class="text-center font-bold text-3xl dark:text-white">My Project</h3>
 
       <div class="flex flex-col" v-if="page.project.data?.length > 0">
-        <main class="grid grid-cols-3 justify-center place-items-center mt-12 gap-12">
+        <main class="grid grid-cols-1 md:grid-cols-3 justify-center place-items-center mt-12 mx-5 gap-12 md:mx-7">
           <div v-for="item in page.project.data"
             class="w-72 h-56 relative rounded-md group flex justify-center items-center bg-blue-400 transition ease-in-out delay-10o0 hover:-translate-y-1 hover:scale-110 duration-300">
             <img v-if="item.image && item.image.length > 0" :src="routes + '/' + item.image[0].image"

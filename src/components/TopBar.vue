@@ -1,6 +1,6 @@
 <template>
-  <div class="flex justify-between p-2 mx-6 mt-2">
-    <button @click="goBack" class="flex items-center gap-1 font-semibold">
+  <div class="flex justify-between p-2 md:mx-6 mt-2">
+    <button @touchstart="goBack" @click="goBack" class="flex items-center gap-1 font-semibold">
       <ArrowLeftIcon class="w-5" />
       Back
     </button>
@@ -25,19 +25,19 @@
 </template>
 
 <script setup>
-  import {
-    ChevronRightIcon,
-    ArrowLeftIcon,
-    HomeIcon,
-  } from "@heroicons/vue/24/outline";
-  import { defineProps } from "vue";
-  import { useRouter } from "vue-router";
+import {
+  ChevronRightIcon,
+  ArrowLeftIcon,
+  HomeIcon,
+} from "@heroicons/vue/24/outline";
+import { defineProps } from "vue";
+import { useRouter } from "vue-router";
 
-  const router = useRouter();
+const router = useRouter();
 
-  const props = defineProps(["toolbar"]);
+const props = defineProps(["toolbar"]);
 
-  const goBack = () => {
-    router.go(-1);
-  };
+const goBack = () => {
+  router.go(-1);
+};
 </script>

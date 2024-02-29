@@ -46,23 +46,22 @@
                                                     placeholder="Password" />
                                             </span>
                                         </div>
+                                        <div class="flex justify-end text-sm text-kuning -mt-2">
+                                            <div>
+                                                <router-link :to="{ name: 'reset-password' }">
+                                                    Lupa Password?
+                                                </router-link>
+                                            </div>
+                                        </div>
                                         <button type="submit"
-                                            class="inline-flex mt-5 lg:mx-0 mx-auto justify-center items-center gap-1 font-semibold rounded-md bg-kuning focus:bg-slate-300 border border-slate-900 hover:border-gray-400 dark:bg-transparent dark:focus:bg-slate-900 dark:border-gray-600 hover:dark:border-gray-400 shadow p-2 hover:bg-slate-400 text-slate-900">
+                                            class="inline-flex mt-3 lg:mx-0 mx-auto justify-center items-center gap-1 font-semibold rounded-md bg-kuning focus:bg-slate-300 border border-slate-900 hover:border-gray-400 dark:bg-transparent dark:focus:bg-slate-900 dark:border-gray-600 hover:dark:border-gray-400 shadow p-2 hover:bg-slate-400 text-slate-900">
                                             Login
                                         </button>
                                     </span>
-                                    <div class="flex justify-end text-sm mt-1 text-kuning">
-                                        <div>
-                                            <router-link :to="{ name: 'reset-password' }">
-                                                Lupa Password?
-                                            </router-link>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="flex gap-2 text-xs">
                                     <p>Don't have an account?</p>
-                                    <router-link :to="{ name: 'register' }"
-                                        class="text-kuning">Register</router-link>
+                                    <router-link :to="{ name: 'register' }" class="text-kuning">Register</router-link>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +109,7 @@
                                     </div>
                                 </div>
                                 <button type="submit"
-                                    class="inline-flex mt-5 mx-0 justify-center items-center gap-1 font-semibold rounded-md bg-dark focus:bg-slate-300 border border-slate-900 hover:border-gray-400 dark:bg-transparent dark:focus:bg-slate-900 dark:border-gray-600 hover:dark:border-gray-400 shadow p-2 hover:bg-slate-400 text-slate-900">
+                                    class="inline-flex mt-5 mx-0 justify-center items-center gap-1 font-semibold rounded-md bg-kuning focus:bg-slate-300 border border-slate-900 hover:border-gray-400 dark:bg-kuning dark:focus:bg-slate-900 dark:border-gray-600 hover:dark:border-gray-400 shadow p-2 hover:bg-slate-400 text-slate-900">
                                     Login
                                 </button>
                             </span>

@@ -9,8 +9,9 @@
             <h2 class="text-4xl text-center font-bold m-2">Our Team</h2>
             <div class="shadow rounded-xl grid lg:grid-cols-3 gap-4 bg-[#FFE4B0] dark:bg-[#427A8D]">
                 <div class="relative flex lg:hidden items-end justify-end m-2 z-0">
-                    <a href="#navbar">
-                        <button class="bg-slate-100 dark:bg-slate-900 rounded-full shadow">
+                    <a href="#navbar" class="block">
+                        <button @touchstart="scrollToNavbar" @click="scrollToNavbar"
+                            class="bg-slate-100 dark:bg-slate-900 rounded-full shadow">
                             <ArrowUpIcon class="w-10" />
                         </button>
                     </a>
@@ -106,4 +107,7 @@
     import Maskot from '../components/Maskot.vue'
 
     const isDark = useDark(false);
+    const scrollToNavbar = () => {
+        document.querySelector('#navbar').scrollIntoView({ behavior: 'smooth' });
+    };
 </script>

@@ -1,22 +1,25 @@
 <template>
   <div class="flex flex-col justify-between h-screen">
     <div class="">
-      <Navbar></Navbar>
+      <Navbar class="hidden lg:block" />
+      <NavSidebar class="lg:hidden" />
       <TopBar :toolbar="'Project'"></TopBar>
       <div class="flex flex-col">
-        <div class="flex justify-between mx-7 mt-5">
+        <div class="flex flex-col md:flex-row items-center gap-2 md:justify-between mx-7 mt-5">
           <h3 class="font-bold text-2xl text-center font-sans">
             Explore Project
           </h3>
-          <label for="" class="relative">
+          <div class="relative">
             <MagnifyingGlassIcon class="absolute w-5 h-5 focus:hidden top-1/2 transform -translate-y-1/2 left-3">
             </MagnifyingGlassIcon>
             <input v-model="keyword" type="search" class="rounded-md h-8 pl-9" placeholder="" />
-          </label>
+          </div>
         </div>
-        <main class="grid grid-cols-3 justify-center place-items-center mt-12 gap-12">
+
+        <!-- Main Content -->
+        <main class="grid grid-cols-1 md:grid-cols-3 justify-center place-items-center mt-12 mx-5 gap-12 md:mx-7">
           <div v-for="item in searchings"
-            class="w-72 h-56 relative rounded-md group flex justify-center items-center bg-blue-400 transition ease-in-out delay-10o0 hover:-translate-y-1 hover:scale-110 duration-300">
+            class="w-full md:w-72 h-56 relative rounded-md group flex justify-center items-center bg-blue-400 transition ease-in-out delay-10o0 hover:-translate-y-1 hover:scale-110 duration-300">
             <img v-if="item.image && item.image.length > 0" :src="routes + '/' + item.image[0].image"
               class="absolute w-full h-full rounded-md p-2" />
             <div
@@ -49,6 +52,7 @@
 
 <script setup>
   import Navbar from "../../components/Navbar.vue";
+  import NavSidebar from "../../components/NavSidebar.vue";
   import Footer from "../../components/Footer.vue";
   import Paginate from "../../components/Paginate.vue";
   import usePages from "../../services/project/page";
