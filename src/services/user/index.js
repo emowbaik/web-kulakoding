@@ -6,7 +6,6 @@ export default function useUser() {
 
   async function IndexProject(page = 1) {
     const response = await axios.get(`/api/v1/user/project?page=${page}`);
-    console.log(response.data.data);
     project.value = response.data.data;
   }
 
@@ -16,7 +15,7 @@ export default function useUser() {
       console.log(response.data);
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        console.log(error.response?.data);
+        console.log(error.response.data);
       }
     }
   }

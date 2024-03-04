@@ -32,7 +32,7 @@ onMounted(() => {
   page.getproject(page.page);
 
   setTimeout(() => {
-    console.log(page.project);
+    // console.log(page.project);
     // page.getproject(page.page);
   }, 1000);
 });

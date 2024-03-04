@@ -9,7 +9,6 @@ export default defineStore("page", () => {
   async function getproject(page = 1) {
     const response = await axios.get(`/api/v1/user/project?page=${page}`);
     project.value = response.data.data;
-    console.log(project.value);
   }
 
   return { page, getproject, project };

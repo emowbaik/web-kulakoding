@@ -7,9 +7,9 @@ export default function useProject() {
 
   async function StoreProject(payload) {
     try {
-      console.log(payload);
       const response = await axios.post("/api/v1/project", payload);
-      console.log(response.data);
+      success("Data berhasil ditambahkan");
+      router.back()
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.error(error.response?.data);
@@ -19,9 +19,7 @@ export default function useProject() {
 
   async function SingleProject(id) {
     const response = await axios.get(`/api/v1/project/${id}`);
-    console.log(response.data.tool);
     tools.value = JSON.parse(response.data.tool);
-    console.log(response.data);
     project.value = response.data;
   }
 
@@ -29,12 +27,10 @@ export default function useProject() {
     const response = await axios.get("/api/v1/project");
     const projectData = response.data;
     project.value = projectData.slice(limit);
-    console.log(project.value);
   }
 
   async function IndexProject() {
     const response = await axios.get(`/api/v1/admin/allProject`);
-    console.log(response.data);
     project.value = response.data;
   }
 

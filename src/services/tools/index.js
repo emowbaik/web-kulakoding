@@ -6,7 +6,6 @@ export default function useTools() {
 
   async function IndexTools() {
     const response = await axios.get("/api/v1/tool");
-    console.log(response.data);
     tools.value = response.data.tools;
   }
 

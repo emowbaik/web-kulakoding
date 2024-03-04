@@ -10,15 +10,12 @@ export default function useAuth() {
 
   async function LoggedIn() {
     const response = await axios.get("/api/user");
-    console.log(response.data);
     user.value = response.data;
   }
 
   async function Login(payload) {
     try {
       const response = await axios.post("/api/v1/auth/login", payload);
-      console.log(response.data);
-      console.log(response.data.token);
       const token = response.data.token;
       StoreToken(token);
       setTimeout(() => {
@@ -36,7 +33,6 @@ export default function useAuth() {
   async function Register(payload) {
     try {
       const response = await axios.post("/api/v1/auth/register", payload);
-      console.log(response.data);
       setTimeout(() => {
         router.push({ name: "login" });
         success("Register berhasil");
@@ -85,7 +81,6 @@ export default function useAuth() {
 
       if (status.isConfirmed) {
         const response = await axios.post(`/api/v1/user`, payload);
-        console.log(response.data);
         accepted(response.data.message);
         router.push("/user");
       }

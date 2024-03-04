@@ -50,7 +50,6 @@
   import Navbar from "../../components/Navbar.vue";
   import NavSidebar from "../../components/NavSidebar.vue";
   import TopBar from "../../components/TopBar.vue";
-  // import { formattedDate, getCurrentYear } from "../../utils/helpers";
 
   const router = useRoute();
   const BASE_URL = import.meta.env.VITE_API_URL;

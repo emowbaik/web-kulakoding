@@ -7,7 +7,6 @@ export default function useLike() {
   async function storeLike(payload) {
     try {
       const response = await axios.post("/api/v1/like", payload);
-      console.log(response.data);
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.log(error.response?.data);
@@ -17,7 +16,6 @@ export default function useLike() {
 
   async function showLike(id) {
     const response = await axios.get(`/api/v1/like/${id}`);
-    console.log(response.data);
     likes.value = response.data;
   }
 

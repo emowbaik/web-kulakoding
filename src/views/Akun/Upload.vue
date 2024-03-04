@@ -39,7 +39,8 @@
         <!-- Project Picture -->
         <div class="flex gap-16 col-span-6 sm:col-span-6">
           <label for="picture" class="text-nowrap">Project Picture :</label>
-          <div class="relative flex flex-col border border-gray-300 focus:outline-none rounded-md items-center p-2 gap-5">
+          <div
+            class="relative flex flex-col border border-gray-300 focus:outline-none rounded-md items-center p-2 gap-5">
             <div class="flex px-4 py-4 my-2 rounded-md items-center text-sm bg-yellow-300 text-slate-900">
               Pastikan gambar menggunakan Warna dan informasi yang jelas.
             </div>
@@ -125,19 +126,19 @@
                     <ComboboxOption v-for="tool in filter" as="template" :key="tool.id" :value="tool"
                       v-slot="{ selected, active }">
                       <li class="relative cursor-default select-none py-2 pl-10 pr-4" :class="{
-                        'bg-transparent text-secondary': active,
-                        'text-blue-400': !active,
-                      }">
+        'bg-transparent text-secondary': active,
+        'text-blue-400': !active,
+      }">
                         <span class="block truncate" :class="{
-                          'font-medium': selected,
-                          'font-normal': !selected,
-                        }">
+        'font-medium': selected,
+        'font-normal': !selected,
+      }">
                           {{ tool.tools }}
                         </span>
                         <span v-if="selected" class="absolute inset-y-0 left-0 flex items-center pl-3" :class="{
-                          'text-green-600': active,
-                          'text-neutral-300 font-bold': !active,
-                        }">
+        'text-green-600': active,
+        'text-neutral-300 font-bold': !active,
+      }">
                           <CheckIcon class="h-6 w-6" aria-hidden="true" />
                         </span>
                       </li>
@@ -160,6 +161,7 @@
     </div>
   </div>
 </template>
+
 <script setup>
 import { ref, reactive, computed, onMounted } from "vue";
 import {
@@ -224,21 +226,19 @@ const getImage = ($event) => {
 
     payload.preview.push(url);
     console.log(files);
-    console.log(payload.preview);
+
   }
 };
 
 const click = (params) => {
   const index = payload.preview.indexOf(params);
   console.log("clicked");
-  console.log(index);
-  console.log(payload.preview);
+
   if (index !== -1) {
     payload.preview.splice(index, 1);
     payload.image.splice(index, 1);
-    console.log(payload.preview);
+
   }
-  console.log(params);
 };
 
 async function Upload() {

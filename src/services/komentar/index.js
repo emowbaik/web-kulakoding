@@ -10,7 +10,6 @@ export default function useKomentar() {
         `/api/v1/project/komentar/${id}`,
         payload
       );
-      console.log(response.data);
 
       setTimeout(() => {
         IndexKomentar(id);
@@ -24,7 +23,6 @@ export default function useKomentar() {
 
   async function IndexKomentar(id) {
     const response = await axios.get(`/api/v1/project/komentar/${id}`);
-    console.log(response.data);
     komentar.value = response.data.komentar;
   }
 
